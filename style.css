@@ -1,0 +1,67 @@
+
+body {
+	text-shadow: #fff 0px 1px 1px; 
+	font-family:cursive;
+}
+
+h2 {
+text-align:center;
+font-size:17px;
+	font-family:cursive;
+}
+
+
+.blocktext {
+ 	font-style:italic;
+	font-size: 12px;
+}
+#container {
+
+    position: absolute;
+	float: left;
+	margin-left: 0px;
+	width: 300px;
+}
+
+#title1 {
+	border:2px solid red;
+    box-shadow: 0 0 10px #719ECE;
+
+}
+#title2 {
+	border:2px solid yellow;
+    box-shadow: 0 0 10px #719ECE;
+
+}
+#title3 {
+	border:2px solid blue;
+    box-shadow: 0 0 10px #719ECE;
+
+}
+
+#list_1 {
+	border:2px solid red;
+    box-shadow: 0 0 10px #719ECE;
+
+}
+#list_2 {
+	border:2px solid yellow;
+    box-shadow: 0 0 10px #719ECE;
+}
+#list_3 {
+	border:2px solid blue;
+    box-shadow: 0 0 10px #719ECE;
+
+}
+
+#container2 {position: relative;
+	float: right;
+    width: 600px;
+    height: 500px;
+    margin-right: 400px;
+}
+
+.button-group {
+  margin-bottom: 20px;
+}
+
