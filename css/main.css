@@ -226,3 +226,33 @@ csmall2 {
 	background: #00b3fe;
 }
 
+#title1 {
+	border:1px dotted #00bf00;
+    box-shadow: 0 0 10px #719ECE;
+
+}
+#title2 {
+	border:1px dotted #007fff;
+    box-shadow: 0 0 10px #719ECE;
+
+}
+#title3 {
+	border:1px dotted #ff3433;
+    box-shadow: 0 0 10px #719ECE;
+
+}
+
+#list_1 {
+	border:1px dotted #00bf00;
+    box-shadow: 0 0 10px #719ECE;
+
+}
+#list_2 {
+	border:1px dotted #007fff;
+    box-shadow: 0 0 10px #719ECE;
+}
+#list_3 {
+	border:1px dotted #ff3433;
+    box-shadow: 0 0 10px #719ECE;
+
+}
