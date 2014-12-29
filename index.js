@@ -174,6 +174,12 @@ function listOperation(){
 						//Update the tooltip position and value
 						d3.select("#tooltip")
 							.style("left", (d3.event.pageX - 100) + "px")
+							.style("top", (d3.event.pageY - 100) + "px")
+							.select("#v")
+							.text("List 1: ");
+
+						d3.select("#tooltip")
+							.style("left", (d3.event.pageX - 100) + "px")
 							.style("top", (d3.event.pageY - 100) + "px")							
 							.select("#value")
 							.text(s1.array().join("\n"));
@@ -225,6 +231,12 @@ function listOperation(){
 				        	//.duration(750);
 
 						//Update the tooltip position and value
+						d3.select("#tooltip")
+							.style("left", (d3.event.pageX - 100) + "px")
+							.style("top", (d3.event.pageY - 100) + "px")
+							.select("#v")
+							.text("List 2: ");
+
 						d3.select("#tooltip")
 							.style("left", (d3.event.pageX + 100) + "px")
 							.style("top", (d3.event.pageY - 100) + "px")							
@@ -281,6 +293,12 @@ function listOperation(){
 		        	
 
 				//Update the tooltip position and value
+				d3.select("#tooltip")
+							.style("left", (d3.event.pageX - 100) + "px")
+							.style("top", (d3.event.pageY - 100) + "px")
+							.select("#v")
+							.text("List 3: ");
+							
 				d3.select("#tooltip")
 					.style("left", (d3.event.pageX + 100) + "px")
 					.style("top", (d3.event.pageY - 100) + "px")							
