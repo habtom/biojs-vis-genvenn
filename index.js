@@ -178,14 +178,6 @@ function listOperation(){
 							.select("#value")
 							.text(s1.array().join("\n"));
 
-							// .text(function list () {
-							// 	var list1 = s1.array().replace(",", "<br />");
-
-
-							// 	return list1;
-							// 	});
-
-
 						//Show the tooltip
 						d3.select("#tooltip").classed("hidden", false);
 			     	})
