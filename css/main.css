@@ -226,6 +226,38 @@ csmall2 {
 	background: #00b3fe;
 }
 
+/*-----*/
+
+#tooltip {
+        position: absolute;
+        width: 150px;
+        height: auto;
+        padding: 10px;
+        background-color: white;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+        -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+        pointer-events: none;
+}
+
+#tooltip.hidden {
+        display: none;
+}
+
+#tooltip p {
+        margin: 0;
+        font-family: sans-serif;
+        font-size: 16px;
+        line-height: 20px;
+        word-wrap: break-word;
+  		overflow-x: auto;
+}
+
+/*-----*/
+
 #title1 {
 	border:1px dotted #00bf00;
     box-shadow: 0 0 10px #719ECE;
@@ -242,17 +274,34 @@ csmall2 {
 
 }
 
-#list_1 {
+#s1 {
 	border:1px dotted #00bf00;
     box-shadow: 0 0 10px #719ECE;
 
 }
-#list_2 {
+#s2 {
 	border:1px dotted #007fff;
     box-shadow: 0 0 10px #719ECE;
 }
-#list_3 {
+#s3 {
 	border:1px dotted #ff3433;
     box-shadow: 0 0 10px #719ECE;
 
+}
+
+
+/* genevenn tooltip */
+.genvenntooltip {
+  position: absolute;
+  text-align: left;
+  width: 128px;
+  height: 100px;
+  background: #333;
+  color: #ddd;
+  padding: 2px;
+  border: 0px;
+  border-radius: 8px;
+  opacity: 0;
+  word-wrap: break-word;
+  overflow-x: auto;
 }
