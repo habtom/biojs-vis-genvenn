@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+  <head>
+  	<meta charset="utf-8">
+
+    <title>genvenn</title>
+
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">	
+
+
+  </head>
+
+  <body>
+  	<div id="tooltip" class="hidden">
+        <p><strong>Gene list  Content</strong></p>
+        <p><span id="value">100</span></p>
+	</div>
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">genvenn</a>
+        </div>
+        <div class="navbar-collapse collapse navbar-right">
+          <ul class="nav navbar-nav">
+           
+          	<li><a href="#">about</a></li>
+            <li><a href="#">features</a></li>
+            <li><a href="#">docs</a></li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+	<div id="blue">
+	    <div class="container">
+			<div class="row">
+				<h3>gene list venn diagram</h3>
+			</div>
+	    </div> 
+	</div>
+
+
+
+	 <div class="container mtb">
+	 	<div class="row">
+	 		<div class="col-lg-3">
+		 		<h4>Lists/Sets</h4>
+		 		<div class="hline"></div>
+		 		<div class="spacing"></div>
+
+		 		<div id="container">
+					<div class="List-group-1-label">
+					   <textarea id = "title1" class="form-control status-box" rows="1" placeholder="First List name"></textarea>
+					</div>
+					<div class="List-group-1">
+					   <textarea  id = "s1" class="form-control status-box genelist" rows="5" placeholder="First List"></textarea>
+					</div>
+
+					<div class="List-group-2-label">
+						<textarea id = "title2" class="form-control status-box" rows="1" placeholder="Second List name"></textarea>
+					</div>
+
+					  <div class="List-group-2">
+					   	<textarea id = "s2" class="form-control genelist" rows="5" placeholder="Second List"></textarea>
+
+					  </div>
+
+					  <div class="List-group-3-label">
+
+					   <textarea id = "title3" class="form-control status-box" rows="1" placeholder="Third List name"></textarea>
+					  
+					  </div>
+
+					  <div class="List-group-3">
+					   	<textarea id = "s3" class="form-control genelist" rows="5" placeholder="Third List"></textarea>
+
+					  </div>
+
+					</div>
+
+		 		
+	 		</div>
+	 		
+	 		<div class="col-lg-8">
+				<div id="first">
+
+
+				
+				</div>
+		 		
+			</div>
+	 		
+	 		
+	 		
+	 		
+	 	</div>
+	 </div>
+
+
+	 
+	<script src="bundle.js"></script>
+
+  </body>
+</html>
