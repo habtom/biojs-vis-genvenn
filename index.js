@@ -362,7 +362,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text(s1.intersection(s2).array().join("\n"));
+			        tooltip.text("L1∩L2: \n" + s1.intersection(s2).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -402,7 +402,7 @@ function listOperation(){
 				            .style("fill-opacity", .1)
 				            .style("stroke-opacity", 1);
 				       	tooltip.transition().style("opacity", .9);
-				        tooltip.text(s1.intersection(s3).array().join("\n"));
+				        tooltip.text("L1∩L3: \n" + s1.intersection(s3).array().join("\n"));
 				    })
 				    .on("mouseout", function() {
 				        d3.select(this).transition()
@@ -441,7 +441,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text(s2.intersection(s3).array().join("\n"));
+			        tooltip.text("L2∩L3: \n" + s2.intersection(s3).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -480,7 +480,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text(s1ns2.intersection(s3).array().join("\n"));
+			        tooltip.text("L1∩L2∩L3: \n" + s1ns2.intersection(s3).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
