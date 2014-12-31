@@ -273,6 +273,11 @@ csmall2 {
     box-shadow: 0 0 10px #719ECE;
 
 }
+#title4 {
+	border:1px dotted #A57706;
+    box-shadow: 0 0 10px #719ECE;
+
+}
 
 #s1 {
 	border:1px dotted #00bf00;
@@ -288,7 +293,11 @@ csmall2 {
     box-shadow: 0 0 10px #719ECE;
 
 }
+#s4 {
+	border:1px dotted #A57706;
+    box-shadow: 0 0 10px #719ECE;
 
+}
 
 /* genevenn tooltip */
 .genvenntooltip {

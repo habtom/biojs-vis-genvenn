@@ -9,6 +9,20 @@ var s2 = new sets.Set([]);
 var s3 = new sets.Set([]);
 var s4 = new sets.Set([]);
 
+//listSet = s1 - textarea id 
+function updateTextArea (listSet, listVal) {
+	// body...
+	d3.select("#" + listSet).value = listVal;
+
+}
+//when clicked upload
+function parseUploadedJSON (argument) {
+	// after ...
+	updateTextArea();
+}
+
+//check how to upload json with js and fire event on click and call parseUpload ..
+
 //  var s1 = new sets.Set([
 //  					'G000001',
 //  					'G000002',
@@ -135,6 +149,8 @@ var tooltip = d3.select("body").append("div")
 
 function listOperation(){
 
+
+
 	s1ns2_arr =  s1.intersection(s2).array();
 	s1ns2 = new sets.Set(s1ns2_arr);
 	//console.log('Intersection1n2:', s1.intersection(s2).array());
@@ -163,9 +179,40 @@ function listOperation(){
 	var pathDe2ne3ne4 = "m 383.21875,118.71875 c -25.28545,11.07392 -50.89214,26.86485 -75,47.09375 -45.03024,37.78485 -75.75891,83.42079 -88.21875,125.5 25.87056,18.83135 52.89462,32.7256 78.96875,41.375 33.57471,-10.42689 68.90121,-29.67762 101.5,-57.03125 17.72332,-14.87163 33.23383,-30.95441 46.28125,-47.5625 -8.3341,-35.61475 -30.34665,-74.47911 -63.53125,-109.375 z";
 	var pathDe1ne2ne3ne4 = "m 302.5,170.75 c -41.90684,36.7853 -70.57624,80.29372 -82.5,120.5625 25.87056,18.83135 52.89462,32.7256 78.96875,41.375 27.88608,-8.66024 56.97762,-23.39144 84.71875,-43.8125 C 371.51454,249.35272 343.38439,206.84087 302.5,170.75 z";
 
-
+	if (s4.array().length > 0  && s4.array()[0] != "") {
+		//draw elipse
+		//draw area intersect
+		//drawEllipse(tX, tY, rA, fillColor, textX, textY, listName, listContent, eID, tID, listCount, eRemove, tRemove);
+		drawEllipse(340,424,-140,"#00bf00",115,235, "List 1: ", s1.array().join("\n"), "e1", "t1", s1.array().length, "#e1", "#t1"); //1st
+		drawEllipse(200,348,-40,"#007fff",470,235, "List 2: ", s2.array().join("\n"), "e2", "t2", s2.array().length, "#e2", "#t2"); //green
+		drawEllipse(400,352,-140,"#ff3433",210,80, "List 3: ", s3.array().join("\n"), "e3", "t3", s3.array().length, "#e3", "#t3"); //blue
+		drawEllipse(138,274,-40,"#A57706",380,80, "List 4: ", s4.array().join("\n"), "e4", "t4", s4.array().length, "#e4", "#t4"); //dark blue
+		drawIntersectionArea();
+	} else {
+		//draw circle
+		drawCircles();
+	}
 
 	function drawCircles() {
+		d3.select("#e1").remove();		
+		d3.select("#e2").remove();	
+		d3.select("#e3").remove();	
+		d3.select("#e4").remove();
+		d3.select("#t1").remove();		
+		d3.select("#t2").remove();	
+		d3.select("#t3").remove();	
+		d3.select("#t4").remove();
+		d3.select("#tA1").remove();
+		d3.select("#tA2").remove();
+		d3.select("#tA3").remove();
+		d3.select("#tA4").remove();
+		d3.select("#tA5").remove();
+		d3.select("#tA6").remove();
+		d3.select("#tA7").remove();
+		d3.select("#tA8").remove();
+		d3.select("#tA9").remove();
+		d3.select("#tA10").remove();
+		d3.select("#tA11").remove();
 
 		d3.select("#circle1").remove();		
 		d3.select("#circle2").remove();	
@@ -177,7 +224,6 @@ function listOperation(){
 		d3.select("#text5").remove();	
 		d3.select("#text6").remove();	
 		d3.select("#text7").remove();	
-		//d3.select("#text1, #text2,#text3,#text4,#text5,#text6,#text7").remove();
 		
 		//console.log("S1 first " + s1.array()[0]);
 		//three circles with intersection
@@ -527,7 +573,7 @@ function listOperation(){
 	    }
 	};
 	// if((s4.array().length == 0  && s4.array()[0] == "")) {
-	drawCircles();
+
 	// }
 	
 	
@@ -537,7 +583,7 @@ function listOperation(){
 		d3.select(eRemove).remove();
 		d3.select(tRemove).remove();
 
-    	if ((s1.array().length > 0  && s1.array()[0] != "") && (s2.array().length > 0  && s2.array()[0] != "") && (s3.array().length > 0  && s3.array()[0] != "") && (s4.array().length > 0  && s4.array()[0] != "")) {
+    	
     	d3.select("#circle1").remove();		
 		d3.select("#circle2").remove();	
 		d3.select("#circle3").remove();	
@@ -606,13 +652,11 @@ function listOperation(){
 			        .attr("y", textY)
 			        .attr("fill",  "black")	
 
-		}
+		
 	};
-	//drawEllipse(tX, tY, rA, fillColor, textX, textY, listName, listContent, eID, tID, listCount, eRemove, tRemove);
-	drawEllipse(340,424,-140,"#D11C24",115,235, "List 1: ", s1.array().join("\n"), "e1", "t1", s1.array().length, "#e1", "#t1"); //red
-	drawEllipse(200,348,-40,"#738A05",470,235, "List 2: ", s2.array().join("\n"), "e2", "t2", s2.array().length, "#e2", "#t2"); //green
-	drawEllipse(400,352,-140,"#2176C7",210,80, "List 3: ", s3.array().join("\n"), "e3", "t3", s3.array().length, "#e3", "#t3"); //blue
-	drawEllipse(138,274,-40,"#0A2933",380,80, "List 4: ", s4.array().join("\n"), "e4", "t4", s4.array().length, "#e4", "#t4"); //dark blue
+	
+	
+	
 
 	
 		
@@ -629,7 +673,7 @@ function listOperation(){
 		d3.select("#tA10").remove();
 		d3.select("#tA11").remove();
 
-		if ((s1.array().length > 0  && s1.array()[0] != "") && (s2.array().length > 0  && s2.array()[0] != "") && (s3.array().length > 0  && s3.array()[0] != "") && (s4.array().length > 0  && s4.array()[0] != "")) {
+		
 				//L1nL2 intersection area
 		        gvennStage.append("g")
 			    		.append("path")
@@ -1050,9 +1094,9 @@ function listOperation(){
 				        .attr("x", 290)
 				        .attr("y", 270)
 				        .attr("fill",  "black")
-		}
+	
 	};
-	drawIntersectionArea();
+	
 }
 
 module.exports = listOperation;
