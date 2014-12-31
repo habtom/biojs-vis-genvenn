@@ -3,38 +3,23 @@ require("d3");
 
 var sets = require('simplesets');
 
-// Some data examples ...
-
 var s1 = new sets.Set([]);
 var s2 = new sets.Set([]);
 var s3 = new sets.Set([]);
 var s4 = new sets.Set([]);
 
-//listSet = s1 - textarea id 
-function updateTextArea (listSet, listVal) {
-	// body...
-	d3.select("#" + listSet).value = listVal;
-
-}
-//when clicked upload
-function parseUploadedJSON (argument) {
-	// after ...
-	updateTextArea();
-}
-
-//check how to upload json with js and fire event on click and call parseUpload ..
-
+// Some data examples ...
 //  var s1 = new sets.Set([
-//  					'G000001',
-//  					'G000002',
-//  					'G000003',
-//  					'G000004',
-//  					'G000005',
-//  					'G000006',
-//  					'G000007',
-//  					'G000008',
-//  					'G000009',
-//  					'G000010'
+// 					'G000001',
+// 					'G000002',
+// 					'G000003',
+// 					'G000004',
+// 					'G000005',
+// 					'G000006',
+// 					'G000007',
+// 					'G000008',
+// 					'G000009',
+// 					'G000010'
 //  					]);
 // var s2 = new sets.Set([
 // 					'G000005',
@@ -74,7 +59,8 @@ function parseUploadedJSON (argument) {
 // 					'G000010'
 // 					]);
 
-///once the value changed it calls fucntion update to update the list
+//take user input from textarea
+//once the value changed it calls fucntion update to update the list
 d3.select("#s1").on("change" ,function() { 
   update(this.value.split("\n"));
 });
@@ -110,7 +96,7 @@ function update4 (listvalue){
 	listOperation();
 }
 
-
+//define drawing canvas
 var w = 600,
 	h = 420;
 
@@ -119,38 +105,12 @@ var gvennStage = d3.select("#first")
 		.attr("width", w)
 		.attr("height", h)
 
+//add tooltip for showing list values
 var tooltip = d3.select("body").append("div")
     .attr("class", "genvenntooltip");
 
-// console.log('s1 =', s1.array());
-// console.log('s2 =', s2.array());
-// console.log('s3 =', s2.array());
-
-// // Do some set operations.
-//console.log('Intersection:', s1.intersection(s2).array());
-//console.log('s1 - s2:', s1.difference(s2).array());
-// console.log('s2 - s1:', s2.difference(s1).array());
-// console.log('Union:', s1.union(s2).array());
-// var s1ns2_arr;
-// var s1ns2;
-// var s1ns2ns3_arr;
-// var s1ns2ns3;
-// var s1ns3_arr;
-// var	s1ns3;
-// var s2ns3_arr;
-// var s2ns3;
-// console.log('S1:', s1.array());
-// console.log('S2:', s2.array());
-// console.log('S3:', s3.array());
-// console.log('S1:', s1.array().length);
-// console.log('S2:', s2.array().length);
-// console.log('S3:', s3.array().length);
-
-
 
 function listOperation(){
-
-
 
 	s1ns2_arr =  s1.intersection(s2).array();
 	s1ns2 = new sets.Set(s1ns2_arr);
@@ -184,10 +144,10 @@ function listOperation(){
 		//draw elipse
 		//draw area intersect
 		//drawEllipse(tX, tY, rA, fillColor, textX, textY, listName, listContent, eID, tID, listCount, eRemove, tRemove);
-		drawEllipse(340,424,-140,"#00bf00",115,235, "List 1: ", s1.array().join("\n"), "e1", "t1", s1.array().length, "#e1", "#t1"); //1st
-		drawEllipse(200,348,-40,"#007fff",470,235, "List 2: ", s2.array().join("\n"), "e2", "t2", s2.array().length, "#e2", "#t2"); //green
-		drawEllipse(400,352,-140,"#ff3433",210,80, "List 3: ", s3.array().join("\n"), "e3", "t3", s3.array().length, "#e3", "#t3"); //blue
-		drawEllipse(138,274,-40,"#A57706",380,80, "List 4: ", s4.array().join("\n"), "e4", "t4", s4.array().length, "#e4", "#t4"); //dark blue
+		drawEllipse(340,424,-140,"#00bf00",115,235, "List 1: ", s1.array().join("\n"), "e1", "t1", s1.array().length, "#e1", "#t1"); //1st Ellipse
+		drawEllipse(200,348,-40,"#007fff",470,235, "List 2: ", s2.array().join("\n"), "e2", "t2", s2.array().length, "#e2", "#t2"); //2nd Ellipse
+		drawEllipse(400,352,-140,"#ff3433",210,80, "List 3: ", s3.array().join("\n"), "e3", "t3", s3.array().length, "#e3", "#t3"); //3rd Ellipse
+		drawEllipse(138,274,-40,"#A57706",380,80, "List 4: ", s4.array().join("\n"), "e4", "t4", s4.array().length, "#e4", "#t4"); //4th Ellipse
 		drawIntersectionArea();
 	} else {
 		//draw circle
@@ -215,6 +175,18 @@ function listOperation(){
 		d3.select("#tA10").remove();
 		d3.select("#tA11").remove();
 
+		d3.select("#pathDe1ne2").remove();
+		d3.select("#pathDe1ne3").remove();
+		d3.select("#pathDe1ne4").remove();
+		d3.select("#pathDe2ne3").remove();
+		d3.select("#pathDe2ne4").remove();
+		d3.select("#pathDe3ne4").remove();
+		d3.select("#pathDe1ne2ne3").remove();
+		d3.select("#pathDe1ne2ne4").remove();
+		d3.select("#pathDe1ne3ne4").remove();
+		d3.select("#pathDe2ne3ne4").remove();
+		d3.select("#pathDe1ne2ne3ne4").remove();
+
 		d3.select("#circle1").remove();		
 		d3.select("#circle2").remove();	
 		d3.select("#circle3").remove();	
@@ -224,7 +196,10 @@ function listOperation(){
 		d3.select("#text4").remove();	
 		d3.select("#text5").remove();	
 		d3.select("#text6").remove();	
-		d3.select("#text7").remove();	
+		d3.select("#text7").remove();
+		d3.select("#paths1ns2").remove();	
+		d3.select("#paths1ns3").remove();	
+		d3.select("#paths1ns2ns3").remove();	
 		
 		//console.log("S1 first " + s1.array()[0]);
 		//three circles with intersection
@@ -250,7 +225,6 @@ function listOperation(){
 				        	.style("stroke", "#259286")
 		        			.style("stroke-width", "2")
 				        	.style("stroke-opacity", 1);
-				        	//.duration(750);
 
 						//Update the tooltip position and value
 						d3.select("#tooltip")
@@ -309,7 +283,6 @@ function listOperation(){
 				        	.style("stroke", "#259286")
 		        			.style("stroke-width", "2")
 				        	.style("stroke-opacity", 1);
-				        	//.duration(750);
 
 						//Update the tooltip position and value
 						d3.select("#tooltip")
@@ -469,7 +442,7 @@ function listOperation(){
 				gvennStage.append("g")
 		    		.append("path")
 		    		.attr("d", "M 229 197 C 215.85017 197 203.25169 199.33049 191.5625 203.5625 C 200.3863 255.4727 245.57637 295 300 295 C 313.14983 295 325.74831 292.66951 337.4375 288.4375 C 328.6137 236.5273 283.42363 197 229 197 z ")
-		    		.attr("id", "paths1ns2")
+		    		.attr("id", "paths1ns3")
 			        .style("fill", "black")
 					.style("fill-opacity", 0)
 					.style("stroke", "white")
@@ -547,7 +520,7 @@ function listOperation(){
 			gvennStage.append("g")
 	    		.append("path")
 	    		.attr("d", "M 298.90625 222.0625 C 279.42799 238.5759 265.78574 261.74788 261.46875 288.0625 C 273.46059 292.54799 286.44309 295 300 295 C 313.14983 295 325.74831 292.66951 337.4375 288.4375 C 332.91784 261.84846 318.86249 238.50525 298.90625 222.0625 z ")
-	    		.attr("id", "paths1ns2")
+	    		.attr("id", "paths1ns2ns3")
 		        .style("fill", "black")
 				.style("fill-opacity", 0)
 				.style("stroke", "white")
@@ -573,10 +546,6 @@ function listOperation(){
 
 	    }
 	};
-	// if((s4.array().length == 0  && s4.array()[0] == "")) {
-
-	// }
-	
 	
 
 	function drawEllipse(tX, tY, rA, fillColor, textX, textY, listName, listContent, eID, tID, listCount, eRemove, tRemove) {
@@ -595,8 +564,10 @@ function listOperation(){
 		d3.select("#text5").remove();	
 		d3.select("#text6").remove();	
 		d3.select("#text7").remove();
-    	
-    	//Draw the Ellipse
+		d3.select("#paths1ns2").remove();	
+		d3.select("#paths1ns3").remove();	
+		d3.select("#paths1ns2ns3").remove();
+    
 
 		gvennStage.append("ellipse")
     			  .attr("cx", 200)
@@ -656,10 +627,6 @@ function listOperation(){
 		
 	};
 	
-	
-	
-
-	
 		
 	function drawIntersectionArea() {
 		d3.select("#tA1").remove();
@@ -674,436 +641,442 @@ function listOperation(){
 		d3.select("#tA10").remove();
 		d3.select("#tA11").remove();
 
+		d3.select("#pathDe1ne2").remove();
+		d3.select("#pathDe1ne3").remove();
+		d3.select("#pathDe1ne4").remove();
+		d3.select("#pathDe2ne3").remove();
+		d3.select("#pathDe2ne4").remove();
+		d3.select("#pathDe3ne4").remove();
+		d3.select("#pathDe1ne2ne3").remove();
+		d3.select("#pathDe1ne2ne4").remove();
+		d3.select("#pathDe1ne3ne4").remove();
+		d3.select("#pathDe2ne3ne4").remove();
+		d3.select("#pathDe1ne2ne3ne4").remove();
 		
-				//L1nL2 intersection area
-		        gvennStage.append("g")
-			    		.append("path")
-			    		.attr("d", pathDe1ne2)
-			    		.attr("id", "pathDe1ne2")
-				        .style("fill", "black")
-						.style("fill-opacity", 0)
-						.style("stroke", "white")
-						.style("stroke-width", "2")
-						.style("stroke-opacity", 0)
-					    .on("mouseover", function() {
-					        d3.select(this).transition()
-					            .style("fill-opacity", .1)
-					            .style("stroke-opacity", 1);
-					       	tooltip.transition().style("opacity", .9);
-					        tooltip.text("L1∩L2: \n" + s1.intersection(s2).array().join("\n"));
-					    })
-					    .on("mouseout", function() {
-					        d3.select(this).transition()
-					            .style("fill-opacity", 0)
-					            .style("stroke-opacity", 0);
-					        tooltip.transition().style("opacity", 0);
-					    })
-					    .on("mousemove", function() {
-					        tooltip.style("left", (d3.event.pageX + 100) + "px")
-					             	.style("top", (d3.event.pageY - 100) + "px");
-					    })
-				//L1nL2 intersection area list count text
-			    gvennStage.append("g")
-						.append("text")
-						.attr("id", "tA1")
-				        .attr("class", "text")
-				        .text(s1.intersection(s2).array().length)
-				        .attr("x", 290)
-				        .attr("y", 370)
-				        .attr("fill",  "black")	
+		//L1nL2 intersection area
+        gvennStage.append("g")
+	    		.append("path")
+	    		.attr("d", pathDe1ne2)
+	    		.attr("id", "pathDe1ne2")
+		        .style("fill", "black")
+				.style("fill-opacity", 0)
+				.style("stroke", "white")
+				.style("stroke-width", "2")
+				.style("stroke-opacity", 0)
+			    .on("mouseover", function() {
+			        d3.select(this).transition()
+			            .style("fill-opacity", .1)
+			            .style("stroke-opacity", 1);
+			       	tooltip.transition().style("opacity", .9);
+			        tooltip.text("L1∩L2: \n" + s1.intersection(s2).array().join("\n"));
+			    })
+			    .on("mouseout", function() {
+			        d3.select(this).transition()
+			            .style("fill-opacity", 0)
+			            .style("stroke-opacity", 0);
+			        tooltip.transition().style("opacity", 0);
+			    })
+			    .on("mousemove", function() {
+			        tooltip.style("left", (d3.event.pageX + 100) + "px")
+			             	.style("top", (d3.event.pageY - 100) + "px");
+			    })
+		//L1nL2 intersection area list count text
+	    gvennStage.append("g")
+				.append("text")
+				.attr("id", "tA1")
+		        .attr("class", "text")
+		        .text(s1.intersection(s2).array().length)
+		        .attr("x", 290)
+		        .attr("y", 370)
+		        .attr("fill",  "black")	
 
 
-				//L1nL3 intersection area
-		        gvennStage.append("g")
-			    		.append("path")
-			    		.attr("d", pathDe1ne3)
-			    		.attr("id", "pathDe1ne3")
-				        .style("fill", "black")
-						.style("fill-opacity", 0)
-						.style("stroke", "white")
-						.style("stroke-width", "2")
-						.style("stroke-opacity", 0)
-					    .on("mouseover", function() {
-					        d3.select(this).transition()
-					            .style("fill-opacity", .1)
-					            .style("stroke-opacity", 1);
-					       	tooltip.transition().style("opacity", .9);
-					        tooltip.text("L1∩L3: \n" + s1.intersection(s3).array().join("\n"));
-					    })
-					    .on("mouseout", function() {
-					        d3.select(this).transition()
-					            .style("fill-opacity", 0)
-					            .style("stroke-opacity", 0);
-					        tooltip.transition().style("opacity", 0);
-					    })
-					    .on("mousemove", function() {
-					        tooltip.style("left", (d3.event.pageX + 100) + "px")
-					             	.style("top", (d3.event.pageY - 100) + "px");
-					    })
-				//L1nL3 intersection area list count text
-			    gvennStage.append("g")
-						.append("text")
-						.attr("id", "tA2")
-				        .attr("class", "text")
-				        .text(s1.intersection(s3).array().length)
-				        .attr("x", 145)
-				        .attr("y", 145)
-				        .attr("fill",  "black")
+		//L1nL3 intersection area
+        gvennStage.append("g")
+	    		.append("path")
+	    		.attr("d", pathDe1ne3)
+	    		.attr("id", "pathDe1ne3")
+		        .style("fill", "black")
+				.style("fill-opacity", 0)
+				.style("stroke", "white")
+				.style("stroke-width", "2")
+				.style("stroke-opacity", 0)
+			    .on("mouseover", function() {
+			        d3.select(this).transition()
+			            .style("fill-opacity", .1)
+			            .style("stroke-opacity", 1);
+			       	tooltip.transition().style("opacity", .9);
+			        tooltip.text("L1∩L3: \n" + s1.intersection(s3).array().join("\n"));
+			    })
+			    .on("mouseout", function() {
+			        d3.select(this).transition()
+			            .style("fill-opacity", 0)
+			            .style("stroke-opacity", 0);
+			        tooltip.transition().style("opacity", 0);
+			    })
+			    .on("mousemove", function() {
+			        tooltip.style("left", (d3.event.pageX + 100) + "px")
+			             	.style("top", (d3.event.pageY - 100) + "px");
+			    })
+		//L1nL3 intersection area list count text
+	    gvennStage.append("g")
+				.append("text")
+				.attr("id", "tA2")
+		        .attr("class", "text")
+		        .text(s1.intersection(s3).array().length)
+		        .attr("x", 145)
+		        .attr("y", 145)
+		        .attr("fill",  "black")
 
 
-				//L1nL4 intersection area
-		        gvennStage.append("g")
-			    		.append("path")
-			    		.attr("d", pathDe1ne4)
-			    		.attr("id", "pathDe1ne4")
-				        .style("fill", "black")
-						.style("fill-opacity", 0)
-						.style("stroke", "white")
-						.style("stroke-width", "2")
-						.style("stroke-opacity", 0)
-					    .on("mouseover", function() {
-					        d3.select(this).transition()
-					            .style("fill-opacity", .1)
-					            .style("stroke-opacity", 1);
-					       	tooltip.transition().style("opacity", .9);
-					        tooltip.text("L1∩L4: \n" + s1.intersection(s4).array().join("\n"));
-					    })
-					    .on("mouseout", function() {
-					        d3.select(this).transition()
-					            .style("fill-opacity", 0)
-					            .style("stroke-opacity", 0);
-					        tooltip.transition().style("opacity", 0);
-					    })
-					    .on("mousemove", function() {
-					        tooltip.style("left", (d3.event.pageX + 100) + "px")
-					             	.style("top", (d3.event.pageY - 100) + "px");
-					    })
-				//L1nL4 intersection area list count text
-			    gvennStage.append("g")
-						.append("text")
-						.attr("id", "tA3")
-				        .attr("class", "text")
-				        .text(s1.intersection(s4).array().length)
-				        .attr("x", 180)
-				        .attr("y", 305)
-				        .attr("fill",  "black")
+		//L1nL4 intersection area
+        gvennStage.append("g")
+	    		.append("path")
+	    		.attr("d", pathDe1ne4)
+	    		.attr("id", "pathDe1ne4")
+		        .style("fill", "black")
+				.style("fill-opacity", 0)
+				.style("stroke", "white")
+				.style("stroke-width", "2")
+				.style("stroke-opacity", 0)
+			    .on("mouseover", function() {
+			        d3.select(this).transition()
+			            .style("fill-opacity", .1)
+			            .style("stroke-opacity", 1);
+			       	tooltip.transition().style("opacity", .9);
+			        tooltip.text("L1∩L4: \n" + s1.intersection(s4).array().join("\n"));
+			    })
+			    .on("mouseout", function() {
+			        d3.select(this).transition()
+			            .style("fill-opacity", 0)
+			            .style("stroke-opacity", 0);
+			        tooltip.transition().style("opacity", 0);
+			    })
+			    .on("mousemove", function() {
+			        tooltip.style("left", (d3.event.pageX + 100) + "px")
+			             	.style("top", (d3.event.pageY - 100) + "px");
+			    })
+		//L1nL4 intersection area list count text
+	    gvennStage.append("g")
+				.append("text")
+				.attr("id", "tA3")
+		        .attr("class", "text")
+		        .text(s1.intersection(s4).array().length)
+		        .attr("x", 180)
+		        .attr("y", 305)
+		        .attr("fill",  "black")
 
 
-				//L2nL3 intersection area
-		        gvennStage.append("g")
-			    		.append("path")
-			    		.attr("d", pathDe2ne3)
-			    		.attr("id", "pathDe2ne3")
-				        .style("fill", "black")
-						.style("fill-opacity", 0)
-						.style("stroke", "white")
-						.style("stroke-width", "2")
-						.style("stroke-opacity", 0)
-					    .on("mouseover", function() {
-					        d3.select(this).transition()
-					            .style("fill-opacity", .1)
-					            .style("stroke-opacity", 1);
-					       	tooltip.transition().style("opacity", .9);
-					        tooltip.text("L2∩L3: \n" + s2.intersection(s3).array().join("\n"));
-					    })
-					    .on("mouseout", function() {
-					        d3.select(this).transition()
-					            .style("fill-opacity", 0)
-					            .style("stroke-opacity", 0);
-					        tooltip.transition().style("opacity", 0);
-					    })
-					    .on("mousemove", function() {
-					        tooltip.style("left", (d3.event.pageX + 100) + "px")
-					             	.style("top", (d3.event.pageY - 100) + "px");
-					    })
-				//L2nL3 intersection area list count text
-			    gvennStage.append("g")
-						.append("text")
-						.attr("id", "tA4")
-				        .attr("class", "text")
-				        .text(s2.intersection(s3).array().length)
-				        .attr("x", 405)
-				        .attr("y", 305)
-				        .attr("fill",  "black")
-
-
-
-				//L2nL4 intersection area
-		        gvennStage.append("g")
-			    		.append("path")
-			    		.attr("d", pathDe2ne4)
-			    		.attr("id", "pathDe2ne3")
-				        .style("fill", "black")
-						.style("fill-opacity", 0)
-						.style("stroke", "white")
-						.style("stroke-width", "2")
-						.style("stroke-opacity", 0)
-					    .on("mouseover", function() {
-					        d3.select(this).transition()
-					            .style("fill-opacity", .1)
-					            .style("stroke-opacity", 1);
-					       	tooltip.transition().style("opacity", .9);
-					        tooltip.text("L2∩L4: \n" + s2.intersection(s4).array().join("\n"));
-					    })
-					    .on("mouseout", function() {
-					        d3.select(this).transition()
-					            .style("fill-opacity", 0)
-					            .style("stroke-opacity", 0);
-					        tooltip.transition().style("opacity", 0);
-					    })
-					    .on("mousemove", function() {
-					        tooltip.style("left", (d3.event.pageX + 100) + "px")
-					             	.style("top", (d3.event.pageY - 100) + "px");
-					    })
-				//L2nL4 intersection area list count text
-			    gvennStage.append("g")
-						.append("text")
-						.attr("id", "tA5")
-				        .attr("class", "text")
-				        .text(s2.intersection(s4).array().length)
-				        .attr("x", 440)
-				        .attr("y", 145)
-				        .attr("fill",  "black")
-
-
-				//L3nL4 intersection area
-		        gvennStage.append("g")
-			    		.append("path")
-			    		.attr("d", pathDe3ne4)
-			    		.attr("id", "pathDe3ne4")
-				        .style("fill", "black")
-						.style("fill-opacity", 0)
-						.style("stroke", "white")
-						.style("stroke-width", "2")
-						.style("stroke-opacity", 0)
-					    .on("mouseover", function() {
-					        d3.select(this).transition()
-					            .style("fill-opacity", .1)
-					            .style("stroke-opacity", 1);
-					       	tooltip.transition().style("opacity", .9);
-					        tooltip.text("L3∩L4: \n" + s3.intersection(s4).array().join("\n"));
-					    })
-					    .on("mouseout", function() {
-					        d3.select(this).transition()
-					            .style("fill-opacity", 0)
-					            .style("stroke-opacity", 0);
-					        tooltip.transition().style("opacity", 0);
-					    })
-					    .on("mousemove", function() {
-					        tooltip.style("left", (d3.event.pageX + 100) + "px")
-					             	.style("top", (d3.event.pageY - 100) + "px");
-					    })
-				//L3nL4 intersection area list count text
-			    gvennStage.append("g")
-						.append("text")
-						.attr("id", "tA6")
-				        .attr("class", "text")
-				        .text(s3.intersection(s4).array().length)
-				        .attr("x", 290)
-				        .attr("y", 140)
-				        .attr("fill",  "black")
+		//L2nL3 intersection area
+        gvennStage.append("g")
+	    		.append("path")
+	    		.attr("d", pathDe2ne3)
+	    		.attr("id", "pathDe2ne3")
+		        .style("fill", "black")
+				.style("fill-opacity", 0)
+				.style("stroke", "white")
+				.style("stroke-width", "2")
+				.style("stroke-opacity", 0)
+			    .on("mouseover", function() {
+			        d3.select(this).transition()
+			            .style("fill-opacity", .1)
+			            .style("stroke-opacity", 1);
+			       	tooltip.transition().style("opacity", .9);
+			        tooltip.text("L2∩L3: \n" + s2.intersection(s3).array().join("\n"));
+			    })
+			    .on("mouseout", function() {
+			        d3.select(this).transition()
+			            .style("fill-opacity", 0)
+			            .style("stroke-opacity", 0);
+			        tooltip.transition().style("opacity", 0);
+			    })
+			    .on("mousemove", function() {
+			        tooltip.style("left", (d3.event.pageX + 100) + "px")
+			             	.style("top", (d3.event.pageY - 100) + "px");
+			    })
+		//L2nL3 intersection area list count text
+	    gvennStage.append("g")
+				.append("text")
+				.attr("id", "tA4")
+		        .attr("class", "text")
+		        .text(s2.intersection(s3).array().length)
+		        .attr("x", 405)
+		        .attr("y", 305)
+		        .attr("fill",  "black")
 
 
 
-				//L1nL2nL3 intersection area
-		        gvennStage.append("g")
-			    		.append("path")
-			    		.attr("d", pathDe1ne2ne3)
-			    		.attr("id", "pathDe1ne2ne3")
-				        .style("fill", "black")
-						.style("fill-opacity", 0)
-						.style("stroke", "white")
-						.style("stroke-width", "2")
-						.style("stroke-opacity", 0)
-					    .on("mouseover", function() {
-					        d3.select(this).transition()
-					            .style("fill-opacity", .1)
-					            .style("stroke-opacity", 1);
-					       	tooltip.transition().style("opacity", .9);
-					        tooltip.text("L1∩L2∩L3: \n" + s1ns2.intersection(s3).array().join("\n"));
-					    })
-					    .on("mouseout", function() {
-					        d3.select(this).transition()
-					            .style("fill-opacity", 0)
-					            .style("stroke-opacity", 0);
-					        tooltip.transition().style("opacity", 0);
-					    })
-					    .on("mousemove", function() {
-					        tooltip.style("left", (d3.event.pageX + 100) + "px")
-					             	.style("top", (d3.event.pageY - 100) + "px");
-					    })
-				//L1nL2nL3 intersection area list count text
-			    gvennStage.append("g")
-						.append("text")
-						.attr("id", "tA7")
-				        .attr("class", "text")
-				        .text(s1ns2.intersection(s3).array().length)
-				        .attr("x", 360)
-				        .attr("y", 330)
-				        .attr("fill",  "black")
+		//L2nL4 intersection area
+        gvennStage.append("g")
+	    		.append("path")
+	    		.attr("d", pathDe2ne4)
+	    		.attr("id", "pathDe2ne4")
+		        .style("fill", "black")
+				.style("fill-opacity", 0)
+				.style("stroke", "white")
+				.style("stroke-width", "2")
+				.style("stroke-opacity", 0)
+			    .on("mouseover", function() {
+			        d3.select(this).transition()
+			            .style("fill-opacity", .1)
+			            .style("stroke-opacity", 1);
+			       	tooltip.transition().style("opacity", .9);
+			        tooltip.text("L2∩L4: \n" + s2.intersection(s4).array().join("\n"));
+			    })
+			    .on("mouseout", function() {
+			        d3.select(this).transition()
+			            .style("fill-opacity", 0)
+			            .style("stroke-opacity", 0);
+			        tooltip.transition().style("opacity", 0);
+			    })
+			    .on("mousemove", function() {
+			        tooltip.style("left", (d3.event.pageX + 100) + "px")
+			             	.style("top", (d3.event.pageY - 100) + "px");
+			    })
+		//L2nL4 intersection area list count text
+	    gvennStage.append("g")
+				.append("text")
+				.attr("id", "tA5")
+		        .attr("class", "text")
+		        .text(s2.intersection(s4).array().length)
+		        .attr("x", 440)
+		        .attr("y", 145)
+		        .attr("fill",  "black")
 
 
-				//L1nL2nL4 intersection area
-		        gvennStage.append("g")
-			    		.append("path")
-			    		.attr("d", pathDe1ne2ne4)
-			    		.attr("id", "pathDe1ne2ne4")
-				        .style("fill", "black")
-						.style("fill-opacity", 0)
-						.style("stroke", "white")
-						.style("stroke-width", "2")
-						.style("stroke-opacity", 0)
-					    .on("mouseover", function() {
-					        d3.select(this).transition()
-					            .style("fill-opacity", .1)
-					            .style("stroke-opacity", 1);
-					       	tooltip.transition().style("opacity", .9);
-					        tooltip.text("L1∩L2∩L4: \n" + s1ns2.intersection(s4).array().join("\n"));
-					    })
-					    .on("mouseout", function() {
-					        d3.select(this).transition()
-					            .style("fill-opacity", 0)
-					            .style("stroke-opacity", 0);
-					        tooltip.transition().style("opacity", 0);
-					    })
-					    .on("mousemove", function() {
-					        tooltip.style("left", (d3.event.pageX + 100) + "px")
-					             	.style("top", (d3.event.pageY - 100) + "px");
-					    })
-				//L1nL2nL4 intersection area list count text
-			    gvennStage.append("g")
-						.append("text")
-						.attr("id", "tA8")
-				        .attr("class", "text")
-				        .text(s1ns2.intersection(s4).array().length)
-				        .attr("x", 230)
-				        .attr("y", 330)
-				        .attr("fill",  "black")
+		//L3nL4 intersection area
+        gvennStage.append("g")
+	    		.append("path")
+	    		.attr("d", pathDe3ne4)
+	    		.attr("id", "pathDe3ne4")
+		        .style("fill", "black")
+				.style("fill-opacity", 0)
+				.style("stroke", "white")
+				.style("stroke-width", "2")
+				.style("stroke-opacity", 0)
+			    .on("mouseover", function() {
+			        d3.select(this).transition()
+			            .style("fill-opacity", .1)
+			            .style("stroke-opacity", 1);
+			       	tooltip.transition().style("opacity", .9);
+			        tooltip.text("L3∩L4: \n" + s3.intersection(s4).array().join("\n"));
+			    })
+			    .on("mouseout", function() {
+			        d3.select(this).transition()
+			            .style("fill-opacity", 0)
+			            .style("stroke-opacity", 0);
+			        tooltip.transition().style("opacity", 0);
+			    })
+			    .on("mousemove", function() {
+			        tooltip.style("left", (d3.event.pageX + 100) + "px")
+			             	.style("top", (d3.event.pageY - 100) + "px");
+			    })
+		//L3nL4 intersection area list count text
+	    gvennStage.append("g")
+				.append("text")
+				.attr("id", "tA6")
+		        .attr("class", "text")
+		        .text(s3.intersection(s4).array().length)
+		        .attr("x", 290)
+		        .attr("y", 140)
+		        .attr("fill",  "black")
+
+		//L1nL2nL3 intersection area
+        gvennStage.append("g")
+	    		.append("path")
+	    		.attr("d", pathDe1ne2ne3)
+	    		.attr("id", "pathDe1ne2ne3")
+		        .style("fill", "black")
+				.style("fill-opacity", 0)
+				.style("stroke", "white")
+				.style("stroke-width", "2")
+				.style("stroke-opacity", 0)
+			    .on("mouseover", function() {
+			        d3.select(this).transition()
+			            .style("fill-opacity", .1)
+			            .style("stroke-opacity", 1);
+			       	tooltip.transition().style("opacity", .9);
+			        tooltip.text("L1∩L2∩L3: \n" + s1ns2.intersection(s3).array().join("\n"));
+			    })
+			    .on("mouseout", function() {
+			        d3.select(this).transition()
+			            .style("fill-opacity", 0)
+			            .style("stroke-opacity", 0);
+			        tooltip.transition().style("opacity", 0);
+			    })
+			    .on("mousemove", function() {
+			        tooltip.style("left", (d3.event.pageX + 100) + "px")
+			             	.style("top", (d3.event.pageY - 100) + "px");
+			    })
+		//L1nL2nL3 intersection area list count text
+	    gvennStage.append("g")
+				.append("text")
+				.attr("id", "tA7")
+		        .attr("class", "text")
+		        .text(s1ns2.intersection(s3).array().length)
+		        .attr("x", 360)
+		        .attr("y", 330)
+		        .attr("fill",  "black")
 
 
-
-				//L1nL3nL4 intersection area
-		        gvennStage.append("g")
-			    		.append("path")
-			    		.attr("d", pathDe1ne3ne4)
-			    		.attr("id", "pathDe1ne3ne4")
-				        .style("fill", "black")
-						.style("fill-opacity", 0)
-						.style("stroke", "white")
-						.style("stroke-width", "2")
-						.style("stroke-opacity", 0)
-					    .on("mouseover", function() {
-					        d3.select(this).transition()
-					            .style("fill-opacity", .1)
-					            .style("stroke-opacity", 1);
-					       	tooltip.transition().style("opacity", .9);
-					        tooltip.text("L1∩L3∩L4: \n" + s1ns3.intersection(s4).array().join("\n"));
-					    })
-					    .on("mouseout", function() {
-					        d3.select(this).transition()
-					            .style("fill-opacity", 0)
-					            .style("stroke-opacity", 0);
-					        tooltip.transition().style("opacity", 0);
-					    })
-					    .on("mousemove", function() {
-					        tooltip.style("left", (d3.event.pageX + 100) + "px")
-					             	.style("top", (d3.event.pageY - 100) + "px");
-					    })
-				//L1nL3nL4 intersection area list count text
-			    gvennStage.append("g")
-						.append("text")
-						.attr("id", "tA9")
-				        .attr("class", "text")
-				        .text(s1ns3.intersection(s4).array().length)
-				        .attr("x", 210)
-				        .attr("y", 205)
-				        .attr("fill",  "black")
-
-
-				//L2nL3nL4 intersection area
-		        gvennStage.append("g")
-			    		.append("path")
-			    		.attr("d", pathDe2ne3ne4)
-			    		.attr("id", "pathDe2ne3ne4")
-				        .style("fill", "black")
-						.style("fill-opacity", 0)
-						.style("stroke", "white")
-						.style("stroke-width", "2")
-						.style("stroke-opacity", 0)
-					    .on("mouseover", function() {
-					        d3.select(this).transition()
-					            .style("fill-opacity", .1)
-					            .style("stroke-opacity", 1);
-					       	tooltip.transition().style("opacity", .9);
-					        tooltip.text("L2∩L3∩L4: \n" + s2ns3.intersection(s4).array().join("\n"));
-					    })
-					    .on("mouseout", function() {
-					        d3.select(this).transition()
-					            .style("fill-opacity", 0)
-					            .style("stroke-opacity", 0);
-					        tooltip.transition().style("opacity", 0);
-					    })
-					    .on("mousemove", function() {
-					        tooltip.style("left", (d3.event.pageX + 100) + "px")
-					             	.style("top", (d3.event.pageY - 100) + "px");
-					    })
-				//L2nL3nL4 intersection area list count text
-			    gvennStage.append("g")
-						.append("text")
-						.attr("id", "tA10")
-				        .attr("class", "text")
-				        .text(s2ns3.intersection(s4).array().length)
-				        .attr("x", 380)
-				        .attr("y", 205)
-				        .attr("fill",  "black")
+		//L1nL2nL4 intersection area
+        gvennStage.append("g")
+	    		.append("path")
+	    		.attr("d", pathDe1ne2ne4)
+	    		.attr("id", "pathDe1ne2ne4")
+		        .style("fill", "black")
+				.style("fill-opacity", 0)
+				.style("stroke", "white")
+				.style("stroke-width", "2")
+				.style("stroke-opacity", 0)
+			    .on("mouseover", function() {
+			        d3.select(this).transition()
+			            .style("fill-opacity", .1)
+			            .style("stroke-opacity", 1);
+			       	tooltip.transition().style("opacity", .9);
+			        tooltip.text("L1∩L2∩L4: \n" + s1ns2.intersection(s4).array().join("\n"));
+			    })
+			    .on("mouseout", function() {
+			        d3.select(this).transition()
+			            .style("fill-opacity", 0)
+			            .style("stroke-opacity", 0);
+			        tooltip.transition().style("opacity", 0);
+			    })
+			    .on("mousemove", function() {
+			        tooltip.style("left", (d3.event.pageX + 100) + "px")
+			             	.style("top", (d3.event.pageY - 100) + "px");
+			    })
+		//L1nL2nL4 intersection area list count text
+	    gvennStage.append("g")
+				.append("text")
+				.attr("id", "tA8")
+		        .attr("class", "text")
+		        .text(s1ns2.intersection(s4).array().length)
+		        .attr("x", 230)
+		        .attr("y", 330)
+		        .attr("fill",  "black")
 
 
 
-				//L1nL2nL3nL4 intersection area
-		        gvennStage.append("g")
-			    		.append("path")
-			    		.attr("d", pathDe1ne2ne3ne4)
-			    		.attr("id", "pathDe1ne2ne3ne4")
-				        .style("fill", "black")
-						.style("fill-opacity", 0)
-						.style("stroke", "white")
-						.style("stroke-width", "2")
-						.style("stroke-opacity", 0)
-					    .on("mouseover", function() {
-					        d3.select(this).transition()
-					            .style("fill-opacity", .1)
-					            .style("stroke-opacity", 1);
-					       	tooltip.transition().style("opacity", .9);
-					        tooltip.text("L1∩L2∩L3∩L4: \n" + s1ns2ns3.intersection(s4).array().join("\n"));
-					    })
-					    .on("mouseout", function() {
-					        d3.select(this).transition()
-					            .style("fill-opacity", 0)
-					            .style("stroke-opacity", 0);
-					        tooltip.transition().style("opacity", 0);
-					    })
-					    .on("mousemove", function() {
-					        tooltip.style("left", (d3.event.pageX + 100) + "px")
-					             	.style("top", (d3.event.pageY - 100) + "px");
-					    })
-				//L1nL2nL3nL4 intersection area list count text
-			    gvennStage.append("g")
-						.append("text")
-						.attr("id", "tA11")
-				        .attr("class", "text")
-				        .text(s1ns2ns3.intersection(s4).array().length)
-				        .attr("x", 290)
-				        .attr("y", 270)
-				        .attr("fill",  "black")
+		//L1nL3nL4 intersection area
+        gvennStage.append("g")
+	    		.append("path")
+	    		.attr("d", pathDe1ne3ne4)
+	    		.attr("id", "pathDe1ne3ne4")
+		        .style("fill", "black")
+				.style("fill-opacity", 0)
+				.style("stroke", "white")
+				.style("stroke-width", "2")
+				.style("stroke-opacity", 0)
+			    .on("mouseover", function() {
+			        d3.select(this).transition()
+			            .style("fill-opacity", .1)
+			            .style("stroke-opacity", 1);
+			       	tooltip.transition().style("opacity", .9);
+			        tooltip.text("L1∩L3∩L4: \n" + s1ns3.intersection(s4).array().join("\n"));
+			    })
+			    .on("mouseout", function() {
+			        d3.select(this).transition()
+			            .style("fill-opacity", 0)
+			            .style("stroke-opacity", 0);
+			        tooltip.transition().style("opacity", 0);
+			    })
+			    .on("mousemove", function() {
+			        tooltip.style("left", (d3.event.pageX + 100) + "px")
+			             	.style("top", (d3.event.pageY - 100) + "px");
+			    })
+		//L1nL3nL4 intersection area list count text
+	    gvennStage.append("g")
+				.append("text")
+				.attr("id", "tA9")
+		        .attr("class", "text")
+		        .text(s1ns3.intersection(s4).array().length)
+		        .attr("x", 210)
+		        .attr("y", 205)
+		        .attr("fill",  "black")
+
+
+		//L2nL3nL4 intersection area
+        gvennStage.append("g")
+	    		.append("path")
+	    		.attr("d", pathDe2ne3ne4)
+	    		.attr("id", "pathDe2ne3ne4")
+		        .style("fill", "black")
+				.style("fill-opacity", 0)
+				.style("stroke", "white")
+				.style("stroke-width", "2")
+				.style("stroke-opacity", 0)
+			    .on("mouseover", function() {
+			        d3.select(this).transition()
+			            .style("fill-opacity", .1)
+			            .style("stroke-opacity", 1);
+			       	tooltip.transition().style("opacity", .9);
+			        tooltip.text("L2∩L3∩L4: \n" + s2ns3.intersection(s4).array().join("\n"));
+			    })
+			    .on("mouseout", function() {
+			        d3.select(this).transition()
+			            .style("fill-opacity", 0)
+			            .style("stroke-opacity", 0);
+			        tooltip.transition().style("opacity", 0);
+			    })
+			    .on("mousemove", function() {
+			        tooltip.style("left", (d3.event.pageX + 100) + "px")
+			             	.style("top", (d3.event.pageY - 100) + "px");
+			    })
+		//L2nL3nL4 intersection area list count text
+	    gvennStage.append("g")
+				.append("text")
+				.attr("id", "tA10")
+		        .attr("class", "text")
+		        .text(s2ns3.intersection(s4).array().length)
+		        .attr("x", 380)
+		        .attr("y", 205)
+		        .attr("fill",  "black")
+
+
+
+		//L1nL2nL3nL4 intersection area
+        gvennStage.append("g")
+	    		.append("path")
+	    		.attr("d", pathDe1ne2ne3ne4)
+	    		.attr("id", "pathDe1ne2ne3ne4")
+		        .style("fill", "black")
+				.style("fill-opacity", 0)
+				.style("stroke", "white")
+				.style("stroke-width", "2")
+				.style("stroke-opacity", 0)
+			    .on("mouseover", function() {
+			        d3.select(this).transition()
+			            .style("fill-opacity", .1)
+			            .style("stroke-opacity", 1);
+			       	tooltip.transition().style("opacity", .9);
+			        tooltip.text("L1∩L2∩L3∩L4: \n" + s1ns2ns3.intersection(s4).array().join("\n"));
+			    })
+			    .on("mouseout", function() {
+			        d3.select(this).transition()
+			            .style("fill-opacity", 0)
+			            .style("stroke-opacity", 0);
+			        tooltip.transition().style("opacity", 0);
+			    })
+			    .on("mousemove", function() {
+			        tooltip.style("left", (d3.event.pageX + 100) + "px")
+			             	.style("top", (d3.event.pageY - 100) + "px");
+			    })
+		//L1nL2nL3nL4 intersection area list count text
+	    gvennStage.append("g")
+				.append("text")
+				.attr("id", "tA11")
+		        .attr("class", "text")
+		        .text(s1ns2ns3.intersection(s4).array().length)
+		        .attr("x", 290)
+		        .attr("y", 270)
+		        .attr("fill",  "black")
 	
 	};
 	
 }
 
 module.exports = listOperation;
-
-
-
 
 },{"d3":2,"simplesets":3}],2:[function(require,module,exports){
 !function() {
