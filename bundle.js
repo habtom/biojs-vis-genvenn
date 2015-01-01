@@ -7,6 +7,8 @@ var s1 = new sets.Set([]);
 var s2 = new sets.Set([]);
 var s3 = new sets.Set([]);
 var s4 = new sets.Set([]);
+var s5 = new sets.Set([]);
+var s6 = new sets.Set([]);
 
 // Some data examples ...
 //  var s1 = new sets.Set([
@@ -95,10 +97,26 @@ function update4 (listvalue){
 	s4 = new sets.Set(listvalue);
 	listOperation();
 }
+d3.select("#s5").on("change" ,function() { 
+  update5(this.value.split("\n"));
+});
+
+function update5 (listvalue){
+	s5 = new sets.Set(listvalue);
+	listOperation();
+}
+d3.select("#s6").on("change" ,function() { 
+  update6(this.value.split("\n"));
+});
+
+function update6 (listvalue){
+	s6 = new sets.Set(listvalue);
+	listOperation();
+}
 
 //define drawing canvas
 var w = 600,
-	h = 420;
+	h = 450;
 
 var gvennStage = d3.select("#first")
 		.append("svg")
@@ -125,6 +143,15 @@ function listOperation(){
 	s2ns3_arr =  s2.intersection(s3).array();
 	s2ns3 = new sets.Set(s2ns3_arr);
 
+	s1ns2ns3ns4_arr = s1ns2ns3.intersection(s4).array();
+	s1ns2ns3ns4 = new sets.Set(s1ns2ns3ns4_arr);
+
+	s1ns2ns3ns4ns5_arr = s1ns2ns3ns4.intersection(s5).array();
+	s1ns2ns3ns4ns5 = new sets.Set(s1ns2ns3ns4ns5_arr);
+
+	s1ns2ns3ns4ns5ns6_arr = s1ns2ns3ns4ns5.intersection(s6).array();
+	s1ns2ns3ns4ns5ns6 = new sets.Set(s1ns2ns3ns4ns5ns6_arr);
+
 	/* ------------------------
 		--- Intersection Area -----
 		---------------------------*/
@@ -139,8 +166,23 @@ function listOperation(){
 	var pathDe1ne3ne4 = "m 219.09375,117.28125 c -33.87334,35.61036 -56.12295,75.35326 -64.0625,111.5625 13.15257,16.83827 28.79558,33.15321 46.75,48.21875 31.1951,26.17579 64.9205,44.92127 97.1875,55.625 27.88608,-8.66024 56.97762,-23.39144 84.71875,-43.8125 -12.80212,-41.56499 -43.25187,-86.42278 -87.625,-123.65625 -24.73134,-20.75206 -51.04787,-36.82799 -76.96875,-47.9375 z";
 	var pathDe2ne3ne4 = "m 383.21875,118.71875 c -25.28545,11.07392 -50.89214,26.86485 -75,47.09375 -45.03024,37.78485 -75.75891,83.42079 -88.21875,125.5 25.87056,18.83135 52.89462,32.7256 78.96875,41.375 33.57471,-10.42689 68.90121,-29.67762 101.5,-57.03125 17.72332,-14.87163 33.23383,-30.95441 46.28125,-47.5625 -8.3341,-35.61475 -30.34665,-74.47911 -63.53125,-109.375 z";
 	var pathDe1ne2ne3ne4 = "m 302.5,170.75 c -41.90684,36.7853 -70.57624,80.29372 -82.5,120.5625 25.87056,18.83135 52.89462,32.7256 78.96875,41.375 27.88608,-8.66024 56.97762,-23.39144 84.71875,-43.8125 C 371.51454,249.35272 343.38439,206.84087 302.5,170.75 z";
+	var pathDt1nt2nt3nt4nt5nt6 = "M 164.84375,134.90625 129.0625,176.25 l 18.375,50.5625 6.625,-3.3125 23.71875,-28.6875 -5.84375,-56.03125 -7.09375,-3.875 z";
 
-	if (s4.array().length > 0  && s4.array()[0] != "") {
+	//drawing logic
+	if (s6.array().length > 0  && s6.array()[0] != ""){
+		//draw triangle
+
+		//drawTriangle(d, fillColor, textX, textY, listName, listContent, trID, tID, listCount, trRemove, tRemove);
+		drawTriangle("M -69.277 -32.868 L 135.580 121.186 L  70.900 199.427 Z", "#00bf00", 0,50, "List 1: ", s1.array().join("\n"), "tr1", "trx1", s1.array().length, "#tr1", "#trx1"); //1
+		drawTriangle("M  81.988 -44.426 L  38.444 206.222 L 121.044 165.111 Z", "#007fff", 82,20, "List 2: ", s2.array().join("\n"), "tr2", "trx2", s2.array().length, "#tr2", "#trx2"); //2
+		drawTriangle("M 203.271   9.619 L  39.604  82.683 L  84.652 206.669 Z", "#ff3433", 160,60, "List 3: ", s3.array().join("\n"), "tr3", "trx3", s3.array().length, "#tr3", "#trx3"); //3
+		drawTriangle("M 333.561 225.349 L  61.764  76.805 L  38.980 182.461 Z", "#A57706", 180,180, "List 4: ", s4.array().join("\n"), "tr4", "trx4", s4.array().length, "#tr4", "#trx4"); //4
+		drawTriangle("M 131.886 385.785 L  38.136 111.491 L  94.208  24.690 Z", "#BD3613", 100,250, "List 5: ", s5.array().join("\n"), "tr5", "trx5", s5.array().length, "#tr5", "#trx5"); //5
+		drawTriangle("M -60.184 274.046 L 142.476  39.903 L 103.276 183.962 Z", "#c09853", 20,220, "List 6: ", s6.array().join("\n"), "tr6", "trx6", s6.array().length, "#tr6", "#trx6"); //6
+
+		drawTriangleIntersectionArea();
+
+	} else if (s4.array().length > 0  && s4.array()[0] != "") {
 		//draw elipse
 		//draw area intersect
 		//drawEllipse(tX, tY, rA, fillColor, textX, textY, listName, listContent, eID, tID, listCount, eRemove, tRemove);
@@ -200,6 +242,22 @@ function listOperation(){
 		d3.select("#paths1ns2").remove();	
 		d3.select("#paths1ns3").remove();	
 		d3.select("#paths1ns2ns3").remove();	
+
+
+		d3.select("#tr1").remove();	
+		d3.select("#tr2").remove();
+    	d3.select("#tr3").remove();
+    	d3.select("#tr4").remove();
+    	d3.select("#tr5").remove();
+    	d3.select("#tr6").remove();
+    	d3.select("#trx1").remove();
+    	d3.select("#trx2").remove();
+    	d3.select("#trx3").remove();
+    	d3.select("#trx4").remove();
+    	d3.select("#trx5").remove();
+    	d3.select("#trx6").remove();
+    	d3.select("#pathDt1nt2nt3nt4nt5nt6").remove();
+		d3.select("#tA15").remove();
 		
 		//console.log("S1 first " + s1.array()[0]);
 		//three circles with intersection
@@ -567,7 +625,23 @@ function listOperation(){
 		d3.select("#paths1ns2").remove();	
 		d3.select("#paths1ns3").remove();	
 		d3.select("#paths1ns2ns3").remove();
-    
+
+
+		d3.select("#tr1").remove();	
+		d3.select("#tr2").remove();
+    	d3.select("#tr3").remove();
+    	d3.select("#tr4").remove();
+    	d3.select("#tr5").remove();
+    	d3.select("#tr6").remove();
+    	d3.select("#trx1").remove();
+    	d3.select("#trx2").remove();
+    	d3.select("#trx3").remove();
+    	d3.select("#trx4").remove();
+    	d3.select("#trx5").remove();
+    	d3.select("#trx6").remove();
+    	d3.select("#pathDt1nt2nt3nt4nt5nt6").remove();
+		d3.select("#tA15").remove();
+
 
 		gvennStage.append("ellipse")
     			  .attr("cx", 200)
@@ -1073,6 +1147,179 @@ function listOperation(){
 		        .attr("fill",  "black")
 	
 	};
+
+	function drawTriangle(d, fillcolor, textX, textY, listName, listContent, trID, tID, listCount, trRemove, tRemove) {
+			d3.select(trRemove).remove();
+			d3.select(tRemove).remove();
+
+			d3.select("#e1").remove();		
+			d3.select("#e2").remove();	
+			d3.select("#e3").remove();	
+			d3.select("#e4").remove();
+			d3.select("#t1").remove();		
+			d3.select("#t2").remove();	
+			d3.select("#t3").remove();	
+			d3.select("#t4").remove();
+			d3.select("#tA1").remove();
+			d3.select("#tA2").remove();
+			d3.select("#tA3").remove();
+			d3.select("#tA4").remove();
+			d3.select("#tA5").remove();
+			d3.select("#tA6").remove();
+			d3.select("#tA7").remove();
+			d3.select("#tA8").remove();
+			d3.select("#tA9").remove();
+			d3.select("#tA10").remove();
+			d3.select("#tA11").remove();
+
+			d3.select("#pathDe1ne2").remove();
+			d3.select("#pathDe1ne3").remove();
+			d3.select("#pathDe1ne4").remove();
+			d3.select("#pathDe2ne3").remove();
+			d3.select("#pathDe2ne4").remove();
+			d3.select("#pathDe3ne4").remove();
+			d3.select("#pathDe1ne2ne3").remove();
+			d3.select("#pathDe1ne2ne4").remove();
+			d3.select("#pathDe1ne3ne4").remove();
+			d3.select("#pathDe2ne3ne4").remove();
+			d3.select("#pathDe1ne2ne3ne4").remove();
+
+			d3.select("#circle1").remove();		
+			d3.select("#circle2").remove();	
+			d3.select("#circle3").remove();	
+			d3.select("#text1").remove();	
+			d3.select("#text2").remove();	
+			d3.select("#text3").remove();	
+			d3.select("#text4").remove();	
+			d3.select("#text5").remove();	
+			d3.select("#text6").remove();	
+			d3.select("#text7").remove();
+			d3.select("#paths1ns2").remove();	
+			d3.select("#paths1ns3").remove();	
+			d3.select("#paths1ns2ns3").remove();	
+
+	    	//draw a Triangle
+			gvennStage.append("path")
+	    			  .attr("d", d)
+	    			  .attr("transform", "translate(120,70)")
+	    			  .attr("id", trID)
+	    			  //.attr("transform", "scale(2)")
+					  .style("fill-opacity", 0.3)
+					  .style("stroke-opacity", 0)
+				      .style("stroke", "#259286")
+				      .style("stroke-width", "0")
+					  .style("fill", fillcolor) // #BD3613
+					  .on("mouseover", function(){ 
+				        d3.select(this).transition()
+				        	.style("fill-opacity", 0.5)
+				        	.style("stroke", "#259286")
+				        	.style("stroke-width", "1")
+				        	.style("stroke-opacity", 1);
+
+						//Update the tooltip position and value
+						d3.select("#tooltip")
+							.style("left", (d3.event.pageX - 100) + "px")
+							.style("top", (d3.event.pageY - 100) + "px")
+							.select("#v")
+							.text(listName);
+						d3.select("#tooltip")
+							.style("left", (d3.event.pageX - 100) + "px")
+							.style("top", (d3.event.pageY - 100) + "px")						
+							.select("#value")
+							.text(listContent);
+
+						//Show the tooltip
+						d3.select("#tooltip").classed("hidden", false);
+			     	})
+			    	.on("mouseout", function(){ 
+				       d3.select(this)
+				         .style("fill-opacity", 0.2)
+			             .style("stroke-opacity", 0);
+				       //Hide the tooltip
+						d3.select("#tooltip").classed("hidden", true);      
+				     })
+			    	 .on("mousemove", function() {
+					        d3.select("#tooltip")
+							.style("left", (d3.event.pageX - 100) + "px")
+							.style("top", (d3.event.pageY - 100) + "px")	
+					    })
+			gvennStage.append("g")
+			    		.append("text")
+			    		.attr("id", tID)
+				        .attr("class", "text")
+				        .attr("transform", "translate(115,70)")
+				        .text(listCount)
+				        .attr("x", textX)
+				        .attr("y", textY)
+				        .attr("fill",  "black")		  
+
+	}
+	// function drawTriangleContent(textX, textY) {
+	// 		gvennStage.append("g")
+	// 		    		.append("text")
+	// 		    		.attr("id", "text1")
+	// 			        .attr("class", "text")
+	// 			        .attr("transform", "translate(65,40)")
+	// 			        .text("1")
+	// 			        .attr("x", textX)
+	// 			        .attr("y", textY)
+	// 			        .attr("fill",  "black")	
+	// 	}
+
+	// drawTriangleContent(0,50);
+	// drawTriangleContent(82,20)
+	// drawTriangleContent(160,60)
+	// drawTriangleContent(180,180)
+	// drawTriangleContent(100,250)
+	// drawTriangleContent(20,220)
+
+	function drawTriangleIntersectionArea() {
+
+		d3.select("#pathDt1nt2nt3nt4nt5nt6").remove();
+		d3.select("#tA15").remove();
+	
+		//L1nL2nL3nL4nL5nL6 intersection area
+        gvennStage.append("g")
+	    		.append("path")
+	    		.attr("d", pathDt1nt2nt3nt4nt5nt6)
+	    		.attr("id", "pathDt1nt2nt3nt4nt5nt6")
+	    		.attr("transform", "translate(50,30)")// update later
+		        .style("fill", "black")
+				.style("fill-opacity", 0)
+				.style("stroke", "white")
+				.style("stroke-width", "2")
+				.style("stroke-opacity", 0)
+			    .on("mouseover", function() {
+			        d3.select(this).transition()
+			            .style("fill-opacity", .1)
+			            .style("stroke-opacity", 1);
+			       	tooltip.transition().style("opacity", .9);
+			        tooltip.text("L1∩L2∩L3∩L4∩L5∩L6: \n" + s1ns2ns3ns4ns5.intersection(s6).array().join("\n"));
+			    })
+			    .on("mouseout", function() {
+			        d3.select(this).transition()
+			            .style("fill-opacity", 0)
+			            .style("stroke-opacity", 0);
+			        tooltip.transition().style("opacity", 0);
+			    })
+			    .on("mousemove", function() {
+			        tooltip.style("left", (d3.event.pageX + 100) + "px")
+			             	.style("top", (d3.event.pageY - 100) + "px");
+			    })
+		//L1nL2nL3nL4nL5nL6 intersection area list count text
+	    gvennStage.append("g")
+				.append("text")
+				.attr("id", "tA15")
+		        .attr("class", "text")
+		        .attr("transform", "translate(50,30)")// update later
+		        .text(s1ns2ns3ns4ns5.intersection(s6).array().length)
+		        .attr("x", 150.66335)
+		        .attr("y", 187.0728)
+		        .attr("fill",  "black")
+	
+	};
+
+
 	
 }
 

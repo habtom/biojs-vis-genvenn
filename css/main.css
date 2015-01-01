@@ -278,6 +278,16 @@ csmall2 {
     box-shadow: 0 0 10px #719ECE;
 
 }
+#title5 {
+	border:1px dotted #A57706;
+    box-shadow: 0 0 10px #719ECE;
+
+}
+#title6 {
+	border:1px dotted #A57706;
+    box-shadow: 0 0 10px #719ECE;
+
+}
 
 #s1 {
 	border:1px dotted #00bf00;
@@ -295,6 +305,16 @@ csmall2 {
 }
 #s4 {
 	border:1px dotted #A57706;
+    box-shadow: 0 0 10px #719ECE;
+
+}
+#s5 {
+	border:1px dotted #BD3613;
+    box-shadow: 0 0 10px #719ECE;
+
+}
+#s6 {
+	border:1px dotted #c09853;
     box-shadow: 0 0 10px #719ECE;
 
 }
