@@ -184,39 +184,40 @@ function listOperation(){
 	var pathDe2ne3ne4 = "m 383.21875,118.71875 c -25.28545,11.07392 -50.89214,26.86485 -75,47.09375 -45.03024,37.78485 -75.75891,83.42079 -88.21875,125.5 25.87056,18.83135 52.89462,32.7256 78.96875,41.375 33.57471,-10.42689 68.90121,-29.67762 101.5,-57.03125 17.72332,-14.87163 33.23383,-30.95441 46.28125,-47.5625 -8.3341,-35.61475 -30.34665,-74.47911 -63.53125,-109.375 z";
 	var pathDe1ne2ne3ne4 = "m 302.5,170.75 c -41.90684,36.7853 -70.57624,80.29372 -82.5,120.5625 25.87056,18.83135 52.89462,32.7256 78.96875,41.375 27.88608,-8.66024 56.97762,-23.39144 84.71875,-43.8125 C 371.51454,249.35272 343.38439,206.84087 302.5,170.75 z";
 	var pathDe1ne2ne3ne4ne5 = "m 257.59375,153.84375 c -3.85166,1.11304 -7.72558,2.27441 -11.59375,3.53125 -35.73263,11.61023 -67.3762,27.88807 -92.875,46.59375 -0.0734,2.99791 -0.125,6.00043 -0.125,9.03125 0,38.36358 5.94978,74.21364 16.25,104.65625 2.88997,1.0196 5.80361,2.01141 8.75,2.96875 36.6108,11.89557 72.65549,17.30507 104.875,16.875 1.71748,-2.25259 3.44326,-4.52903 5.125,-6.84375 22.56233,-31.05438 38.81652,-63.55176 48.375,-94.25 -2.06757,-3.03331 -4.18883,-6.0535 -6.375,-9.0625 -21.90662,-30.15187 -46.9492,-55.07254 -72.40625,-73.5 z";
+	var pathDe1ne2ne3ne4ne5ne6ne7 = "m 248.03125,179.09375 c -23.08761,13.31233 -46.26595,30.91 -67.96875,52.3125 -1.13426,23.92403 0.63363,49.85026 5.65625,76.5625 17.87702,15.45005 39.00987,29.86219 62.75,42.28125 23.66458,-4.14265 48.65082,-11.61034 73.71875,-22.46875 11.27377,-21.16659 20.73114,-45.42933 27.59375,-71.8125 -9.27893,-21.777 -21.99035,-44.05427 -37.90625,-65.6875 -19.60733,-5.58677 -41.11599,-9.43415 -63.84375,-11.1875 z";
 
 	var pathDt1nt2nt3nt4nt5nt6 = "M 164.84375,134.90625 129.0625,176.25 l 18.375,50.5625 6.625,-3.3125 23.71875,-28.6875 -5.84375,-56.03125 -7.09375,-3.875 z";
 
 	//drawing logic
-	// if (s7.array().length > 0  && s7.array()[0] != ""){
-	// 	//remove five ellipse drawing
-	// 	d3.select("#e5th1").remove();		
-	// 	d3.select("#e5th2").remove();	
-	// 	d3.select("#e5th3").remove();	
-	// 	d3.select("#e5th4").remove();
-	// 	d3.select("#e5th5").remove();
-	// 	//draw seven elipse
-	// 	//Seven
-	//     //drawEllipseBase(cX, cY, rX, rY, rotationAng, fillColor, listName, listContent, eID, eRemove)
-	// 	drawEllipseBase(220,288,200, 110, 0, "#00bf00", "List 1: ", s1.array().join("\n"), "e7th1", "#e7th1"); //1st Ellipse
-	// 	drawEllipseBase(216,246,200, 110, 51, "#007fff", "List 2: ", s2.array().join("\n"), "e7th2", "#e7th2"); //2st Ellipse
-	// 	drawEllipseBase(246,217,200, 110, 102, "#ff3433", "List 3: ", s3.array().join("\n"), "e7th3", "#e7th3"); //3st Ellipse
-	// 	drawEllipseBase(289,222,200, 110, 154, "#A57706", "List 4: ", s4.array().join("\n"), "e7th4", "#e7th4"); //4st Ellipse
-	// 	//drawEllipseBase(310,258,200, 110, 25, "#BD3613"), "List 5: ", s5.array().join("\n"), "e7th5", "#e7th5"; //5th Ellipse
-	// 	//drawEllipseBase(296,298,200, 110, 77, "#7f3f00"), "List 6: ", s6.array().join("\n"), "e7th6", "#e7th6"; //6th Ellipse
-	// 	drawEllipseBase(256,311,200, 110, 135, "#ff00ff", "List 7: ", s7.array().join("\n"), "e7th7", "#e7th7"); //7th Ellipse
-	// 	//Seven
-	// 	// drawEllipseBase(220,288,200, 110, 0, "#00bf00", "List 1: ", s1.array().join("\n"), "e7th1", s1.array().length, "#e7th1"); //1st Ellipse
-	// 	// drawEllipseBase(216,246,200, 110, 51, "#007fff", "List 2: ", s2.array().join("\n"), "e7th2", s2.array().length, "#e7th2"); //2st Ellipse
-	// 	// drawEllipseBase(246,217,200, 110, 102, "#ff3433", "List 3: ", s3.array().join("\n"), "e7th3", s3.array().length, "#e7th3"); //3st Ellipse
-	// 	// drawEllipseBase(289,222,200, 110, 154, "#A57706", "List 4: ", s4.array().join("\n"), "e7th4", s4.array().length, "#e7th4"); //4st Ellipse
-	// 	// drawEllipseBase(310,258,200, 110, 25, "#BD3613"), "List 5: ", s5.array().join("\n"), "e7th5", s5.array().length, "#e7th5"; //5th Ellipse
-	// 	// drawEllipseBase(296,298,200, 110, 77, "#7f3f00"), "List 6: ", s6.array().join("\n"), "e7th6", s6.array().length, "#e7th6"; //6th Ellipse
-	// 	// drawEllipseBase(256,311,200, 110, 135, "#ff00ff", "List 7: ", s7.array().join("\n"), "e7th7", s7.array().length, "#e7th7"); //7th Ellipse
+	if (s7.array().length > 0  && s7.array()[0] != ""){
+		//remove five ellipse drawing
+		d3.select("#e5th1").remove();		
+		d3.select("#e5th2").remove();	
+		d3.select("#e5th3").remove();	
+		d3.select("#e5th4").remove();
+		d3.select("#e5th5").remove();
+		d3.select("#e5thTl1").remove();		
+		d3.select("#e5thTl2").remove();	
+		d3.select("#e5thTl3").remove();	
+		d3.select("#e5thTl4").remove();
+		d3.select("#e5thTl5").remove();
+		d3.select("#pathDe1ne2ne3ne4ne5").remove();
+		d3.select("#e5thA5").remove();
+		//draw seven elipse
+		//Seven
+		//drawEllipseBase(cX, cY, rX, rY, rotationAng, fillColor, listName, listContent, eID, tID, eRemove, tRemove, listCount, textX, textY)
+		//drawEllipseBase(263,213,200, 110, 90, "#00bf00", "List 1: ", s1.array().join("\n"), "e5th1", "e5thTl1", "#e5th1", "#e5thTl1", s1.array().length, 258, 50); //1st Ellipse
+		drawEllipseBase(220,288,200, 110, 0, "#00bf00", "List 1: ", s1.array().join("\n"), "e7th1", "e7thTl1", "#e7th1", "#e7thTl1", s1.array().length, 40, 294); //1st Ellipse
+		drawEllipseBase(216,246,200, 110, 51, "#007fff", "List 2: ", s2.array().join("\n"), "e7th2", "e7thTl2", "#e7th2", "#e7thTl2", s2.array().length, 96, 117); //2st Ellipse
+		drawEllipseBase(246,217,200, 110, 102, "#ff3433", "List 3: ", s3.array().join("\n"), "e7th3", "e7thTl3", "#e7th3", "#e7thTl3", s3.array().length, 273, 49); //3st Ellipse
+		drawEllipseBase(289,222,200, 110, 154, "#A57706", "List 4: ", s4.array().join("\n"), "e7th4", "e7thTl4", "#e7th4", "#e7thTl4", s4.array().length, 434, 152); //4st Ellipse
+		drawEllipseBase(310,258,200, 110, 25, "#A57706", "List 5: ", s5.array().join("\n"), "e7th5", "e7thTl5", "#e7th5", "#e7thTl5", s5.array().length, 458, 341); //5st Ellipse
+		drawEllipseBase(296,298,200, 110, 77, "#A57706", "List 6: ", s6.array().join("\n"), "e7th6", "e7thTl6", "#e7th6", "#e7thTl6", s6.array().length, 330, 472); //6st Ellipse
+		drawEllipseBase(256,311,200, 110, 135, "#ff00ff", "List 7: ", s7.array().join("\n"), "e7th7", "e7thTl7", "#e7th7", "#e7thTl7", s7.array().length, 132, 440); //7th Ellipse
 		
-	// } else if (s6.array().length > 0  && s6.array()[0] != ""){
-		
-	if (s6.array().length > 0  && s6.array()[0] != ""){
+		drawSevenSetIntersectionArea();
+
+	} else if (s6.array().length > 0  && s6.array()[0] != ""){
 		//draw triangle
 
 		//drawTriangle(d, fillColor, textX, textY, listName, listContent, trID, tID, listCount, trRemove, tRemove);
@@ -237,6 +238,16 @@ function listOperation(){
 		d3.select("#e7th5").remove();	
 		d3.select("#e7th6").remove();	
 		d3.select("#e7th7").remove();
+		d3.select("#e7thTl1").remove();
+		d3.select("#e7thTl2").remove();
+		d3.select("#e7thTl3").remove();
+		d3.select("#e7thTl4").remove();
+		d3.select("#e7thTl5").remove();
+		d3.select("#e7thTl6").remove();
+		d3.select("#e7thTl7").remove();
+
+		d3.select("#pathDe1ne2ne3ne4ne5ne6ne7").remove();
+		d3.select("#e7thA7").remove();
 
 		//draw elipse
 		//draw area intersect
@@ -286,6 +297,16 @@ function listOperation(){
 		d3.select("#e7th5").remove();	
 		d3.select("#e7th6").remove();	
 		d3.select("#e7th7").remove();
+		d3.select("#e7thTl1").remove();
+		d3.select("#e7thTl2").remove();
+		d3.select("#e7thTl3").remove();
+		d3.select("#e7thTl4").remove();
+		d3.select("#e7thTl5").remove();
+		d3.select("#e7thTl6").remove();
+		d3.select("#e7thTl7").remove();
+
+		d3.select("#pathDe1ne2ne3ne4ne5ne6ne7").remove();
+		d3.select("#e7thA7").remove();
 
 		//remove five ellipse drawing
 		d3.select("#e5th1").remove();		
@@ -711,6 +732,16 @@ function listOperation(){
 		d3.select("#e7th5").remove();	
 		d3.select("#e7th6").remove();	
 		d3.select("#e7th7").remove();
+		d3.select("#e7thTl1").remove();
+		d3.select("#e7thTl2").remove();
+		d3.select("#e7thTl3").remove();
+		d3.select("#e7thTl4").remove();
+		d3.select("#e7thTl5").remove();
+		d3.select("#e7thTl6").remove();
+		d3.select("#e7thTl7").remove();
+
+		d3.select("#pathDe1ne2ne3ne4ne5ne6ne7").remove();
+		d3.select("#e7thA7").remove();
 
 		//remove five ellipse drawing
 		d3.select("#e5th1").remove();		
@@ -727,8 +758,6 @@ function listOperation(){
 		d3.select("#e5thA5").remove();
 
 		
-
-
 		d3.select("#circle1").remove();		
 		d3.select("#circle2").remove();	
 		d3.select("#circle3").remove();	
@@ -987,6 +1016,48 @@ function listOperation(){
 		        .attr("fill",  "black")
 	};
 
+	function drawSevenSetIntersectionArea () {
+
+		d3.select("#pathDe1ne2ne3ne4ne5ne6ne7").remove();
+		d3.select("#e7thA7").remove();
+
+
+
+		//L1nL2nL3nL4nL5nL6nL7 intersection area
+        gvennStage.append("path")
+	    		.attr("d", pathDe1ne2ne3ne4ne5ne6ne7)
+	    		.attr("id", "pathDe1ne2ne3ne4ne5ne6ne7")
+		        .style("fill", "black")
+				.style("fill-opacity", 0)
+				.style("stroke", "white")
+				.style("stroke-width", "2")
+				.style("stroke-opacity", 0)
+			    .on("mouseover", function() {
+			        d3.select(this).transition()
+			            .style("fill-opacity", .1)
+			            .style("stroke-opacity", 1);
+			       	tooltip.transition().style("opacity", .9);
+			        tooltip.text("L1∩L2∩L3∩L4∩L5∩L6∩L7: \n" + s1ns2ns3ns4ns5ns6.intersection(s7).array().join("\n"));
+			    })
+			    .on("mouseout", function() {
+			        d3.select(this).transition()
+			            .style("fill-opacity", 0)
+			            .style("stroke-opacity", 0);
+			        tooltip.transition().style("opacity", 0);
+			    })
+			    .on("mousemove", function() {
+			        tooltip.style("left", (d3.event.pageX + 100) + "px")
+			             	.style("top", (d3.event.pageY - 100) + "px");
+			    })
+		//L1nL2nL3nL4nL5nL6nL7 intersection area list count text
+	    gvennStage.append("text")
+				.attr("id", "e7thA7")
+		        .attr("class", "text")
+		        .text(s1ns2ns3ns4ns5ns6.intersection(s7).array().length)
+		        .attr("x", 256)
+		        .attr("y", 270)
+		        .attr("fill",  "black")
+	};
 		
 	function drawIntersectionArea() {
 		d3.select("#tA1").remove();
@@ -1424,6 +1495,16 @@ function listOperation(){
 			d3.select("#e7th5").remove();	
 			d3.select("#e7th6").remove();	
 			d3.select("#e7th7").remove();
+			d3.select("#e7thTl1").remove();
+			d3.select("#e7thTl2").remove();
+			d3.select("#e7thTl3").remove();
+			d3.select("#e7thTl4").remove();
+			d3.select("#e7thTl5").remove();
+			d3.select("#e7thTl6").remove();
+			d3.select("#e7thTl7").remove();
+
+			d3.select("#pathDe1ne2ne3ne4ne5ne6ne7").remove();
+			d3.select("#e7thA7").remove();
 
 			//remove five ellipse drawing
 
@@ -1432,6 +1513,15 @@ function listOperation(){
 			d3.select("#e5th3").remove();	
 			d3.select("#e5th4").remove();
 			d3.select("#e5th5").remove();
+			
+			d3.select("#e5thTl1").remove();
+			d3.select("#e5thTl2").remove();
+			d3.select("#e5thTl3").remove();
+			d3.select("#e5thTl4").remove();
+			d3.select("#e5thTl5").remove();
+
+			d3.select("#pathDe1ne2ne3ne4ne5").remove();
+			d3.select("#e5thA5").remove();
 
 			//remove four ellipse drawing
 			d3.select("#e4th1").remove();		
