@@ -350,12 +350,12 @@ function listOperation(){
 		//draw triangle
 
 		//drawTriangle(d, fillColor, textX, textY, listName, listContent, trID, tID, listCount, trRemove, tRemove);
-		drawTriangle("M -69.277 -32.868 L 135.580 121.186 L  70.900 199.427 Z", "#00bf00", 0,50, "List 1: ", s1.array().join("\n"), "tr1", "trx1", s1.array().length, "#tr1", "#trx1"); //1
-		drawTriangle("M  81.988 -44.426 L  38.444 206.222 L 121.044 165.111 Z", "#007fff", 82,20, "List 2: ", s2.array().join("\n"), "tr2", "trx2", s2.array().length, "#tr2", "#trx2"); //2
-		drawTriangle("M 203.271   9.619 L  39.604  82.683 L  84.652 206.669 Z", "#ff3433", 160,60, "List 3: ", s3.array().join("\n"), "tr3", "trx3", s3.array().length, "#tr3", "#trx3"); //3
-		drawTriangle("M 333.561 225.349 L  61.764  76.805 L  38.980 182.461 Z", "#A57706", 180,180, "List 4: ", s4.array().join("\n"), "tr4", "trx4", s4.array().length, "#tr4", "#trx4"); //4
-		drawTriangle("M 131.886 385.785 L  38.136 111.491 L  94.208  24.690 Z", "#BD3613", 100,250, "List 5: ", s5.array().join("\n"), "tr5", "trx5", s5.array().length, "#tr5", "#trx5"); //5
-		drawTriangle("M -60.184 274.046 L 142.476  39.903 L 103.276 183.962 Z", "#c09853", 20,220, "List 6: ", s6.array().join("\n"), "tr6", "trx6", s6.array().length, "#tr6", "#trx6"); //6
+		drawTriangle("M -69.277 -32.868 L 135.580 121.186 L  70.900 199.427 Z", "#00bf00", 95,115, "List 1: ", s1.array().join("\n"), "tr1", "trx1", s1.array().length, "#tr1", "#trx1"); //1
+		drawTriangle("M  81.988 -44.426 L  38.444 206.222 L 121.044 165.111 Z", "#007fff", 288,88, "List 2: ", s2.array().join("\n"), "tr2", "trx2", s2.array().length, "#tr2", "#trx2"); //2
+		drawTriangle("M 203.271   9.619 L  39.604  82.683 L  84.652 206.669 Z", "#ff3433", 460,145, "List 3: ", s3.array().join("\n"), "tr3", "trx3", s3.array().length, "#tr3", "#trx3"); //3
+		drawTriangle("M 333.561 225.349 L  61.764  76.805 L  38.980 182.461 Z", "#A57706", 532,430, "List 4: ", s4.array().join("\n"), "tr4", "trx4", s4.array().length, "#tr4", "#trx4"); //4
+		drawTriangle("M 131.886 385.785 L  38.136 111.491 L  94.208  24.690 Z", "#BD3613", 328,548, "List 5: ", s5.array().join("\n"), "tr5", "trx5", s5.array().length, "#tr5", "#trx5"); //5
+		drawTriangle("M -60.184 274.046 L 142.476  39.903 L 103.276 183.962 Z", "#c09853", 127,500, "List 6: ", s6.array().join("\n"), "tr6", "trx6", s6.array().length, "#tr6", "#trx6"); //6
 
 		drawTriangleIntersectionArea();
 	} else if (s5.array().length > 0  && s5.array()[0] != "") {
@@ -1626,7 +1626,7 @@ function listOperation(){
 	    	//draw a Triangle
 			gvennStage.append("path")
 	    			  .attr("d", d)
-	    			  .attr("transform", "translate(120,70)")
+	    			  .attr("transform", "scale(1.8) translate(80,45)")
 	    			  .attr("id", trID)
 	    			  //.attr("transform", "scale(2)")
 					  .style("fill-opacity", 0.3)
@@ -1671,7 +1671,6 @@ function listOperation(){
 			gvennStage.append("text")
 		    		.attr("id", tID)
 			        .attr("class", "text")
-			        .attr("transform", "translate(115,70)")
 			        .text(listCount)
 			        .attr("x", textX)
 			        .attr("y", textY)
@@ -1688,7 +1687,8 @@ function listOperation(){
         gvennStage.append("path")
 	    		.attr("d", pathDt1nt2nt3nt4nt5nt6)
 	    		.attr("id", "pathDt1nt2nt3nt4nt5nt6")
-	    		.attr("transform", "translate(50,30)")// update later
+	    		//.attr("transform", "translate(50,30)")// update later
+	    		.attr("transform", "scale(1.8) translate(10,6)")
 		        .style("fill", "black")
 				.style("fill-opacity", 0)
 				.style("stroke", "white")
@@ -1715,7 +1715,7 @@ function listOperation(){
 	    gvennStage.append("text")
 				.attr("id", "tA15")
 		        .attr("class", "text")
-		        .attr("transform", "translate(50,30)")// update later
+		        .attr("transform", "translate(140,160)")// update later
 		        .text(s1ns2ns3ns4ns5.intersection(s6).array().length)
 		        .attr("x", 150.66335)
 		        .attr("y", 187.0728)
