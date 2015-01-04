@@ -62,6 +62,104 @@ var s7 = new sets.Set([]);
 // 					'G000010'
 // 					]);
 
+//load sample json file
+/////////////////////////////////////////////////////////////////////////////////////////
+
+/*var path = "";
+ d3.select("#files").on("change" ,function(){
+ 	path = this.value;
+ 	path = path.replace(/^C:\\fakepath\\/, "")
+ 	console.log(path);
+
+ });*/
+
+d3.select("#button").on("click" ,function() { 
+
+	var json = require('./sample.json');
+	//var json = require(path);
+	//console.log(json);
+	var listvalue;
+	s1 = new sets.Set([]);
+	s2 = new sets.Set([]);
+	s3 = new sets.Set([]);
+	s4 = new sets.Set([]);
+	s5 = new sets.Set([]);
+	s6 = new sets.Set([]);
+	s7 = new sets.Set([]);
+	d3.select('#s1').node().value = ""; 
+	d3.select('#s2').node().value = ""; 
+	d3.select('#s3').node().value = ""; 
+	d3.select('#s4').node().value = ""; 
+	d3.select('#s5').node().value = ""; 
+	d3.select('#s6').node().value = ""; 
+	d3.select('#s7').node().value = ""; 
+
+	for (key in json) {
+	    for (subKey in json[key]) {
+	        if(key == 's1'){
+
+	            d3.select('#s1').node().value += json[key][subKey]; 
+	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
+	            	 d3.select('#s1').node().value += "\n";
+	            }
+	            listvalue = json[key];
+				s1 = new sets.Set(listvalue);
+	        }
+	        if(key == 's2'){
+	            d3.select('#s2').node().value += json[key][subKey]; 
+	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
+	            	d3.select('#s2').node().value += "\n";
+	            } 
+	            listvalue = json[key];
+				s2 = new sets.Set(listvalue);  
+	        }
+	        if(key == 's3'){
+	            d3.select('#s3').node().value += json[key][subKey]; 
+	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
+	            	d3.select('#s3').node().value += "\n";
+	            }
+	            listvalue = json[key];
+				s3 = new sets.Set(listvalue);
+	        }
+	        if(key == 's4'){
+	            d3.select('#s4').node().value += json[key][subKey]; 
+	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
+	            	d3.select('#s4').node().value += "\n";
+	            }   
+	            listvalue = json[key];
+				s4 = new sets.Set(listvalue);
+	        }
+	        if(key == 's5'){
+	            d3.select('#s5').node().value += json[key][subKey]; 
+	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
+	            	d3.select('#s5').node().value += "\n";
+	            }   
+	            listvalue = json[key];
+				s5 = new sets.Set(listvalue);
+	        }
+	        if(key == 's6'){
+	            d3.select('#s6').node().value += json[key][subKey]; 
+	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
+	            	d3.select('#s6').node().value += "\n";
+	            }   
+	            listvalue = json[key];
+				s6 = new sets.Set(listvalue);
+	        }
+	        if(key == 's7'){
+	            d3.select('#s7').node().value += json[key][subKey]; 
+	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
+	            	d3.select('#s7').node().value += "\n";
+	            }   
+	            listvalue = json[key];
+				s7 = new sets.Set(listvalue);
+	        }
+	    }
+	}
+	listOperation();
+});
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 //take user input from textarea
 //once the value changed it calls fucntion update to update the list
 //---
@@ -130,7 +228,7 @@ function update7 (listvalue){
 
 //define drawing canvas/
 var w = 746,
-	h = 742;
+	h = 900;
 
 var gvennStage = d3.select("#first")
 		.append("svg")
@@ -684,6 +782,15 @@ function listOperation(){
 			        tooltip.style("left", (d3.event.pageX + 100) + "px")
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
+			    .on("click", function() {
+			    	gvennStage.append("text")
+				    		.attr("id", "text20")
+					        .attr("class", "text")
+					        .text(s1.intersection(s2).array().join("\n"))
+					        .attr("x", 290)
+					        .attr("y", 500)
+					        .attr("fill",  "black")
+						    })
 
 		  	}
 
@@ -800,135 +907,6 @@ function listOperation(){
 	    }
 	};
 	
-
-	// function drawEllipse(tX, tY, rA, fillColor, textX, textY, listName, listContent, eID, tID, listCount, eRemove, tRemove) {
-
-	// 	d3.select(eRemove).remove();
-	// 	d3.select(tRemove).remove();
-
-    	
- //    	//remove seven ellipse drawing
-	// 	d3.select("#e7th1").remove();		
-	// 	d3.select("#e7th2").remove();	
-	// 	d3.select("#e7th3").remove();	
-	// 	d3.select("#e7th4").remove();
-	// 	d3.select("#e7th5").remove();	
-	// 	d3.select("#e7th6").remove();	
-	// 	d3.select("#e7th7").remove();
-	// 	d3.select("#e7thTl1").remove();
-	// 	d3.select("#e7thTl2").remove();
-	// 	d3.select("#e7thTl3").remove();
-	// 	d3.select("#e7thTl4").remove();
-	// 	d3.select("#e7thTl5").remove();
-	// 	d3.select("#e7thTl6").remove();
-	// 	d3.select("#e7thTl7").remove();
-
-	// 	d3.select("#pathDe1ne2ne3ne4ne5ne6ne7").remove();
-	// 	d3.select("#e7thA7").remove();
-
-	// 	//remove five ellipse drawing
-	// 	d3.select("#e5th1").remove();		
-	// 	d3.select("#e5th2").remove();	
-	// 	d3.select("#e5th3").remove();	
-	// 	d3.select("#e5th4").remove();
-	// 	d3.select("#e5th5").remove();
-	// 	d3.select("#e5thTl1").remove();		
-	// 	d3.select("#e5thTl2").remove();	
-	// 	d3.select("#e5thTl3").remove();	
-	// 	d3.select("#e5thTl4").remove();
-	// 	d3.select("#e5thTl5").remove();
-	// 	d3.select("#pathDe1ne2ne3ne4ne5").remove();
-	// 	d3.select("#e5thA5").remove();
-
-		
-	// 	d3.select("#circle1").remove();		
-	// 	d3.select("#circle2").remove();	
-	// 	d3.select("#circle3").remove();	
-	// 	d3.select("#text1").remove();	
-	// 	d3.select("#text2").remove();	
-	// 	d3.select("#text3").remove();	
-	// 	d3.select("#text4").remove();	
-	// 	d3.select("#text5").remove();	
-	// 	d3.select("#text6").remove();	
-	// 	d3.select("#text7").remove();
-	// 	d3.select("#paths1ns2").remove();	
-	// 	d3.select("#paths1ns3").remove();	
-	// 	d3.select("#paths1ns2ns3").remove();
-
-
-	// 	d3.select("#tr1").remove();	
-	// 	d3.select("#tr2").remove();
- //    	d3.select("#tr3").remove();
- //    	d3.select("#tr4").remove();
- //    	d3.select("#tr5").remove();
- //    	d3.select("#tr6").remove();
- //    	d3.select("#trx1").remove();
- //    	d3.select("#trx2").remove();
- //    	d3.select("#trx3").remove();
- //    	d3.select("#trx4").remove();
- //    	d3.select("#trx5").remove();
- //    	d3.select("#trx6").remove();
- //    	d3.select("#pathDt1nt2nt3nt4nt5nt6").remove();
-	// 	d3.select("#tA15").remove();
-
-
-	// 	gvennStage.append("ellipse")
- //    			  .attr("cx", 200)
- //    			  .attr("cy", 50)
- //    			  .attr("rx", 200)
- //    			  .attr("ry", 120)
- //    			  .attr("id", eID)
-	// 			  .attr("transform", function(d) { return "translate(" + tX + "," + tY + ") rotate(" + rA + ")" ; })
-	// 			  .style("fill-opacity", 0.3)
-	// 			  .style("stroke-opacity", 0)
-	// 		      .style("stroke", "#259286")
-	// 		      .style("stroke-width", "0")
-	// 			  .style("fill", fillColor)
-	// 			  .on("mouseover", function(){ 
-	// 		        d3.select(this).transition()
-	// 		        	.style("fill-opacity", 0.5)
-	// 		        	.style("stroke", "#259286")
-	// 		        	.style("stroke-width", "1")
-	// 		        	.style("stroke-opacity", 1);
-
-	// 				//Update the tooltip position and value
-	// 				d3.select("#tooltip")
-	// 						.style("left", (d3.event.pageX - 100) + "px")
-	// 						.style("top", (d3.event.pageY - 100) + "px")
-	// 						.select("#v")
-	// 						.text(listName);
-	// 				d3.select("#tooltip")
-	// 					.style("left", (d3.event.pageX - 100) + "px")
-	// 					.style("top", (d3.event.pageY - 100) + "px")						
-	// 					.select("#value")
-	// 					.text(listContent);
-
-	// 				//Show the tooltip
-	// 				d3.select("#tooltip").classed("hidden", false);
-	// 	     	})
-	// 	    	.on("mouseout", function(){ 
-	// 		       d3.select(this)
-	// 		         .style("fill-opacity", 0.2)
-	// 	             .style("stroke-opacity", 0);
-	// 		       //Hide the tooltip
-	// 				d3.select("#tooltip").classed("hidden", true);      
-	// 		     })
-	// 	    	 .on("mousemove", function() {
-	// 			        d3.select("#tooltip")
-	// 					.style("left", (d3.event.pageX - 100) + "px")
-	// 					.style("top", (d3.event.pageY - 100) + "px")	
-	// 			    })
-	// 			gvennStage.append("text")
-	// 	    		.attr("id", tID)
-	// 		        .attr("class", "text")
-	// 		        .text(listCount)
-	// 		        .attr("x", textX)
-	// 		        .attr("y", textY)
-	// 		        .attr("fill",  "black")	
-
-		
-	// };
-
 	function drawEllipseBase(cX, cY, rX, rY, rotationAng, fillColor, listName, listContent, eID, tID, eRemove, tRemove, listCount, textX, textY) {
 
 		d3.select(eRemove).remove();
@@ -1559,430 +1537,6 @@ function listOperation(){
 		        .attr("fill",  "black")
 	};
 		
-	// function drawIntersectionArea() {
-	// 	d3.select("#tA1").remove();
-	// 	d3.select("#tA2").remove();
-	// 	d3.select("#tA3").remove();
-	// 	d3.select("#tA4").remove();
-	// 	d3.select("#tA5").remove();
-	// 	d3.select("#tA6").remove();
-	// 	d3.select("#tA7").remove();
-	// 	d3.select("#tA8").remove();
-	// 	d3.select("#tA9").remove();
-	// 	d3.select("#tA10").remove();
-	// 	d3.select("#tA11").remove();
-
-	// 	d3.select("#pathDe1ne2").remove();
-	// 	d3.select("#pathDe1ne3").remove();
-	// 	d3.select("#pathDe1ne4").remove();
-	// 	d3.select("#pathDe2ne3").remove();
-	// 	d3.select("#pathDe2ne4").remove();
-	// 	d3.select("#pathDe3ne4").remove();
-	// 	d3.select("#pathDe1ne2ne3").remove();
-	// 	d3.select("#pathDe1ne2ne4").remove();
-	// 	d3.select("#pathDe1ne3ne4").remove();
-	// 	d3.select("#pathDe2ne3ne4").remove();
-	// 	d3.select("#pathDe1ne2ne3ne4").remove();
-		
-	// 	//L1nL2 intersection area
- //        gvennStage.append("path")
-	//     		.attr("d", pathDe1ne2)
-	//     		.attr("id", "pathDe1ne2")
-	// 	        .style("fill", "black")
-	// 			.style("fill-opacity", 0)
-	// 			.style("stroke", "white")
-	// 			.style("stroke-width", "2")
-	// 			.style("stroke-opacity", 0)
-	// 		    .on("mouseover", function() {
-	// 		        d3.select(this).transition()
-	// 		            .style("fill-opacity", .1)
-	// 		            .style("stroke-opacity", 1);
-	// 		       	tooltip.transition().style("opacity", .9);
-	// 		        tooltip.text("L1∩L2: \n" + s1.intersection(s2).array().join("\n"));
-	// 		    })
-	// 		    .on("mouseout", function() {
-	// 		        d3.select(this).transition()
-	// 		            .style("fill-opacity", 0)
-	// 		            .style("stroke-opacity", 0);
-	// 		        tooltip.transition().style("opacity", 0);
-	// 		    })
-	// 		    .on("mousemove", function() {
-	// 		        tooltip.style("left", (d3.event.pageX + 100) + "px")
-	// 		             	.style("top", (d3.event.pageY - 100) + "px");
-	// 		    })
-	// 	//L1nL2 intersection area list count text
-	//     gvennStage.append("text")
-	// 			.attr("id", "tA1")
-	// 	        .attr("class", "text")
-	// 	        .text(s1.intersection(s2).array().length)
-	// 	        .attr("x", 290)
-	// 	        .attr("y", 370)
-	// 	        .attr("fill",  "black")	
-
-
-	// 	//L1nL3 intersection area
- //        gvennStage.append("path")
-	//     		.attr("d", pathDe1ne3)
-	//     		.attr("id", "pathDe1ne3")
-	// 	        .style("fill", "black")
-	// 			.style("fill-opacity", 0)
-	// 			.style("stroke", "white")
-	// 			.style("stroke-width", "2")
-	// 			.style("stroke-opacity", 0)
-	// 		    .on("mouseover", function() {
-	// 		        d3.select(this).transition()
-	// 		            .style("fill-opacity", .1)
-	// 		            .style("stroke-opacity", 1);
-	// 		       	tooltip.transition().style("opacity", .9);
-	// 		        tooltip.text("L1∩L3: \n" + s1.intersection(s3).array().join("\n"));
-	// 		    })
-	// 		    .on("mouseout", function() {
-	// 		        d3.select(this).transition()
-	// 		            .style("fill-opacity", 0)
-	// 		            .style("stroke-opacity", 0);
-	// 		        tooltip.transition().style("opacity", 0);
-	// 		    })
-	// 		    .on("mousemove", function() {
-	// 		        tooltip.style("left", (d3.event.pageX + 100) + "px")
-	// 		             	.style("top", (d3.event.pageY - 100) + "px");
-	// 		    })
-	// 	//L1nL3 intersection area list count text
-	//     gvennStage.append("text")
-	// 			.attr("id", "tA2")
-	// 	        .attr("class", "text")
-	// 	        .text(s1.intersection(s3).array().length)
-	// 	        .attr("x", 145)
-	// 	        .attr("y", 145)
-	// 	        .attr("fill",  "black")
-
-
-	// 	//L1nL4 intersection area
- //        gvennStage.append("path")
-	//     		.attr("d", pathDe1ne4)
-	//     		.attr("id", "pathDe1ne4")
-	// 	        .style("fill", "black")
-	// 			.style("fill-opacity", 0)
-	// 			.style("stroke", "white")
-	// 			.style("stroke-width", "2")
-	// 			.style("stroke-opacity", 0)
-	// 		    .on("mouseover", function() {
-	// 		        d3.select(this).transition()
-	// 		            .style("fill-opacity", .1)
-	// 		            .style("stroke-opacity", 1);
-	// 		       	tooltip.transition().style("opacity", .9);
-	// 		        tooltip.text("L1∩L4: \n" + s1.intersection(s4).array().join("\n"));
-	// 		    })
-	// 		    .on("mouseout", function() {
-	// 		        d3.select(this).transition()
-	// 		            .style("fill-opacity", 0)
-	// 		            .style("stroke-opacity", 0);
-	// 		        tooltip.transition().style("opacity", 0);
-	// 		    })
-	// 		    .on("mousemove", function() {
-	// 		        tooltip.style("left", (d3.event.pageX + 100) + "px")
-	// 		             	.style("top", (d3.event.pageY - 100) + "px");
-	// 		    })
-	// 	//L1nL4 intersection area list count text
-	//     gvennStage.append("text")
-	// 			.attr("id", "tA3")
-	// 	        .attr("class", "text")
-	// 	        .text(s1.intersection(s4).array().length)
-	// 	        .attr("x", 180)
-	// 	        .attr("y", 305)
-	// 	        .attr("fill",  "black")
-
-
-	// 	//L2nL3 intersection area
- //        gvennStage.append("path")
-	//     		.attr("d", pathDe2ne3)
-	//     		.attr("id", "pathDe2ne3")
-	// 	        .style("fill", "black")
-	// 			.style("fill-opacity", 0)
-	// 			.style("stroke", "white")
-	// 			.style("stroke-width", "2")
-	// 			.style("stroke-opacity", 0)
-	// 		    .on("mouseover", function() {
-	// 		        d3.select(this).transition()
-	// 		            .style("fill-opacity", .1)
-	// 		            .style("stroke-opacity", 1);
-	// 		       	tooltip.transition().style("opacity", .9);
-	// 		        tooltip.text("L2∩L3: \n" + s2.intersection(s3).array().join("\n"));
-	// 		    })
-	// 		    .on("mouseout", function() {
-	// 		        d3.select(this).transition()
-	// 		            .style("fill-opacity", 0)
-	// 		            .style("stroke-opacity", 0);
-	// 		        tooltip.transition().style("opacity", 0);
-	// 		    })
-	// 		    .on("mousemove", function() {
-	// 		        tooltip.style("left", (d3.event.pageX + 100) + "px")
-	// 		             	.style("top", (d3.event.pageY - 100) + "px");
-	// 		    })
-	// 	//L2nL3 intersection area list count text
-	//     gvennStage.append("text")
-	// 			.attr("id", "tA4")
-	// 	        .attr("class", "text")
-	// 	        .text(s2.intersection(s3).array().length)
-	// 	        .attr("x", 405)
-	// 	        .attr("y", 305)
-	// 	        .attr("fill",  "black")
-
-
-
-	// 	//L2nL4 intersection area
- //        gvennStage.append("path")
-	//     		.attr("d", pathDe2ne4)
-	//     		.attr("id", "pathDe2ne4")
-	// 	        .style("fill", "black")
-	// 			.style("fill-opacity", 0)
-	// 			.style("stroke", "white")
-	// 			.style("stroke-width", "2")
-	// 			.style("stroke-opacity", 0)
-	// 		    .on("mouseover", function() {
-	// 		        d3.select(this).transition()
-	// 		            .style("fill-opacity", .1)
-	// 		            .style("stroke-opacity", 1);
-	// 		       	tooltip.transition().style("opacity", .9);
-	// 		        tooltip.text("L2∩L4: \n" + s2.intersection(s4).array().join("\n"));
-	// 		    })
-	// 		    .on("mouseout", function() {
-	// 		        d3.select(this).transition()
-	// 		            .style("fill-opacity", 0)
-	// 		            .style("stroke-opacity", 0);
-	// 		        tooltip.transition().style("opacity", 0);
-	// 		    })
-	// 		    .on("mousemove", function() {
-	// 		        tooltip.style("left", (d3.event.pageX + 100) + "px")
-	// 		             	.style("top", (d3.event.pageY - 100) + "px");
-	// 		    })
-	// 	//L2nL4 intersection area list count text
-	//     gvennStage.append("text")
-	// 			.attr("id", "tA5")
-	// 	        .attr("class", "text")
-	// 	        .text(s2.intersection(s4).array().length)
-	// 	        .attr("x", 489)
-	// 	        .attr("y", 309)
-	// 	        .attr("fill",  "black")
-
-
-	// 	//L3nL4 intersection area
- //        gvennStage.append("path")
-	//     		.attr("d", pathDe3ne4)
-	//     		.attr("id", "pathDe3ne4")
-	// 	        .style("fill", "black")
-	// 			.style("fill-opacity", 0)
-	// 			.style("stroke", "white")
-	// 			.style("stroke-width", "2")
-	// 			.style("stroke-opacity", 0)
-	// 		    .on("mouseover", function() {
-	// 		        d3.select(this).transition()
-	// 		            .style("fill-opacity", .1)
-	// 		            .style("stroke-opacity", 1);
-	// 		       	tooltip.transition().style("opacity", .9);
-	// 		        tooltip.text("L3∩L4: \n" + s3.intersection(s4).array().join("\n"));
-	// 		    })
-	// 		    .on("mouseout", function() {
-	// 		        d3.select(this).transition()
-	// 		            .style("fill-opacity", 0)
-	// 		            .style("stroke-opacity", 0);
-	// 		        tooltip.transition().style("opacity", 0);
-	// 		    })
-	// 		    .on("mousemove", function() {
-	// 		        tooltip.style("left", (d3.event.pageX + 100) + "px")
-	// 		             	.style("top", (d3.event.pageY - 100) + "px");
-	// 		    })
-	// 	//L3nL4 intersection area list count text
-	//     gvennStage.append("text")
-	// 			.attr("id", "tA6")
-	// 	        .attr("class", "text")
-	// 	        .text(s3.intersection(s4).array().length)
-	// 	        .attr("x", 433)
-	// 	        .attr("y", 141)
-	// 	        .attr("fill",  "black")
-
-	// 	//L1nL2nL3 intersection area
- //        gvennStage.append("path")
-	//     		.attr("d", pathDe1ne2ne3)
-	//     		.attr("id", "pathDe1ne2ne3")
-	// 	        .style("fill", "black")
-	// 			.style("fill-opacity", 0)
-	// 			.style("stroke", "white")
-	// 			.style("stroke-width", "2")
-	// 			.style("stroke-opacity", 0)
-	// 		    .on("mouseover", function() {
-	// 		        d3.select(this).transition()
-	// 		            .style("fill-opacity", .1)
-	// 		            .style("stroke-opacity", 1);
-	// 		       	tooltip.transition().style("opacity", .9);
-	// 		        tooltip.text("L1∩L2∩L3: \n" + s1ns2.intersection(s3).array().join("\n"));
-	// 		    })
-	// 		    .on("mouseout", function() {
-	// 		        d3.select(this).transition()
-	// 		            .style("fill-opacity", 0)
-	// 		            .style("stroke-opacity", 0);
-	// 		        tooltip.transition().style("opacity", 0);
-	// 		    })
-	// 		    .on("mousemove", function() {
-	// 		        tooltip.style("left", (d3.event.pageX + 100) + "px")
-	// 		             	.style("top", (d3.event.pageY - 100) + "px");
-	// 		    })
-	// 	//L1nL2nL3 intersection area list count text
-	//     gvennStage.append("text")
-	// 			.attr("id", "tA7")
-	// 	        .attr("class", "text")
-	// 	        .text(s1ns2.intersection(s3).array().length)
-	// 	        .attr("x", 360)
-	// 	        .attr("y", 330)
-	// 	        .attr("fill",  "black")
-
-
-	// 	//L1nL2nL4 intersection area
- //        gvennStage.append("path")
-	//     		.attr("d", pathDe1ne2ne4)
-	//     		.attr("id", "pathDe1ne2ne4")
-	// 	        .style("fill", "black")
-	// 			.style("fill-opacity", 0)
-	// 			.style("stroke", "white")
-	// 			.style("stroke-width", "2")
-	// 			.style("stroke-opacity", 0)
-	// 		    .on("mouseover", function() {
-	// 		        d3.select(this).transition()
-	// 		            .style("fill-opacity", .1)
-	// 		            .style("stroke-opacity", 1);
-	// 		       	tooltip.transition().style("opacity", .9);
-	// 		        tooltip.text("L1∩L2∩L4: \n" + s1ns2.intersection(s4).array().join("\n"));
-	// 		    })
-	// 		    .on("mouseout", function() {
-	// 		        d3.select(this).transition()
-	// 		            .style("fill-opacity", 0)
-	// 		            .style("stroke-opacity", 0);
-	// 		        tooltip.transition().style("opacity", 0);
-	// 		    })
-	// 		    .on("mousemove", function() {
-	// 		        tooltip.style("left", (d3.event.pageX + 100) + "px")
-	// 		             	.style("top", (d3.event.pageY - 100) + "px");
-	// 		    })
-	// 	//L1nL2nL4 intersection area list count text
-	//     gvennStage.append("text")
-	// 			.attr("id", "tA8")
-	// 	        .attr("class", "text")
-	// 	        .text(s1ns2.intersection(s4).array().length)
-	// 	        .attr("x", 230)
-	// 	        .attr("y", 330)
-	// 	        .attr("fill",  "black")
-
-
-
-	// 	//L1nL3nL4 intersection area
- //        gvennStage.append("path")
-	//     		.attr("d", pathDe1ne3ne4)
-	//     		.attr("id", "pathDe1ne3ne4")
-	// 	        .style("fill", "black")
-	// 			.style("fill-opacity", 0)
-	// 			.style("stroke", "white")
-	// 			.style("stroke-width", "2")
-	// 			.style("stroke-opacity", 0)
-	// 		    .on("mouseover", function() {
-	// 		        d3.select(this).transition()
-	// 		            .style("fill-opacity", .1)
-	// 		            .style("stroke-opacity", 1);
-	// 		       	tooltip.transition().style("opacity", .9);
-	// 		        tooltip.text("L1∩L3∩L4: \n" + s1ns3.intersection(s4).array().join("\n"));
-	// 		    })
-	// 		    .on("mouseout", function() {
-	// 		        d3.select(this).transition()
-	// 		            .style("fill-opacity", 0)
-	// 		            .style("stroke-opacity", 0);
-	// 		        tooltip.transition().style("opacity", 0);
-	// 		    })
-	// 		    .on("mousemove", function() {
-	// 		        tooltip.style("left", (d3.event.pageX + 100) + "px")
-	// 		             	.style("top", (d3.event.pageY - 100) + "px");
-	// 		    })
-	// 	//L1nL3nL4 intersection area list count text
-	//     gvennStage.append("text")
-	// 			.attr("id", "tA9")
-	// 	        .attr("class", "text")
-	// 	        .text(s1ns3.intersection(s4).array().length)
-	// 	        .attr("x", 210)
-	// 	        .attr("y", 205)
-	// 	        .attr("fill",  "black")
-
-
-	// 	//L2nL3nL4 intersection area
- //        gvennStage.append("path")
-	//     		.attr("d", pathDe2ne3ne4)
-	//     		.attr("id", "pathDe2ne3ne4")
-	// 	        .style("fill", "black")
-	// 			.style("fill-opacity", 0)
-	// 			.style("stroke", "white")
-	// 			.style("stroke-width", "2")
-	// 			.style("stroke-opacity", 0)
-	// 		    .on("mouseover", function() {
-	// 		        d3.select(this).transition()
-	// 		            .style("fill-opacity", .1)
-	// 		            .style("stroke-opacity", 1);
-	// 		       	tooltip.transition().style("opacity", .9);
-	// 		        tooltip.text("L2∩L3∩L4: \n" + s2ns3.intersection(s4).array().join("\n"));
-	// 		    })
-	// 		    .on("mouseout", function() {
-	// 		        d3.select(this).transition()
-	// 		            .style("fill-opacity", 0)
-	// 		            .style("stroke-opacity", 0);
-	// 		        tooltip.transition().style("opacity", 0);
-	// 		    })
-	// 		    .on("mousemove", function() {
-	// 		        tooltip.style("left", (d3.event.pageX + 100) + "px")
-	// 		             	.style("top", (d3.event.pageY - 100) + "px");
-	// 		    })
-	// 	//L2nL3nL4 intersection area list count text
-	//     gvennStage.append("text")
-	// 			.attr("id", "tA10")
-	// 	        .attr("class", "text")
-	// 	        .text(s2ns3.intersection(s4).array().length)
-	// 	        .attr("x", 380)
-	// 	        .attr("y", 205)
-	// 	        .attr("fill",  "black")
-
-
-
-	// 	//L1nL2nL3nL4 intersection area
- //        gvennStage.append("path")
-	//     		.attr("d", pathDe1ne2ne3ne4)
-	//     		.attr("id", "pathDe1ne2ne3ne4")
-	// 	        .style("fill", "black")
-	// 			.style("fill-opacity", 0)
-	// 			.style("stroke", "white")
-	// 			.style("stroke-width", "2")
-	// 			.style("stroke-opacity", 0)
-	// 		    .on("mouseover", function() {
-	// 		        d3.select(this).transition()
-	// 		            .style("fill-opacity", .1)
-	// 		            .style("stroke-opacity", 1);
-	// 		       	tooltip.transition().style("opacity", .9);
-	// 		        tooltip.text("L1∩L2∩L3∩L4: \n" + s1ns2ns3.intersection(s4).array().join("\n"));
-	// 		    })
-	// 		    .on("mouseout", function() {
-	// 		        d3.select(this).transition()
-	// 		            .style("fill-opacity", 0)
-	// 		            .style("stroke-opacity", 0);
-	// 		        tooltip.transition().style("opacity", 0);
-	// 		    })
-	// 		    .on("mousemove", function() {
-	// 		        tooltip.style("left", (d3.event.pageX + 100) + "px")
-	// 		             	.style("top", (d3.event.pageY - 100) + "px");
-	// 		    })
-	// 	//L1nL2nL3nL4 intersection area list count text
-	//     gvennStage.append("text")
-	// 			.attr("id", "tA11")
-	// 	        .attr("class", "text")
-	// 	        .text(s1ns2ns3.intersection(s4).array().length)
-	// 	        .attr("x", 290)
-	// 	        .attr("y", 270)
-	// 	        .attr("fill",  "black")
-	
-	// };
-
 	function drawTriangle(d, fillcolor, textX, textY, listName, listContent, trID, tID, listCount, trRemove, tRemove) {
 			d3.select(trRemove).remove();
 			d3.select(tRemove).remove();
@@ -2125,24 +1679,6 @@ function listOperation(){
 			        .attr("fill",  "black")		  
 
 	}
-	// function drawTriangleContent(textX, textY) {
-	// 		gvennStage.append("g")
-	// 		    		.append("text")
-	// 		    		.attr("id", "text1")
-	// 			        .attr("class", "text")
-	// 			        .attr("transform", "translate(65,40)")
-	// 			        .text("1")
-	// 			        .attr("x", textX)
-	// 			        .attr("y", textY)
-	// 			        .attr("fill",  "black")	
-	// 	}
-
-	// drawTriangleContent(0,50);
-	// drawTriangleContent(82,20)
-	// drawTriangleContent(160,60)
-	// drawTriangleContent(180,180)
-	// drawTriangleContent(100,250)
-	// drawTriangleContent(20,220)
 
 	function drawTriangleIntersectionArea() {
 
@@ -2188,13 +1724,11 @@ function listOperation(){
 	
 	};
 
-
-	
 }
 
 module.exports = listOperation;
 
-},{"d3":2,"simplesets":3}],2:[function(require,module,exports){
+},{"./sample.json":4,"d3":2,"simplesets":3}],2:[function(require,module,exports){
 !function() {
   var d3 = {
     version: "3.5.2"
@@ -11999,4 +11533,15 @@ exports.StringSet = function(items) {
 };
 
 exports.StringSet.prototype = StringSetPrototype;
+},{}],4:[function(require,module,exports){
+module.exports={
+    "s1": ["G000001", "G000002", "G000003", "G000004", "G000005"],
+    "s2": ["G000001", "G000002", "G000003", "G000007", "G000008"],
+    "s3": ["G000001", "G000002", "G000003", "G000004", "G000012"],
+    "s4": ["G000001", "G000002", "G000003", "G000006", "G000004"],
+    "s5": ["G000001", "G000002", "G000003", "G000007", "G000008"],
+    "s6": ["G000001", "G000002", "G000003", "G000005", "G000004"],
+    "s7": ["G000001", "G000002", "G000003", "G000006", "G000008"]
+}
+
 },{}]},{},[1]);

@@ -61,6 +61,104 @@ var s7 = new sets.Set([]);
 // 					'G000010'
 // 					]);
 
+//load sample json file
+/////////////////////////////////////////////////////////////////////////////////////////
+
+/*var path = "";
+ d3.select("#files").on("change" ,function(){
+ 	path = this.value;
+ 	path = path.replace(/^C:\\fakepath\\/, "")
+ 	console.log(path);
+
+ });*/
+
+d3.select("#button").on("click" ,function() { 
+
+	var json = require('./sample.json');
+	//var json = require(path);
+	//console.log(json);
+	var listvalue;
+	s1 = new sets.Set([]);
+	s2 = new sets.Set([]);
+	s3 = new sets.Set([]);
+	s4 = new sets.Set([]);
+	s5 = new sets.Set([]);
+	s6 = new sets.Set([]);
+	s7 = new sets.Set([]);
+	d3.select('#s1').node().value = ""; 
+	d3.select('#s2').node().value = ""; 
+	d3.select('#s3').node().value = ""; 
+	d3.select('#s4').node().value = ""; 
+	d3.select('#s5').node().value = ""; 
+	d3.select('#s6').node().value = ""; 
+	d3.select('#s7').node().value = ""; 
+
+	for (key in json) {
+	    for (subKey in json[key]) {
+	        if(key == 's1'){
+
+	            d3.select('#s1').node().value += json[key][subKey]; 
+	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
+	            	 d3.select('#s1').node().value += "\n";
+	            }
+	            listvalue = json[key];
+				s1 = new sets.Set(listvalue);
+	        }
+	        if(key == 's2'){
+	            d3.select('#s2').node().value += json[key][subKey]; 
+	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
+	            	d3.select('#s2').node().value += "\n";
+	            } 
+	            listvalue = json[key];
+				s2 = new sets.Set(listvalue);  
+	        }
+	        if(key == 's3'){
+	            d3.select('#s3').node().value += json[key][subKey]; 
+	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
+	            	d3.select('#s3').node().value += "\n";
+	            }
+	            listvalue = json[key];
+				s3 = new sets.Set(listvalue);
+	        }
+	        if(key == 's4'){
+	            d3.select('#s4').node().value += json[key][subKey]; 
+	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
+	            	d3.select('#s4').node().value += "\n";
+	            }   
+	            listvalue = json[key];
+				s4 = new sets.Set(listvalue);
+	        }
+	        if(key == 's5'){
+	            d3.select('#s5').node().value += json[key][subKey]; 
+	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
+	            	d3.select('#s5').node().value += "\n";
+	            }   
+	            listvalue = json[key];
+				s5 = new sets.Set(listvalue);
+	        }
+	        if(key == 's6'){
+	            d3.select('#s6').node().value += json[key][subKey]; 
+	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
+	            	d3.select('#s6').node().value += "\n";
+	            }   
+	            listvalue = json[key];
+				s6 = new sets.Set(listvalue);
+	        }
+	        if(key == 's7'){
+	            d3.select('#s7').node().value += json[key][subKey]; 
+	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
+	            	d3.select('#s7').node().value += "\n";
+	            }   
+	            listvalue = json[key];
+				s7 = new sets.Set(listvalue);
+	        }
+	    }
+	}
+	listOperation();
+});
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 //take user input from textarea
 //once the value changed it calls fucntion update to update the list
 //---
@@ -129,7 +227,7 @@ function update7 (listvalue){
 
 //define drawing canvas/
 var w = 746,
-	h = 742;
+	h = 900;
 
 var gvennStage = d3.select("#first")
 		.append("svg")
@@ -683,6 +781,15 @@ function listOperation(){
 			        tooltip.style("left", (d3.event.pageX + 100) + "px")
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
+			    .on("click", function() {
+			    	gvennStage.append("text")
+				    		.attr("id", "text20")
+					        .attr("class", "text")
+					        .text(s1.intersection(s2).array().join("\n"))
+					        .attr("x", 290)
+					        .attr("y", 500)
+					        .attr("fill",  "black")
+						    })
 
 		  	}
 

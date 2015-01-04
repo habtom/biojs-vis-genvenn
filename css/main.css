@@ -72,8 +72,8 @@ a:focus {
 
 /*	modif */
 .navbar {
-	min-height: 70px;
-	padding-top: 10px;
+	min-height: 10px;
+	padding-top: 0px;
 	margin-bottom: 0px;
 }
 
@@ -166,7 +166,7 @@ a:focus {
 }
 
 .mtb {
-	margin-top: 80px;
+	margin-top: 0px;
 	margin-bottom: 80px;
 }
 
@@ -191,10 +191,10 @@ a:focus {
 
 #blue {
 	background: #00b3fe;
-	margin-top: 60px;
-	margin-bottom: 60px;
-	padding-top: 25px;
-	padding-bottom: 25px;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	padding-top: 15px;
+	padding-bottom: 0px;
 }
 
 #blue h3 {
@@ -322,7 +322,6 @@ csmall2 {
     border-radius: 1em;
     color:#00FFFF;
 }
-
 #title7 {
 	width: 100px;
     text-align:center;
@@ -391,3 +390,41 @@ csmall2 {
   word-wrap: break-word;
   overflow-x: auto;
 }
+#first {
+	margin-top: 250px;
+	margin-left: 150px;
+}
+
+#button {
+	margin-left: 20px;
+	margin-top: 18px;
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 17;
+  -moz-border-radius: 17;
+  border-radius: 17px;
+  -webkit-box-shadow: 0px 2px 3px #666666;
+  -moz-box-shadow: 0px 2px 3px #666666;
+  box-shadow: 0px 2px 3px #666666;
+  font-family: Courier New;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 5px 9px 5px 9px;
+  border: dotted #ffffff 0px;
+  text-decoration: none;
+}
+
+#button:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #2ce5eb);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #2ce5eb);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #2ce5eb);
+  background-image: -o-linear-gradient(top, #3cb0fd, #2ce5eb);
+  background-image: linear-gradient(to bottom, #3cb0fd, #2ce5eb);
+  text-decoration: none;
+}
+
