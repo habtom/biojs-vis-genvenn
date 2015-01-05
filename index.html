@@ -7,13 +7,12 @@
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">	
 
-
   </head>
 
   <body>
   	<div id="tooltip" class="hidden">
         <p><strong id="v"></strong></p>
-        <p><span id="value">100</span></p>
+        <p><span id="value"></span></p>
 	</div>
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
@@ -47,9 +46,7 @@
 	    </div> 
 	</div>
 
-
-
-	 <div class="container mtb">
+	<div class="container mtb">
 	 	<div class="row">
 	 		<div class="col-lg-3">
 		 		<h4>Gene Lists</h4>
@@ -57,79 +54,54 @@
 		 		<div class="spacing"></div>
 
 		 		<div id="container">
-					   <!-- <textarea id = "title1" class="form-control status-box" rows="1" placeholder="First List name"></textarea> -->
-					<div id = "title1">List 1</div>
-					<div class="List-group-1">
-					   <textarea  id = "s1" class="form-control status-box genelist" rows="5" placeholder="Please put first list here"></textarea>
+
+		 			<ul class='menu'>
+		 
+						<li><a href='#' tabindex='1' id = "title1">List 1</a> 
+					       <textarea  id = "s1" class="form-control status-box List-group-1" rows="5" placeholder="Please put first list here"></textarea>
+						</li>
+				
+						<li><a href='#' tabindex='1' id = "title2" >List 2</a>
+						   <textarea  id = "s2" class="form-control status-box List-group-2" rows="5" placeholder="Please put first list here"></textarea>
+						</li>
+					
+						<li><a href='#' tabindex='1' id = "title3" >List 3</a>
+							<textarea id = "s3" class="form-control List-group-3" rows="5" placeholder="Please put third list here"></textarea>
+						</li>
+			
+						<li><a href='#' tabindex='1' id = "title4" >List 4</a>
+						    <textarea id = "s4" class="form-control List-group-4" rows="5" placeholder="Please put fourth list here"></textarea>
+						</li>
+		
+						<li><a href='#' tabindex='1' id = "title5" >List 5</a>
+							<textarea id = "s5" class="form-control List-group-5" rows="5" placeholder="Please put fifth list here"></textarea>
+						</li>
+			
+						<li><a href='#' tabindex='1' id = "title6" >List 6</a>
+							<textarea id = "s6" class="form-control List-group-6" rows="5" placeholder="Please put sixth list here"></textarea>
+						</li>
+					
+						<li><a href='#' tabindex='1' id = "title7" >List 7</a>
+							<textarea id = "s7" class="form-control List-group-7" rows="5" placeholder="Please put sixth list here"></textarea>
+						</li>
+
+					</ul>
+
+					<p><input id="button" type="button"  class="btn btn-primary btn-lg" value="Load Sample"/></p>
+					
 					</div>
-
-					<div class="List-group-2-label">
-						<!-- <textarea id = "title2" class="form-control status-box" rows="1" placeholder="Second List name"></textarea> -->
-					</div>
-					  <div id = "title2">List 2</div>
-					  <div class="List-group-2">
-					   	<textarea id = "s2" class="form-control genelist" rows="5" placeholder="Please put second list here"></textarea>
-
-					  </div>
-
-					  <div class="List-group-3-label">
-
-					  <!--  <textarea id = "title3" class="form-control status-box" rows="1" placeholder="Third List name"></textarea> -->
-					  
-					  </div>
-					  <div id = "title3">List 3</div>
-					  <div class="List-group-3">
-					   	<textarea id = "s3" class="form-control genelist" rows="5" placeholder="Please put third list here"></textarea>
-
-					  </div>
-
-					  <div class="List-group-4-label">
-
-					   <!-- <textarea id = "title4" class="form-control status-box" rows="1" placeholder="Fourth List name"></textarea> -->
-					  
-					  </div>
-					  <div id = "title4">List 4</div>
-					  <div class="List-group-4">
-					   	<textarea id = "s4" class="form-control genelist" rows="5" placeholder="Please put fourth list here"></textarea>
-
-					  </div>
-
-					  <div id = "title5">List 5</div>
-					  <div class="List-group-5">
-					   	<textarea id = "s5" class="form-control genelist" rows="5" placeholder="Please put fifth list here"></textarea>
-					  </div>
-
-					  <div id = "title6">List 6</div>
-					  <div class="List-group-6">
-					   	<textarea id = "s6" class="form-control genelist" rows="5" placeholder="Please put sixth list here"></textarea>
-					  </div>
-
-					  <div id = "title7">List 7</div>
-					  <div class="List-group-7">
-					   	<textarea id = "s7" class="form-control genelist" rows="5" placeholder="Please put sixth list here"></textarea>
-					  </div>
-
-					</div>
-
-					<input id="button" type="button" value="Load Samples file"/>
-
-		 		
+					<div>
+				</div>
 	 		</div>
-	 		
-	 		<div class="col-lg-8">
+			
+			<!-- genvenn stage  -->	 		
+			<div class="col-lg-8">
 				<div id="first">
 
-
-				
 				</div>
-		 		
 			</div>
-	 		
-	 		
-	 		
-	 		
 	 	</div>
-	 </div>
+	</div>
 
 
 	 
