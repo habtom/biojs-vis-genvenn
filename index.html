@@ -41,7 +41,7 @@
 	<div id="blue">
 	    <div class="container">
 			<div class="row">
-				<h3>gene list venn diagram</h3>
+				<h3>gene list <sub><i> venn diagram</i></sub> </h3> 
 			</div>
 	    </div> 
 	</div>
@@ -51,38 +51,43 @@
 	 		<div class="col-lg-3">
 		 		<h4>Gene Lists</h4>
 		 		<div class="hline"></div>
-		 		<div class="spacing"></div>
-
 		 		<div id="container">
 
 		 			<ul class='menu'>
 		 
 						<li><a href='#' tabindex='1' id = "title1">List 1</a> 
 					       <textarea  id = "s1" class="form-control status-box List-group-1" rows="5" placeholder="Please put first list here"></textarea>
+					       <!-- <button id = "clear1" type="button">Clear</button> -->
 						</li>
 				
 						<li><a href='#' tabindex='1' id = "title2" >List 2</a>
 						   <textarea  id = "s2" class="form-control status-box List-group-2" rows="5" placeholder="Please put first list here"></textarea>
+						   <!-- <button id = "clear2" type="button">Clear</button> -->
 						</li>
 					
 						<li><a href='#' tabindex='1' id = "title3" >List 3</a>
 							<textarea id = "s3" class="form-control List-group-3" rows="5" placeholder="Please put third list here"></textarea>
+							<!-- <button id = "clear3" type="button">Clear</button> -->
 						</li>
 			
 						<li><a href='#' tabindex='1' id = "title4" >List 4</a>
 						    <textarea id = "s4" class="form-control List-group-4" rows="5" placeholder="Please put fourth list here"></textarea>
+						    <!-- <button id = "clear4" type="button">Clear</button> -->
 						</li>
 		
 						<li><a href='#' tabindex='1' id = "title5" >List 5</a>
 							<textarea id = "s5" class="form-control List-group-5" rows="5" placeholder="Please put fifth list here"></textarea>
+							<!-- <button id = "clear5" type="button">Clear</button> -->
 						</li>
 			
 						<li><a href='#' tabindex='1' id = "title6" >List 6</a>
 							<textarea id = "s6" class="form-control List-group-6" rows="5" placeholder="Please put sixth list here"></textarea>
+							<!-- <button id = "clear6" type="button">Clear</button> -->
 						</li>
 					
 						<li><a href='#' tabindex='1' id = "title7" >List 7</a>
 							<textarea id = "s7" class="form-control List-group-7" rows="5" placeholder="Please put sixth list here"></textarea>
+							<!-- <button id = "clear7" type="button">Clear</button> -->
 						</li>
 
 					</ul>
@@ -100,7 +105,14 @@
 
 				</div>
 			</div>
+			
 	 	</div>
+	 	<div id ="descriptionarea">
+			<div id = "description_title">Click on a venn diagram figure to display the linked elements: </div>
+			  <div class="description_area">
+				<textarea id = "description" class="form-control status-box genelist" rows="10" readonly></textarea>
+			</div>
+		</div>
 	</div>
 
 

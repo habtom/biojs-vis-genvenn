@@ -385,8 +385,8 @@ csmall2 {
   overflow-x: auto;
 }
 #first {
-	margin-top: 50px;
-	margin-left: 150px;
+	margin-top: 0px;
+	margin-left: 50px;
 }
 
 .btn-lg, .btn-group-lg > .btn {
@@ -398,6 +398,7 @@ csmall2 {
 ul {
   margin: 0;
   padding: 0;
+  margin-top: 10px;
   list-style: none;
 }
 a {
@@ -430,4 +431,35 @@ a:focus {
   display: block;
 }
 
+#description_title {
+	width: 600px;
+    text-align:center;
+	margin-top:180px;
+	margin-bottom:5px;
+	border:1px solid  #000000;
+    box-shadow: 0 0 10px #719ECE;
+    border-radius: 1em;
+    color:#000000;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
 
+  }
+
+#description { 
+	width: 600px;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+	border:1px solid #000000;
+    box-shadow: 0 0 10px #719ECE;
+    border-radius: 1em;
+    color:#000000;
+    opacity: 0.5;
+}
+#descriptionarea { 
+	display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+  	transform: translate(13%, -220%);
+}

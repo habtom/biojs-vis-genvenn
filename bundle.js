@@ -340,9 +340,9 @@ function listOperation(){
 		drawEllipseBase(220,288,200, 110, 0, "#00bf00", "List 1: ", s1.array().join("\n"), "e7th1", "e7thTl1", "#e7th1", "#e7thTl1", s1.array().length, 40, 294); //1st Ellipse
 		drawEllipseBase(216,246,200, 110, 51, "#007fff", "List 2: ", s2.array().join("\n"), "e7th2", "e7thTl2", "#e7th2", "#e7thTl2", s2.array().length, 96, 117); //2st Ellipse
 		drawEllipseBase(246,217,200, 110, 102, "#ff3433", "List 3: ", s3.array().join("\n"), "e7th3", "e7thTl3", "#e7th3", "#e7thTl3", s3.array().length, 273, 49); //3st Ellipse
-		drawEllipseBase(289,222,200, 110, 154, "#A57706", "List 4: ", s4.array().join("\n"), "e7th4", "e7thTl4", "#e7th4", "#e7thTl4", s4.array().length, 434, 152); //4st Ellipse
-		drawEllipseBase(310,258,200, 110, 25, "#A57706", "List 5: ", s5.array().join("\n"), "e7th5", "e7thTl5", "#e7th5", "#e7thTl5", s5.array().length, 458, 341); //5st Ellipse
-		drawEllipseBase(296,298,200, 110, 77, "#A57706", "List 6: ", s6.array().join("\n"), "e7th6", "e7thTl6", "#e7th6", "#e7thTl6", s6.array().length, 330, 472); //6st Ellipse
+		drawEllipseBase(289,222,200, 110, 154, "#E6E600", "List 4: ", s4.array().join("\n"), "e7th4", "e7thTl4", "#e7th4", "#e7thTl4", s4.array().length, 434, 152); //4st Ellipse
+		drawEllipseBase(310,258,200, 110, 25, "#FF9900", "List 5: ", s5.array().join("\n"), "e7th5", "e7thTl5", "#e7th5", "#e7thTl5", s5.array().length, 458, 341); //5st Ellipse
+		drawEllipseBase(296,298,200, 110, 77, "#0000CC", "List 6: ", s6.array().join("\n"), "e7th6", "e7thTl6", "#e7th6", "#e7thTl6", s6.array().length, 330, 472); //6st Ellipse
 		drawEllipseBase(256,311,200, 110, 135, "#ff00ff", "List 7: ", s7.array().join("\n"), "e7th7", "e7thTl7", "#e7th7", "#e7thTl7", s7.array().length, 132, 440); //7th Ellipse
 		
 		drawSevenSetIntersectionArea();
@@ -354,9 +354,9 @@ function listOperation(){
 		drawTriangle("M -69.277 -32.868 L 135.580 121.186 L  70.900 199.427 Z", "#00bf00", 95,115, "List 1: ", s1.array().join("\n"), "tr1", "trx1", s1.array().length, "#tr1", "#trx1"); //1
 		drawTriangle("M  81.988 -44.426 L  38.444 206.222 L 121.044 165.111 Z", "#007fff", 288,88, "List 2: ", s2.array().join("\n"), "tr2", "trx2", s2.array().length, "#tr2", "#trx2"); //2
 		drawTriangle("M 203.271   9.619 L  39.604  82.683 L  84.652 206.669 Z", "#ff3433", 460,145, "List 3: ", s3.array().join("\n"), "tr3", "trx3", s3.array().length, "#tr3", "#trx3"); //3
-		drawTriangle("M 333.561 225.349 L  61.764  76.805 L  38.980 182.461 Z", "#A57706", 532,430, "List 4: ", s4.array().join("\n"), "tr4", "trx4", s4.array().length, "#tr4", "#trx4"); //4
-		drawTriangle("M 131.886 385.785 L  38.136 111.491 L  94.208  24.690 Z", "#BD3613", 328,548, "List 5: ", s5.array().join("\n"), "tr5", "trx5", s5.array().length, "#tr5", "#trx5"); //5
-		drawTriangle("M -60.184 274.046 L 142.476  39.903 L 103.276 183.962 Z", "#c09853", 127,500, "List 6: ", s6.array().join("\n"), "tr6", "trx6", s6.array().length, "#tr6", "#trx6"); //6
+		drawTriangle("M 333.561 225.349 L  61.764  76.805 L  38.980 182.461 Z", "#E6E600", 532,430, "List 4: ", s4.array().join("\n"), "tr4", "trx4", s4.array().length, "#tr4", "#trx4"); //4
+		drawTriangle("M 131.886 385.785 L  38.136 111.491 L  94.208  24.690 Z", "#FF9900", 328,548, "List 5: ", s5.array().join("\n"), "tr5", "trx5", s5.array().length, "#tr5", "#trx5"); //5
+		drawTriangle("M -60.184 274.046 L 142.476  39.903 L 103.276 183.962 Z", "#0000CC", 127,500, "List 6: ", s6.array().join("\n"), "tr6", "trx6", s6.array().length, "#tr6", "#trx6"); //6
 
 		drawTriangleIntersectionArea();
 	} else if (s5.array().length > 0  && s5.array()[0] != "") {
@@ -418,8 +418,8 @@ function listOperation(){
 		drawEllipseBase(263,213,200, 110, 90, "#00bf00", "List 1: ", s1.array().join("\n"), "e5th1", "e5thTl1", "#e5th1", "#e5thTl1", s1.array().length, 258, 50); //1st Ellipse
 		drawEllipseBase(280,262,200, 110, 162, "#007fff", "List 2: ", s2.array().join("\n"), "e5th2", "e5thTl2", "#e5th2", "#e5thTl2", s2.array().length, 438, 216); //2st Ellipse
 		drawEllipseBase(241,292,200, 110, 54, "#ff3433", "List 3: ", s3.array().join("\n"), "e5th3", "e5thTl3", "#e5th3", "#e5thTl3", s3.array().length, 330, 433); //3st Ellipse
-		drawEllipseBase(199,266,200, 110, 126, "#A57706", "List 4: ", s4.array().join("\n"), "e5th4", "e5thTl4", "#e5th4", "#e5thTl4", s4.array().length, 93, 409); //4st Ellipse
-		drawEllipseBase(212,216,200, 110, 18, "#BD3613", "List 5: ", s5.array().join("\n"), "e5th5", "e5thTl5", "#e5th5", "#e5thTl5", s5.array().length, 42, 166); //5th Ellipse
+		drawEllipseBase(199,266,200, 110, 126, "#E6E600", "List 4: ", s4.array().join("\n"), "e5th4", "e5thTl4", "#e5th4", "#e5thTl4", s4.array().length, 93, 409); //4st Ellipse
+		drawEllipseBase(212,216,200, 110, 18, "#FF9900", "List 5: ", s5.array().join("\n"), "e5th5", "e5thTl5", "#e5th5", "#e5thTl5", s5.array().length, 42, 166); //5th Ellipse
 		drawFiveSetIntersectionArea();
 	} else if (s4.array().length > 0  && s4.array()[0] != "") {
 		d3.select("#e5th1").remove();		
@@ -463,7 +463,7 @@ function listOperation(){
 		drawEllipseBase(196,246,200, 110, 45, "#00bf00", "List 1: ", s1.array().join("\n"), "e4th1", "e4thTl1", "#e4th1", "#e4thTl1", s1.array().length, 70, 135); //1st Ellipse
 		drawEllipseBase(266,176,200, 110, 45, "#007fff", "List 2: ", s2.array().join("\n"), "e4th2", "e4thTl2", "#e4th2", "#e4thTl2", s2.array().length, 138, 55); //1st Ellipse
 		drawEllipseBase(326,176,200, 110, 135, "#ff3433", "List 3: ", s3.array().join("\n"), "e4th3", "e4thTl3", "#e4th3", "#e4thTl3", s3.array().length, 435, 58); //1st Ellipse
-		drawEllipseBase(396,246,200, 110, 135, "#A57706", "List 4: ", s4.array().join("\n"), "e4th4", "e4thTl4", "#e4th4", "#e4thTl4", s4.array().length, 508, 135); //1st Ellipse
+		drawEllipseBase(396,246,200, 110, 135, "#E6E600", "List 4: ", s4.array().join("\n"), "e4th4", "e4thTl4", "#e4th4", "#e4thTl4", s4.array().length, 508, 135); //1st Ellipse
 
 		drawFourSetIntersectionArea();
 
@@ -621,6 +621,9 @@ function listOperation(){
 						.style("left", (d3.event.pageX - 160) + "px")
 						.style("top", (d3.event.pageY - 100) + "px")	
 			    	})
+			    	.on("click", function() {
+			    		d3.select("#description").node().value = "Gene list elements in List 1: " + "\n" + s1.array().join("\n");
+					})
 		    gvennStage.append("text")
 		    		.attr("id", "text1")
 			        .attr("class", "text")
@@ -677,6 +680,9 @@ function listOperation(){
 						.style("left", (d3.event.pageX + 100) + "px")
 						.style("top", (d3.event.pageY - 100) + "px")	
 			    	})
+			    	.on("click", function() {
+			    		d3.select("#description").node().value = "Gene list elements in List 1: " + "\n" + s2.array().join("\n");
+					})
 			    gvennStage.append("text")
 				        .attr("id", "text2")
 				        .attr("class", "text")
@@ -736,6 +742,9 @@ function listOperation(){
 				.style("left", (d3.event.pageX + 100) + "px")
 				.style("top", (d3.event.pageY - 100) + "px")	
 	    	})
+	    	.on("click", function() {
+	    		d3.select("#description").node().value = "Gene list elements in List 1: " + "\n" + s3.array().join("\n");
+			})
 
 	    gvennStage.append("text")
 		        .attr("class", "text")
@@ -783,14 +792,8 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	gvennStage.append("text")
-				    		.attr("id", "text20")
-					        .attr("class", "text")
-					        .text(s1.intersection(s2).array().join("\n"))
-					        .attr("x", 290)
-					        .attr("y", 500)
-					        .attr("fill",  "black")
-						    })
+			    	d3.select("#description").node().value = "Common elements in List 1 and List 2 : " + "\n" + s1.intersection(s2).array().join("\n");
+				})
 
 		  	}
 
@@ -829,6 +832,9 @@ function listOperation(){
 				        tooltip.style("left", (d3.event.pageX + 100) + "px")
 				             	.style("top", (d3.event.pageY - 100) + "px");
 				    })
+				    .on("click", function() {
+			    		d3.select("#description").node().value = "Common elements in List 1 and List 3 : " + "\n" + s1.intersection(s3).array().join("\n");
+					})
 
 			}
 		if ((s2.array().length > 0  && s2.array()[0] != "") && (s3.array().length > 0  && s3.array()[0] != "")) {
@@ -866,6 +872,9 @@ function listOperation(){
 			        tooltip.style("left", (d3.event.pageX + 100) + "px")
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
+			    .on("click", function() {
+			    	d3.select("#description").node().value = "Common elements in List 2 and List 3 : " + "\n" + s2.intersection(s3).array().join("\n");
+				})
 
 	    }
 	    if ((s1.array().length > 0  && s1.array()[0] != "") && (s2.array().length > 0  && s2.array()[0] != "") && (s3.array().length > 0  && s3.array()[0] != "")) {
@@ -903,6 +912,9 @@ function listOperation(){
 			        tooltip.style("left", (d3.event.pageX + 100) + "px")
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
+			    .on("click", function() {
+			    	d3.select("#description").node().value = "Common elements in List 1, List 2 and List 3 : " + "\n" + s1ns2.intersection(s3).array().join("\n");
+				})
 
 	    }
 	};
@@ -912,27 +924,6 @@ function listOperation(){
 		d3.select(eRemove).remove();
 		d3.select(tRemove).remove();
 
-
-		// //remove four ellipse drawing
-		// d3.select("#e4th1").remove();		
-		// d3.select("#e4th2").remove();	
-		// d3.select("#e4th3").remove();	
-		// d3.select("#e4th4").remove();
-		// d3.select("#t1").remove();		
-		// d3.select("#t2").remove();	
-		// d3.select("#t3").remove();	
-		// d3.select("#t4").remove();
-		// d3.select("#tA1").remove();
-		// d3.select("#tA2").remove();
-		// d3.select("#tA3").remove();
-		// d3.select("#tA4").remove();
-		// d3.select("#tA5").remove();
-		// d3.select("#tA6").remove();
-		// d3.select("#tA7").remove();
-		// d3.select("#tA8").remove();
-		// d3.select("#tA9").remove();
-		// d3.select("#tA10").remove();
-		// d3.select("#tA11").remove();
 
 		d3.select("#pathDe1ne2").remove();
 		d3.select("#pathDe1ne3").remove();
@@ -1021,7 +1012,10 @@ function listOperation(){
 				        d3.select("#tooltip")
 						.style("left", (d3.event.pageX - 100) + "px")
 						.style("top", (d3.event.pageY - 100) + "px")	
-				    })
+				})
+		    	.on("click", function() {
+			    		d3.select("#description").node().value = "Gene list elements in " + listName + ": " + "\n" + listContent;
+				})
 				gvennStage.append("text")
 		    		.attr("id", tID)
 			        .attr("class", "text")
@@ -1084,6 +1078,10 @@ function listOperation(){
 			        tooltip.style("left", (d3.event.pageX + 100) + "px")
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
+			    .on("click", function() {
+			    	d3.select("#description").node().value = "Common elements in List 1 and List 2 : " + "\n" + s1.intersection(s2).array().join("\n");
+				})
+
 		//L1nL2 intersection area list count text
 	    gvennStage.append("text")
 				.attr("id", "e4thA1")
@@ -1119,6 +1117,9 @@ function listOperation(){
 			        tooltip.style("left", (d3.event.pageX + 100) + "px")
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
+			    .on("click", function() {
+			    	d3.select("#description").node().value = "Common elements in List 1 and List 3 : " + "\n" + s1.intersection(s3).array().join("\n");
+				})
 		//L1nL3 intersection area list count text
 	    gvennStage.append("text")
 				.attr("id", "e4thA2")
@@ -1154,6 +1155,9 @@ function listOperation(){
 			        tooltip.style("left", (d3.event.pageX + 100) + "px")
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
+			    .on("click", function() {
+			    	d3.select("#description").node().value = "Common elements in List 1 and List 4 : " + "\n" + s1.intersection(s4).array().join("\n");
+				})
 		//L1nL4 intersection area list count text
 	    gvennStage.append("text")
 				.attr("id", "e4thA3")
@@ -1190,6 +1194,9 @@ function listOperation(){
 			        tooltip.style("left", (d3.event.pageX + 100) + "px")
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
+			    .on("click", function() {
+			    	d3.select("#description").node().value = "Common elements in List 2 and List 3 : " + "\n" + s2.intersection(s3).array().join("\n");
+				})
 		//L2nL3 intersection area list count text
 	    gvennStage.append("text")
 				.attr("id", "e4thA4")
@@ -1225,6 +1232,9 @@ function listOperation(){
 			        tooltip.style("left", (d3.event.pageX + 100) + "px")
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
+			    .on("click", function() {
+			    	d3.select("#description").node().value = "Common elements in List 2 and List 4 : " + "\n" + s2.intersection(s4).array().join("\n");
+				})
 		//L2nL4 intersection area list count text
 	    gvennStage.append("text")
 				.attr("id", "e4thA5")
@@ -1261,6 +1271,9 @@ function listOperation(){
 			        tooltip.style("left", (d3.event.pageX + 100) + "px")
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
+			    .on("click", function() {
+			    	d3.select("#description").node().value = "Common elements in List 3 and List 4 : " + "\n" + s3.intersection(s4).array().join("\n");
+				})
 		//L3nL4 intersection area list count text
 	    gvennStage.append("text")
 				.attr("id", "e4thA6")
@@ -1296,6 +1309,9 @@ function listOperation(){
 			        tooltip.style("left", (d3.event.pageX + 100) + "px")
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
+			    .on("click", function() {
+			    	d3.select("#description").node().value = "Common elements in List 1, List 2 and List 3 : " + "\n" + s1ns2.intersection(s3).array().join("\n");
+				})
 		//L1nL2nL3 intersection area list count text
 	    gvennStage.append("text")
 				.attr("id", "e4thA7")
@@ -1332,6 +1348,9 @@ function listOperation(){
 			        tooltip.style("left", (d3.event.pageX + 100) + "px")
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
+			    .on("click", function() {
+			    	d3.select("#description").node().value = "Common elements in List 1, List 2 and List 4 : " + "\n" + s1ns2.intersection(s4).array().join("\n");
+				})
 		//L1nL2nL4 intersection area list count text
 	    gvennStage.append("text")
 				.attr("id", "e4thA8")
@@ -1369,6 +1388,9 @@ function listOperation(){
 			        tooltip.style("left", (d3.event.pageX + 100) + "px")
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
+			    .on("click", function() {
+			    	d3.select("#description").node().value = "Common elements in List 1, List 3 and List 4 : " + "\n" + s1ns3.intersection(s4).array().join("\n");
+				})
 		//L1nL3nL4 intersection area list count text
 	    gvennStage.append("text")
 				.attr("id", "e4thA9")
@@ -1405,6 +1427,9 @@ function listOperation(){
 			        tooltip.style("left", (d3.event.pageX + 100) + "px")
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
+			    .on("click", function() {
+			    	d3.select("#description").node().value = "Common elements in List 2, List 3 and List 4 : " + "\n" + s2ns3.intersection(s4).array().join("\n");
+				})
 		//L2nL3nL4 intersection area list count text
 	    gvennStage.append("text")
 				.attr("id", "e4thA10")
@@ -1429,7 +1454,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L1∩L2∩L3∩L4∩L5: \n" + s1ns2ns3.intersection(s4).array().join("\n"));
+			        tooltip.text("L1∩L2∩L3∩L4: \n" + s1ns2ns3.intersection(s4).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -1441,6 +1466,9 @@ function listOperation(){
 			        tooltip.style("left", (d3.event.pageX + 100) + "px")
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
+			    .on("click", function() {
+			    	d3.select("#description").node().value = "Common elements in List 1, List 2, List 3 and List 4 : " + "\n" + s1ns2ns3.intersection(s4).array().join("\n");
+				})
 		//L1nL2nL3nL4 intersection area list count text
 	    gvennStage.append("text")
 				.attr("id", "e4thA11")
@@ -1484,6 +1512,9 @@ function listOperation(){
 			        tooltip.style("left", (d3.event.pageX + 100) + "px")
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
+			    .on("click", function() {
+			    	d3.select("#description").node().value = "Common elements in List 1, List 2, List 3, List 4 and List 5 : " + "\n" + s1ns2ns3ns4.intersection(s5).array().join("\n");
+				})
 		//L1nL2nL3nL4nL5 intersection area list count text
 	    gvennStage.append("text")
 				.attr("id", "e5thA5")
@@ -1527,6 +1558,9 @@ function listOperation(){
 			        tooltip.style("left", (d3.event.pageX + 100) + "px")
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
+			    .on("click", function() {
+			    	d3.select("#description").node().value = "Common elements in List 1, List 2, List 3, List 4, List 5, List 6 and List 7 : " + "\n" + s1ns2ns3ns4ns5ns6.intersection(s7).array().join("\n");
+				})
 		//L1nL2nL3nL4nL5nL6nL7 intersection area list count text
 	    gvennStage.append("text")
 				.attr("id", "e7thA7")
@@ -1668,7 +1702,10 @@ function listOperation(){
 					        d3.select("#tooltip")
 							.style("left", (d3.event.pageX - 100) + "px")
 							.style("top", (d3.event.pageY - 100) + "px")	
-					    })
+					})
+			    	.on("click", function() {
+			    		d3.select("#description").node().value = "Gene list elements in " + listName + ": " + "\n" + listContent;
+					})
 			gvennStage.append("text")
 		    		.attr("id", tID)
 			        .attr("class", "text")
@@ -1712,6 +1749,9 @@ function listOperation(){
 			        tooltip.style("left", (d3.event.pageX + 100) + "px")
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
+			    .on("click", function() {
+			    	d3.select("#description").node().value = "Common elements in List 1, List 2, List 3, List 4, List 5, and List 6 : " + "\n" + s1ns2ns3ns4ns5.intersection(s6).array().join("\n");
+				})
 		//L1nL2nL3nL4nL5nL6 intersection area list count text
 	    gvennStage.append("text")
 				.attr("id", "tA15")
