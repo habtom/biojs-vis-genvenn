@@ -61,17 +61,109 @@ var s7 = new sets.Set([]);
 // 					'G000010'
 // 					]);
 
+//upload file
+d3.select("#files").on("change" ,function() {
+	var files = this.files;
+	if (!files.length) { return; }
+
+	var file = files[0];
+	var reader = new FileReader();
+
+	reader.onloadend = function(evt) {
+      if (evt.target.readyState == FileReader.DONE) { // DONE == 2
+       // try{	
+	    var listvalue;
+		s1 = new sets.Set([]);
+		s2 = new sets.Set([]);
+		s3 = new sets.Set([]);
+		s4 = new sets.Set([]);
+		s5 = new sets.Set([]);
+		s6 = new sets.Set([]);
+		s7 = new sets.Set([]);
+		d3.select('#s1').node().value = ""; 
+		d3.select('#s2').node().value = ""; 
+		d3.select('#s3').node().value = ""; 
+		d3.select('#s4').node().value = ""; 
+		d3.select('#s5').node().value = ""; 
+		d3.select('#s6').node().value = ""; 
+		d3.select('#s7').node().value = ""; 
+	    var json = JSON.parse(evt.target.result);
+	        	
+      for (key in json) {
+	    for (subKey in json[key]) {
+	        if(key == 's1'){
+
+	            d3.select('#s1').node().value += json[key][subKey]; 
+	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
+	            	 d3.select('#s1').node().value += "\n";
+	            }
+	            listvalue = json[key];
+				s1 = new sets.Set(listvalue);
+	        }
+	        if(key == 's2'){
+	            d3.select('#s2').node().value += json[key][subKey]; 
+	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
+	            	d3.select('#s2').node().value += "\n";
+	            } 
+	            listvalue = json[key];
+				s2 = new sets.Set(listvalue);  
+	        }
+	        if(key == 's3'){
+	            d3.select('#s3').node().value += json[key][subKey]; 
+	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
+	            	d3.select('#s3').node().value += "\n";
+	            }
+	            listvalue = json[key];
+				s3 = new sets.Set(listvalue);
+	        }
+	        if(key == 's4'){
+	            d3.select('#s4').node().value += json[key][subKey]; 
+	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
+	            	d3.select('#s4').node().value += "\n";
+	            }   
+	            listvalue = json[key];
+				s4 = new sets.Set(listvalue);
+	        }
+	        if(key == 's5'){
+	            d3.select('#s5').node().value += json[key][subKey]; 
+	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
+	            	d3.select('#s5').node().value += "\n";
+	            }   
+	            listvalue = json[key];
+				s5 = new sets.Set(listvalue);
+	        }
+	        if(key == 's6'){
+	            d3.select('#s6').node().value += json[key][subKey]; 
+	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
+	            	d3.select('#s6').node().value += "\n";
+	            }   
+	            listvalue = json[key];
+				s6 = new sets.Set(listvalue);
+	        }
+	        if(key == 's7'){
+	            d3.select('#s7').node().value += json[key][subKey]; 
+	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
+	            	d3.select('#s7').node().value += "\n";
+	            }   
+	            listvalue = json[key];
+				s7 = new sets.Set(listvalue);
+	        }
+	    }
+	}
+
+    listOperation();
+
+      }
+    };
+
+    var blob = file.slice( 0, file.size);
+    reader.readAsBinaryString(blob);
+    d3.select('#files').node().value="";
+
+});
+
+
 //load sample json file
-/////////////////////////////////////////////////////////////////////////////////////////
-
-/*var path = "";
- d3.select("#files").on("change" ,function(){
- 	path = this.value;
- 	path = path.replace(/^C:\\fakepath\\/, "")
- 	console.log(path);
-
- });*/
-
 d3.select("#clear1").on("click" ,function(){
 	d3.select("#s1").node().value = "";
 	s1 = new sets.Set([]);
@@ -191,7 +283,6 @@ d3.select("#button").on("click" ,function() {
 	}
 	listOperation();
 });
-/////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 //take user input from textarea
@@ -315,9 +406,14 @@ function listOperation(){
 	var pathDe1ne2 = "M 108.71875 84.5625 C 107.34724 84.57099 106.00295 84.598122 104.65625 84.65625 C 102.55551 133.32572 132.99357 198.55607 188.21875 253.78125 C 243.44393 309.00643 308.67428 339.44449 357.34375 337.34375 C 359.44449 288.67428 329.00643 223.44393 273.78125 168.21875 C 220.08416 114.52166 156.91347 84.264162 108.71875 84.5625 z ";
 	var pathDe1ne3 = "M 223.15625 126.03125 C 164.5005 198.3081 146.60678 279.41928 184.59375 317.40625 C 218.44986 351.26236 286.56961 340.74639 352.15625 296.53125 C 341.67212 255.35002 314.37017 208.80767 273.34375 167.78125 C 257.25499 151.69249 240.28786 137.71887 223.15625 126.03125 z ";
 	var pathDe1ne4 = "m 295.96875,192.59375 c -60.89864,73.12532 -79.96517,156.22233 -41.375,194.8125 10.32866,10.32866 23.83657,16.53518 39.5,18.90625 17.09565,-1.95916 31.81321,-8.28196 42.875,-19.34375 38.51101,-38.51101 19.60242,-121.35897 -41,-194.375 z";
+	
 	var pathDe2ne3 = "m 296,58.09375 c -16.32053,11.349067 -32.43696,24.78071 -47.78125,40.125 -42.71359,42.71359 -70.59597,91.41704 -80.0625,133.8125 6.26513,7.3767 12.96056,14.64806 20.0625,21.75 C 222.41048,287.97298 260.43934,312.65576 296,326 c 35.56066,-13.34424 73.58952,-38.02702 107.78125,-72.21875 7.10194,-7.10194 13.79737,-14.3733 20.0625,-21.75 -9.46653,-42.39546 -37.34891,-91.09891 -80.0625,-133.8125 C 328.43696,82.87446 312.32053,69.442817 296,58.09375 z";
 	var pathDe2ne4 = "m 368.90625,126.09375 c -17.31379,11.76091 -34.43138,25.86888 -50.6875,42.125 -40.81438,40.81438 -68.05307,87.10165 -78.65625,128.125 65.6727,44.37416 133.93943,54.96682 167.84375,21.0625 37.97502,-37.97502 20.11164,-119.05282 -38.5,-191.3125 z";
 	var pathDe3ne4 = "m 483.28125,84.5625 c -48.19472,-0.298338 -111.36541,29.95916 -165.0625,83.65625 -55.22518,55.22518 -85.66324,120.45553 -83.5625,169.125 48.66947,2.10074 113.89982,-28.33732 169.125,-83.5625 55.22518,-55.22518 85.66324,-120.45553 83.5625,-169.125 -1.3467,-0.05813 -2.69099,-0.08526 -4.0625,-0.09375 z";
+	var pathDe1ne5 = "M 173.78125 95.96875 C 160.69978 128.87328 153 169.29664 153 213 C 153 251.36358 158.94978 287.21364 169.25 317.65625 C 172.13997 318.67585 175.05361 319.66766 178 320.625 C 245.5468 342.57229 311.17434 342.47067 354.40625 324.25 C 366.14092 292.4396 373 254.18066 373 213 C 373 204.34912 372.71104 195.8301 372.125 187.46875 C 343.92041 156.66087 299.53481 128.76952 246 111.375 C 221.34548 103.36426 196.92663 98.29775 173.78125 95.96875 z ";
+	var pathDe2ne5 = "M 315.0625 142.3125 C 292.85634 144.7735 269.54113 149.72602 246 157.375 C 167.05458 183.02592 107.94539 231.48131 91.40625 278.5 C 115.74851 295.32019 145.15536 309.95313 178 320.625 C 283.0508 354.75807 383.44556 335.59044 402.21875 277.8125 C 416.46787 233.95823 379.59094 180.47311 315.0625 142.3125 z ";
+	var pathDe3ne5 = "M 164.21875 117.71875 C 148.85203 117.81567 134.95676 121.81827 123.4375 130.1875 C 85.70671 157.60052 84.473136 223.73422 115.3125 293.40625 C 134.20361 303.98596 155.28331 313.2439 178 320.625 C 257.68009 346.51463 334.67298 341.71627 375.40625 312.6875 C 365.60409 284.6612 350.38704 255.4041 330 227.34375 C 280.29182 158.92631 214.4167 117.40214 164.21875 117.71875 z ";
+	var pathDe4ne5 = "M 222.1875 104.53125 C 183.92576 121.72044 143.32957 155.46953 110 201.34375 C 94.880388 222.15411 82.59092 243.61646 73.25 264.75 C 100.48824 287.32005 136.4935 307.13872 178 320.625 C 214.6108 332.52057 250.65549 337.93007 282.875 337.5 C 284.59248 335.24741 286.31826 332.97097 288 330.65625 C 329.95922 272.90434 350.11262 210.13608 345.875 163.3125 C 319.27317 142.38115 285.07734 124.072 246 111.375 C 238.0253 108.78386 230.0747 106.51449 222.1875 104.53125 z";
 	var pathDe1ne2ne3 = "m 223.15625,126.03125 c -28.59951,35.24092 -47.53647,72.57486 -55,106 6.26513,7.3767 12.96056,14.64806 20.0625,21.75 C 222.41048,287.97298 260.43934,312.65576 296,326 c 18.34983,-6.88583 37.3577,-16.79573 56.15625,-29.46875 -10.48413,-41.18123 -37.78608,-87.72358 -78.8125,-128.75 -16.08876,-16.08876 -33.05589,-30.06238 -50.1875,-41.75 z";
 	
 	var pathDe1ne2ne4 = "m 295.96875,192.59375 c -28.53245,34.26094 -47.86605,70.70822 -56.40625,103.75 41.09655,27.76839 83.20591,42.31202 117.28125,41 1.96733,-41.60522 -19.93106,-95.41923 -60.875,-144.75 z";
@@ -374,8 +470,17 @@ function listOperation(){
 		d3.select("#e5thTl3").remove();	
 		d3.select("#e5thTl4").remove();
 		d3.select("#e5thTl5").remove();
+		d3.select("#pathDe1ne5").remove();
+		d3.select("#pathDe2ne5").remove();
+		d3.select("#pathDe3ne5").remove();
+		d3.select("#pathDe4ne5").remove();
 		d3.select("#pathDe1ne2ne3ne4ne5").remove();
+		d3.select("#e5thA1").remove();
+		d3.select("#e5thA2").remove();
+		d3.select("#e5thA3").remove();
+		d3.select("#e5thA4").remove();
 		d3.select("#e5thA5").remove();
+
 		//draw seven elipse
 		//Seven
 		//drawEllipseBase(cX, cY, rX, rY, rotationAng, fillColor, listName, listContent, eID, tID, eRemove, tRemove, listCount, textX, textY)
@@ -464,6 +569,7 @@ function listOperation(){
 		drawEllipseBase(212,216,200, 110, 18, "#FF9900", "List 5: ", s5.array().join("\n"), "e5th5", "e5thTl5", "#e5th5", "#e5thTl5", s5.array().length, 42, 166); //5th Ellipse
 		drawFiveSetIntersectionArea();
 	} else if (s4.array().length > 0  && s4.array()[0] != "") {
+		
 		d3.select("#e5th1").remove();		
 		d3.select("#e5th2").remove();	
 		d3.select("#e5th3").remove();	
@@ -474,7 +580,16 @@ function listOperation(){
 		d3.select("#e5thTl3").remove();	
 		d3.select("#e5thTl4").remove();
 		d3.select("#e5thTl5").remove();
+		d3.select("#pathDe1ne5").remove();
+		d3.select("#pathDe2ne5").remove();
+		d3.select("#pathDe3ne5").remove();
+		d3.select("#pathDe4ne5").remove();
 		d3.select("#pathDe1ne2ne3ne4ne5").remove();
+		d3.select("#e5thA1").remove();
+		d3.select("#e5thA2").remove();
+		d3.select("#e5thA3").remove();
+		d3.select("#e5thA4").remove();
+		d3.select("#e5thA5").remove();
 		d3.select("#e5thA5").remove();
 
 
@@ -545,7 +660,15 @@ function listOperation(){
 		d3.select("#e5thTl3").remove();	
 		d3.select("#e5thTl4").remove();
 		d3.select("#e5thTl5").remove();
+		d3.select("#pathDe1ne5").remove();
+		d3.select("#pathDe2ne5").remove();
+		d3.select("#pathDe3ne5").remove();
+		d3.select("#pathDe4ne5").remove();
 		d3.select("#pathDe1ne2ne3ne4ne5").remove();
+		d3.select("#e5thA1").remove();
+		d3.select("#e5thA2").remove();
+		d3.select("#e5thA3").remove();
+		d3.select("#e5thA4").remove();
 		d3.select("#e5thA5").remove();
 
 		//remove four ellipse drawing
@@ -973,6 +1096,10 @@ function listOperation(){
 		d3.select("#pathDe2ne3").remove();
 		d3.select("#pathDe2ne4").remove();
 		d3.select("#pathDe3ne4").remove();
+		d3.select("#pathDe1ne5").remove();
+		d3.select("#pathDe2ne5").remove();
+		d3.select("#pathDe3ne5").remove();
+		d3.select("#pathDe4ne5").remove();
 		d3.select("#pathDe1ne2ne3").remove();
 		d3.select("#pathDe1ne2ne4").remove();
 		d3.select("#pathDe1ne3ne4").remove();
@@ -991,7 +1118,7 @@ function listOperation(){
 		d3.select("#text7").remove();
 		d3.select("#paths1ns2").remove();	
 		d3.select("#paths1ns3").remove();	
-		d3.select("#paths1ns2ns3").remove();	
+		d3.select("#paths1ns2ns3").remove();
 
 		d3.select("#tr1").remove();
 		d3.select("#tr2").remove();
@@ -1065,8 +1192,7 @@ function listOperation(){
 			        .attr("x", textX)
 			        .attr("y", textY)
 			        .attr("fill",  "black")	
-
-		
+	
 	};
 
 	function drawFourSetIntersectionArea () {
@@ -1523,10 +1649,169 @@ function listOperation(){
 
 	function drawFiveSetIntersectionArea () {
 
+		d3.select("#pathDe1ne5").remove();
+		d3.select("#pathDe2ne5").remove();
+		d3.select("#pathDe3ne5").remove();
+		d3.select("#pathDe4ne5").remove();
+
 		d3.select("#pathDe1ne2ne3ne4ne5").remove();
+		d3.select("#e5thA1").remove();
+		d3.select("#e5thA2").remove();
+		d3.select("#e5thA3").remove();
+		d3.select("#e5thA4").remove();
 		d3.select("#e5thA5").remove();
 
+		//L1nL5 intersection area
+        gvennStage.append("path")
+	    		.attr("d", pathDe1ne5)
+	    		.attr("id", "pathDe1ne5")
+		        .style("fill", "black")
+				.style("fill-opacity", 0)
+				.style("stroke", "white")
+				.style("stroke-width", "2")
+				.style("stroke-opacity", 0)
+			    .on("mouseover", function() {
+			        d3.select(this).transition()
+			            .style("fill-opacity", .1)
+			            .style("stroke-opacity", 1);
+			       	tooltip.transition().style("opacity", .9);
+			        tooltip.text("L1∩L5: \n" + s1.intersection(s5).array().join("\n"));
+			    })
+			    .on("mouseout", function() {
+			        d3.select(this).transition()
+			            .style("fill-opacity", 0)
+			            .style("stroke-opacity", 0);
+			        tooltip.transition().style("opacity", 0);
+			    })
+			    .on("mousemove", function() {
+			        tooltip.style("left", (d3.event.pageX + 100) + "px")
+			             	.style("top", (d3.event.pageY - 100) + "px");
+			    })
+			    .on("click", function() {
+			    	d3.select("#description").node().value = "Common elements in List 1 and List 5 : " + "\n" + s1.intersection(s5).array().join("\n");
+				})
+		//L1nL5 intersection area list count text
+	    gvennStage.append("text")
+				.attr("id", "e5thA1")
+		        .attr("class", "text")
+		        .text(s1.intersection(s5).array().length)
+		        .attr("x", 180)
+		        .attr("y", 112)
+		        .attr("fill",  "black")
+		
+		//L2nL5 intersection area
+        gvennStage.append("path")
+	    		.attr("d", pathDe2ne5)
+	    		.attr("id", "pathDe2ne5")
+		        .style("fill", "black")
+				.style("fill-opacity", 0)
+				.style("stroke", "white")
+				.style("stroke-width", "2")
+				.style("stroke-opacity", 0)
+			    .on("mouseover", function() {
+			        d3.select(this).transition()
+			            .style("fill-opacity", .1)
+			            .style("stroke-opacity", 1);
+			       	tooltip.transition().style("opacity", .9);
+			        tooltip.text("L2∩L5: \n" + s2.intersection(s5).array().join("\n"));
+			    })
+			    .on("mouseout", function() {
+			        d3.select(this).transition()
+			            .style("fill-opacity", 0)
+			            .style("stroke-opacity", 0);
+			        tooltip.transition().style("opacity", 0);
+			    })
+			    .on("mousemove", function() {
+			        tooltip.style("left", (d3.event.pageX + 100) + "px")
+			             	.style("top", (d3.event.pageY - 100) + "px");
+			    })
+			    .on("click", function() {
+			    	d3.select("#description").node().value = "Common elements in List 2 and List 5 : " + "\n" + s2.intersection(s5).array().join("\n");
+				})
+		//L2nL5 intersection area list count text
+	    gvennStage.append("text")
+				.attr("id", "e5thA2")
+		        .attr("class", "text")
+		        .text(s2.intersection(s5).array().length)
+		        .attr("x", 372)
+		        .attr("y", 269)
+		        .attr("fill",  "black")
 
+		//L3nL5 intersection area
+        gvennStage.append("path")
+	    		.attr("d", pathDe3ne5)
+	    		.attr("id", "pathDe3ne5")
+		        .style("fill", "black")
+				.style("fill-opacity", 0)
+				.style("stroke", "white")
+				.style("stroke-width", "2")
+				.style("stroke-opacity", 0)
+			    .on("mouseover", function() {
+			        d3.select(this).transition()
+			            .style("fill-opacity", .1)
+			            .style("stroke-opacity", 1);
+			       	tooltip.transition().style("opacity", .9);
+			        tooltip.text("L3∩L5: \n" + s3.intersection(s5).array().join("\n"));
+			    })
+			    .on("mouseout", function() {
+			        d3.select(this).transition()
+			            .style("fill-opacity", 0)
+			            .style("stroke-opacity", 0);
+			        tooltip.transition().style("opacity", 0);
+			    })
+			    .on("mousemove", function() {
+			        tooltip.style("left", (d3.event.pageX + 100) + "px")
+			             	.style("top", (d3.event.pageY - 100) + "px");
+			    })
+			    .on("click", function() {
+			    	d3.select("#description").node().value = "Common elements in List 3 and List 5 : " + "\n" + s3.intersection(s5).array().join("\n");
+				})
+		//L3nL5 intersection area list count text
+	    gvennStage.append("text")
+				.attr("id", "e5thA3")
+		        .attr("class", "text")
+		        .text(s3.intersection(s5).array().length)
+		        .attr("x", 120)
+		        .attr("y", 165)
+		        .attr("fill",  "black")
+
+		//L4nL5 intersection area
+        gvennStage.append("path")
+	    		.attr("d", pathDe4ne5)
+	    		.attr("id", "pathDe4ne5")
+		        .style("fill", "black")
+				.style("fill-opacity", 0)
+				.style("stroke", "white")
+				.style("stroke-width", "2")
+				.style("stroke-opacity", 0)
+			    .on("mouseover", function() {
+			        d3.select(this).transition()
+			            .style("fill-opacity", .1)
+			            .style("stroke-opacity", 1);
+			       	tooltip.transition().style("opacity", .9);
+			        tooltip.text("L4∩L5: \n" + s4.intersection(s5).array().join("\n"));
+			    })
+			    .on("mouseout", function() {
+			        d3.select(this).transition()
+			            .style("fill-opacity", 0)
+			            .style("stroke-opacity", 0);
+			        tooltip.transition().style("opacity", 0);
+			    })
+			    .on("mousemove", function() {
+			        tooltip.style("left", (d3.event.pageX + 100) + "px")
+			             	.style("top", (d3.event.pageY - 100) + "px");
+			    })
+			    .on("click", function() {
+			    	d3.select("#description").node().value = "Common elements in List 4 and List 5 : " + "\n" + s4.intersection(s5).array().join("\n");
+				})
+		//L4nL5 intersection area list count text
+	    gvennStage.append("text")
+				.attr("id", "e5thA4")
+		        .attr("class", "text")
+		        .text(s4.intersection(s5).array().length)
+		        .attr("x", 78)
+		        .attr("y", 266)
+		        .attr("fill",  "black")
 
 		//L1nL2nL3nL4nL5 intersection area
         gvennStage.append("path")
@@ -1650,7 +1935,15 @@ function listOperation(){
 			d3.select("#e5thTl4").remove();
 			d3.select("#e5thTl5").remove();
 
+			d3.select("#pathDe1ne5").remove();
+			d3.select("#pathDe2ne5").remove();
+			d3.select("#pathDe3ne5").remove();
+			d3.select("#pathDe4ne5").remove();
 			d3.select("#pathDe1ne2ne3ne4ne5").remove();
+			d3.select("#e5thA1").remove();
+			d3.select("#e5thA2").remove();
+			d3.select("#e5thA3").remove();
+			d3.select("#e5thA4").remove();
 			d3.select("#e5thA5").remove();
 
 			//remove four ellipse drawing
