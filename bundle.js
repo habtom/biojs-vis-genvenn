@@ -73,6 +73,41 @@ var s7 = new sets.Set([]);
 
  });*/
 
+d3.select("#clear1").on("click" ,function(){
+	d3.select("#s1").node().value = "";
+	s1 = new sets.Set([]);
+	listOperation();
+});
+d3.select("#clear2").on("click" ,function(){
+	d3.select("#s2").node().value = "";
+	s2 = new sets.Set([]);
+	listOperation();
+});
+d3.select("#clear3").on("click" ,function(){
+	d3.select("#s3").node().value = "";
+	s3 = new sets.Set([]);
+	listOperation();
+});
+d3.select("#clear4").on("click" ,function(){
+	d3.select("#s4").node().value = "";
+	s4 = new sets.Set([]);
+	listOperation();
+});
+d3.select("#clear5").on("click" ,function(){
+	d3.select("#s5").node().value = "";
+	s5 = new sets.Set([]);
+	listOperation();
+});
+d3.select("#clear6").on("click" ,function(){
+	d3.select("#s6").node().value = "";
+	s6 = new sets.Set([]);
+	listOperation();
+});
+d3.select("#clear7").on("click" ,function(){
+	d3.select("#s7").node().value = "";
+	s7 = new sets.Set([]);
+	listOperation();
+});
 d3.select("#button").on("click" ,function() { 
 
 	var json = require('./sample.json');
@@ -168,7 +203,9 @@ d3.select("#s1").on("change" ,function() {
 });
 
 function update (listvalue){
-	s1 = new sets.Set(listvalue);
+	if(listvalue == ""){s1 = new sets.Set([]);}
+	else{s1 = new sets.Set(listvalue);}
+	
 	listOperation();
 }
 //---
@@ -177,7 +214,8 @@ d3.select("#s2").on("change" ,function() {
 });
 
 function update2 (listvalue){
-	s2 = new sets.Set(listvalue);
+	if(listvalue == ""){s2 = new sets.Set([]);}
+	else{s2 = new sets.Set(listvalue);}
 	listOperation();
 }
 //---
@@ -186,7 +224,8 @@ d3.select("#s3").on("change" ,function() {
 });
 
 function update3 (listvalue){
-	s3 = new sets.Set(listvalue);
+	if(listvalue == ""){s3 = new sets.Set([]);}
+	else{s3 = new sets.Set(listvalue);}
 	listOperation();
 }
 // 
@@ -195,7 +234,8 @@ d3.select("#s4").on("change" ,function() {
 });
 
 function update4 (listvalue){
-	s4 = new sets.Set(listvalue);
+	if(listvalue == ""){s4 = new sets.Set([]);}
+	else{s4 = new sets.Set(listvalue);}
 	listOperation();
 }
 //---
@@ -204,7 +244,8 @@ d3.select("#s5").on("change" ,function() {
 });
 
 function update5 (listvalue){
-	s5 = new sets.Set(listvalue);
+	if(listvalue == ""){s5 = new sets.Set([]);}
+	else{s5 = new sets.Set(listvalue);}
 	listOperation();
 }
 //---
@@ -213,7 +254,8 @@ d3.select("#s6").on("change" ,function() {
 });
 
 function update6 (listvalue){
-	s6 = new sets.Set(listvalue);
+	if(listvalue == ""){s6 = new sets.Set([]);}
+	else{s6 = new sets.Set(listvalue);}
 	listOperation();
 }
 //---
@@ -222,7 +264,8 @@ d3.select("#s7").on("change" ,function() {
 });
 
 function update7 (listvalue){
-	s7 = new sets.Set(listvalue);
+	if(listvalue == ""){s7 = new sets.Set([]);}
+	else{s7 = new sets.Set(listvalue);}
 	listOperation();
 }
 
@@ -342,7 +385,7 @@ function listOperation(){
 		drawEllipseBase(246,217,200, 110, 102, "#ff3433", "List 3: ", s3.array().join("\n"), "e7th3", "e7thTl3", "#e7th3", "#e7thTl3", s3.array().length, 273, 49); //3st Ellipse
 		drawEllipseBase(289,222,200, 110, 154, "#E6E600", "List 4: ", s4.array().join("\n"), "e7th4", "e7thTl4", "#e7th4", "#e7thTl4", s4.array().length, 434, 152); //4st Ellipse
 		drawEllipseBase(310,258,200, 110, 25, "#FF9900", "List 5: ", s5.array().join("\n"), "e7th5", "e7thTl5", "#e7th5", "#e7thTl5", s5.array().length, 458, 341); //5st Ellipse
-		drawEllipseBase(296,298,200, 110, 77, "#0000CC", "List 6: ", s6.array().join("\n"), "e7th6", "e7thTl6", "#e7th6", "#e7thTl6", s6.array().length, 330, 472); //6st Ellipse
+		drawEllipseBase(296,298,200, 110, 77, "#00FFFF", "List 6: ", s6.array().join("\n"), "e7th6", "e7thTl6", "#e7th6", "#e7thTl6", s6.array().length, 330, 472); //6st Ellipse
 		drawEllipseBase(256,311,200, 110, 135, "#ff00ff", "List 7: ", s7.array().join("\n"), "e7th7", "e7thTl7", "#e7th7", "#e7thTl7", s7.array().length, 132, 440); //7th Ellipse
 		
 		drawSevenSetIntersectionArea();
@@ -356,7 +399,7 @@ function listOperation(){
 		drawTriangle("M 203.271   9.619 L  39.604  82.683 L  84.652 206.669 Z", "#ff3433", 460,145, "List 3: ", s3.array().join("\n"), "tr3", "trx3", s3.array().length, "#tr3", "#trx3"); //3
 		drawTriangle("M 333.561 225.349 L  61.764  76.805 L  38.980 182.461 Z", "#E6E600", 532,430, "List 4: ", s4.array().join("\n"), "tr4", "trx4", s4.array().length, "#tr4", "#trx4"); //4
 		drawTriangle("M 131.886 385.785 L  38.136 111.491 L  94.208  24.690 Z", "#FF9900", 328,548, "List 5: ", s5.array().join("\n"), "tr5", "trx5", s5.array().length, "#tr5", "#trx5"); //5
-		drawTriangle("M -60.184 274.046 L 142.476  39.903 L 103.276 183.962 Z", "#0000CC", 127,500, "List 6: ", s6.array().join("\n"), "tr6", "trx6", s6.array().length, "#tr6", "#trx6"); //6
+		drawTriangle("M -60.184 274.046 L 142.476  39.903 L 103.276 183.962 Z", "#00FFFF", 127,500, "List 6: ", s6.array().join("\n"), "tr6", "trx6", s6.array().length, "#tr6", "#trx6"); //6
 
 		drawTriangleIntersectionArea();
 	} else if (s5.array().length > 0  && s5.array()[0] != "") {
@@ -575,7 +618,7 @@ function listOperation(){
 			//circle one
 			gvennStage.append("circle")
 					.style("fill", "#00bf00")
-					.style("fill-opacity", 0.3)
+					.style("fill-opacity", 0.4)
 					.style("stroke-opacity", 1)
 			    	.style("stroke", "white")
 			    	.style("stroke-width", "2")
@@ -611,7 +654,7 @@ function listOperation(){
 			    	.on("mouseout", function(){ 
 				       d3.select(this)
 				         .transition().attr("r", 110)
-				         .style("fill-opacity", 0.5)
+				         .style("fill-opacity", 0.4)
 			             .style("stroke-opacity", 0);
 				       //Hide the tooltip
 						d3.select("#tooltip").classed("hidden", true);      
@@ -637,7 +680,7 @@ function listOperation(){
 				//circle two
 				gvennStage.append("circle")
 					.style("fill", "#007fff")
-					.style("fill-opacity", 0.3)
+					.style("fill-opacity", 0.4)
 					.attr("r", 110)
 					.attr("cx", 370)
 					.attr("cy", 306)
@@ -646,7 +689,7 @@ function listOperation(){
 					.on("mouseover", function(){ 
 				        d3.select(this).transition()
 				        	.attr("r", 113)
-				        	.style("fill-opacity", 0.5)
+				        	.style("fill-opacity", 0.6)
 				        	.style("stroke", "#259286")
 		        			.style("stroke-width", "2")
 				        	.style("stroke-opacity", 1);
@@ -670,7 +713,7 @@ function listOperation(){
 			    	.on("mouseout", function(){ 
 				       d3.select(this)
 				         .transition().attr("r", 110)
-				         .style("fill-opacity", 0.3)
+				         .style("fill-opacity", 0.4)
 			             .style("stroke-opacity", 0);
 				       //Hide the tooltip
 						d3.select("#tooltip").classed("hidden", true);      
@@ -681,7 +724,7 @@ function listOperation(){
 						.style("top", (d3.event.pageY - 100) + "px")	
 			    	})
 			    	.on("click", function() {
-			    		d3.select("#description").node().value = "Gene list elements in List 1: " + "\n" + s2.array().join("\n");
+			    		d3.select("#description").node().value = "Gene list elements in List 2: " + "\n" + s2.array().join("\n");
 					})
 			    gvennStage.append("text")
 				        .attr("id", "text2")
@@ -697,7 +740,7 @@ function listOperation(){
 		//circle three
 		gvennStage.append("circle")
 			.style("fill", "#ff3433")
-			.style("fill-opacity", 0.3)
+			.style("fill-opacity", 0.4)
 			.attr("r", 110)
 			.attr("cx", 300)
 			.attr("cy", 185)
@@ -706,7 +749,7 @@ function listOperation(){
 			.on("mouseover", function(){ 
 		        d3.select(this).transition()
 		        	.attr("r", 113)
-		        	.style("fill-opacity", 0.5)
+		        	.style("fill-opacity", 0.6)
 		        	.style("stroke", "#259286")
 		        	.style("stroke-width", "2")
 		        	.style("stroke-opacity", 1);
@@ -731,7 +774,7 @@ function listOperation(){
 	    	.on("mouseout", function(){ 
 		       d3.select(this)
 		         .transition().attr("r", 110)
-		         .style("fill-opacity", 0.3)
+		         .style("fill-opacity", 0.4)
 	             .style("stroke-opacity", 0);
 
 		       //Hide the tooltip
@@ -743,7 +786,7 @@ function listOperation(){
 				.style("top", (d3.event.pageY - 100) + "px")	
 	    	})
 	    	.on("click", function() {
-	    		d3.select("#description").node().value = "Gene list elements in List 1: " + "\n" + s3.array().join("\n");
+	    		d3.select("#description").node().value = "Gene list elements in List 3: " + "\n" + s3.array().join("\n");
 			})
 
 	    gvennStage.append("text")
@@ -974,14 +1017,14 @@ function listOperation(){
     			  .attr("ry", rY)
     			  .attr("id", eID)
 				  .attr("transform", "rotate(" + rotationAng + " " + cX + " " + cY + ")")
-				  .style("fill-opacity", 0.2)
+				  .style("fill-opacity", 0.4)
 				  .style("stroke-opacity", 0)
 			      .style("stroke", "#259286")
 			      .style("stroke-width", "0")
 				  .style("fill", fillColor)
 				  .on("mouseover", function(){ 
 			        d3.select(this).transition()
-			        	.style("fill-opacity", 0.5)
+			        	.style("fill-opacity", 0.7)
 			        	.style("stroke", "#259286")
 			        	.style("stroke-width", "1")
 			        	.style("stroke-opacity", 1);
@@ -1003,7 +1046,7 @@ function listOperation(){
 		     	})
 		    	.on("mouseout", function(){ 
 			       d3.select(this)
-			         .style("fill-opacity", 0.2)
+			         .style("fill-opacity", 0.4)
 		             .style("stroke-opacity", 0);
 			       //Hide the tooltip
 					d3.select("#tooltip").classed("hidden", true);      
@@ -1014,7 +1057,7 @@ function listOperation(){
 						.style("top", (d3.event.pageY - 100) + "px")	
 				})
 		    	.on("click", function() {
-			    		d3.select("#description").node().value = "Gene list elements in " + listName + ": " + "\n" + listContent;
+			    		d3.select("#description").node().value = "Gene list elements in " + listName + "\n" + listContent;
 				})
 				gvennStage.append("text")
 		    		.attr("id", tID)
@@ -1664,14 +1707,14 @@ function listOperation(){
 	    			  .attr("transform", "scale(1.8) translate(80,45)")
 	    			  .attr("id", trID)
 	    			  //.attr("transform", "scale(2)")
-					  .style("fill-opacity", 0.3)
+					  .style("fill-opacity", 0.4)
 					  .style("stroke-opacity", 0)
 				      .style("stroke", "#259286")
 				      .style("stroke-width", "0")
 					  .style("fill", fillcolor) // #BD3613
 					  .on("mouseover", function(){ 
 				        d3.select(this).transition()
-				        	.style("fill-opacity", 0.5)
+				        	.style("fill-opacity", 0.6)
 				        	.style("stroke", "#259286")
 				        	.style("stroke-width", "1")
 				        	.style("stroke-opacity", 1);
@@ -1693,7 +1736,7 @@ function listOperation(){
 			     	})
 			    	.on("mouseout", function(){ 
 				       d3.select(this)
-				         .style("fill-opacity", 0.2)
+				         .style("fill-opacity", 0.4)
 			             .style("stroke-opacity", 0);
 				       //Hide the tooltip
 						d3.select("#tooltip").classed("hidden", true);      
@@ -1704,7 +1747,7 @@ function listOperation(){
 							.style("top", (d3.event.pageY - 100) + "px")	
 					})
 			    	.on("click", function() {
-			    		d3.select("#description").node().value = "Gene list elements in " + listName + ": " + "\n" + listContent;
+			    		d3.select("#description").node().value = "Gene list elements in " + listName + "\n" + listContent;
 					})
 			gvennStage.append("text")
 		    		.attr("id", tID)
