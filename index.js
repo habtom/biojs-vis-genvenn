@@ -910,7 +910,8 @@ function listOperation(){
 		d3.select("#text6").remove();	
 		d3.select("#text7").remove();
 		d3.select("#paths1ns2").remove();	
-		d3.select("#paths1ns3").remove();	
+		d3.select("#paths1ns3").remove();
+		d3.select("#paths2ns3").remove();	
 		d3.select("#paths1ns2ns3").remove();	
 
 		//remove triangle drawing
@@ -1007,7 +1008,7 @@ function listOperation(){
 			        .attr("y", 310)
 			        .attr("fill",  "black")
 		}
-		
+
 		if (s2.array().length > 0  && s2.array()[0] != "") {
 				//circle two
 				gvennStage.append("circle")
@@ -1065,7 +1066,6 @@ function listOperation(){
 				        .attr("x", 365)
 				        .attr("y", 310)
 				        .attr("fill",  "black")	
-
 
 		}
 		if (s3.array().length > 0  && s3.array()[0] != "") {
