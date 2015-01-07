@@ -3013,7 +3013,7 @@ function listOperation(){
 			    	d3.select("#description").node().value = "Common elements in List 2, List 3, and List 7 : " + "\n" + s2ns3.intersection(s7).array().join("\n");
 				})
 		
-		//L3nL3nL7 intersection area
+		//L3nL4nL7 intersection area
         gvennStage.append("path")
 	    		.attr("d", pathDe3ne4ne7)
 	    		.attr("id", "pathDe3ne4ne7")
@@ -3057,7 +3057,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L3∩L4∩L7: \n" + s4ns5.intersection(s7).array().join("\n"));
+			        tooltip.text("L4∩L5∩L7: \n" + s4ns5.intersection(s7).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
