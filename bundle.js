@@ -1480,7 +1480,7 @@ function listOperation(){
 	    gvennStage.append("text")
 				.attr("id", "e4thA1")
 		        .attr("class", "text")
-		        .text(s1.intersection(s3).array().length)
+		        .text(s1.intersection(s2).array().length)
 		        .attr("x", 146)
 		        .attr("y", 127)
 		        .attr("fill",  "black")
