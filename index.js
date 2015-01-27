@@ -10,56 +10,6 @@ var s5 = new sets.Set([]);
 var s6 = new sets.Set([]);
 var s7 = new sets.Set([]);
 
-// Some data examples ...
-//  var s1 = new sets.Set([
-// 					'G000001',
-// 					'G000002',
-// 					'G000003',
-// 					'G000004',
-// 					'G000005',
-// 					'G000006',
-// 					'G000007',
-// 					'G000008',
-// 					'G000009',
-// 					'G000010'
-//  					]);
-// var s2 = new sets.Set([
-// 					'G000005',
-// 					'G000006',
-// 					'G000007',
-// 					'G000008',
-// 					'G000009',
-// 					'G000010',
-// 					'G000011',
-// 					'G000012',
-// 					'G000013',
-// 					'G000014'
-// 					]);
-// var s3 = new sets.Set([
-// 					'G000007',
-// 					'G000008',
-// 					'G000009',
-// 					'G000010',
-// 					'G000011',
-// 					'G000006',
-// 					'G000007',
-// 					'G000008',
-// 					'G000009',
-// 					'G000010'
-// 					]);
-
-// var s4 = new sets.Set([
-// 					'G000001',
-// 					'G000002',
-// 					'G000003',
-// 					'G000004',
-// 					'G000005',
-// 					'G000006',
-// 					'G000016',
-// 					'G000008',
-// 					'G000009',
-// 					'G000010'
-// 					]);
 
 //upload file
 d3.select("#files").on("change" ,function() {
@@ -70,7 +20,7 @@ d3.select("#files").on("change" ,function() {
 	var reader = new FileReader();
 
 	reader.onloadend = function(evt) {
-      if (evt.target.readyState == FileReader.DONE) { // DONE == 2
+      if (evt.target.readyState == FileReader.DONE) { 
        // try{	
 	    var listvalue;
 		s1 = new sets.Set([]);
@@ -87,16 +37,36 @@ d3.select("#files").on("change" ,function() {
 		d3.select('#s5').node().value = ""; 
 		d3.select('#s6').node().value = ""; 
 		d3.select('#s7').node().value = ""; 
+		d3.select('#s1_title').node().value = "List 1"; 
+		d3.select('#s2_title').node().value = "List 2"; 
+		d3.select('#s3_title').node().value = "List 3"; 
+		d3.select('#s4_title').node().value = "List 4"; 
+		d3.select('#s5_title').node().value = "List 5"; 
+		d3.select('#s6_title').node().value = "List 6"; 
+		d3.select('#s7_title').node().value = "List 7"; 
 	    var json = JSON.parse(evt.target.result);
-	        	
+	    var counter = 0 ;
       for (key in json) {
+      	counter++;
+      	if(counter === 8){break;}
+	    d3.select("#s"+counter+"_title").node().value = key ;
 	    for (subKey in json[key]) {
+	            d3.select('#s'+counter).node().value += json[key][subKey]; 
+	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
+	            	 d3.select('#s'+counter).node().value += "\n";
+	            }
+	    }
+				//console.log(s1);
+	    /*for (subKey in json[key]) {
 	        if(key == 's1'){
 
 	            d3.select('#s1').node().value += json[key][subKey]; 
 	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
 	            	 d3.select('#s1').node().value += "\n";
+					 //document.getElementById('label1').innerHTML = "hgjhgjg";
+	            	 
 	            }
+	            d3.select("#s1_title").node().value = key ;
 	            listvalue = json[key];
 				s1 = new sets.Set(listvalue);
 	        }
@@ -105,6 +75,7 @@ d3.select("#files").on("change" ,function() {
 	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
 	            	d3.select('#s2').node().value += "\n";
 	            } 
+	            d3.select("#s2_title").node().value = key ;
 	            listvalue = json[key];
 				s2 = new sets.Set(listvalue);  
 	        }
@@ -113,6 +84,8 @@ d3.select("#files").on("change" ,function() {
 	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
 	            	d3.select('#s3').node().value += "\n";
 	            }
+	            d3.select("#s3_title").node().value = key ;
+	            
 	            listvalue = json[key];
 				s3 = new sets.Set(listvalue);
 	        }
@@ -121,6 +94,7 @@ d3.select("#files").on("change" ,function() {
 	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
 	            	d3.select('#s4').node().value += "\n";
 	            }   
+	            	d3.select("#s4_title").node().value = key ;
 	            listvalue = json[key];
 				s4 = new sets.Set(listvalue);
 	        }
@@ -129,6 +103,7 @@ d3.select("#files").on("change" ,function() {
 	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
 	            	d3.select('#s5').node().value += "\n";
 	            }   
+	            	d3.select("#s5_title").node().value = key ;
 	            listvalue = json[key];
 				s5 = new sets.Set(listvalue);
 	        }
@@ -137,6 +112,7 @@ d3.select("#files").on("change" ,function() {
 	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
 	            	d3.select('#s6').node().value += "\n";
 	            }   
+	            	d3.select("#s6_title").node().value = key ;
 	            listvalue = json[key];
 				s6 = new sets.Set(listvalue);
 	        }
@@ -145,12 +121,20 @@ d3.select("#files").on("change" ,function() {
 	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
 	            	d3.select('#s7').node().value += "\n";
 	            }   
+	            	d3.select("#s7_title").node().value = key ;
 	            listvalue = json[key];
 				s7 = new sets.Set(listvalue);
 	        }
-	    }
+	    }*/
 	}
 
+		s1 = new sets.Set(d3.select("#s1").node().value.split("\n"));
+		s2 = new sets.Set(d3.select("#s2").node().value.split("\n"));
+		s3 = new sets.Set(d3.select("#s3").node().value.split("\n"));
+		s4 = new sets.Set(d3.select("#s4").node().value.split("\n"));
+		s5 = new sets.Set(d3.select("#s5").node().value.split("\n"));
+		s6 = new sets.Set(d3.select("#s6").node().value.split("\n"));
+		s7 = new sets.Set(d3.select("#s7").node().value.split("\n"));
     listOperation();
 
       }
@@ -205,6 +189,7 @@ d3.select("#button").on("click" ,function() {
 	//var json = require(path);
 	//console.log(json);
 	var listvalue;
+	var counter = 0;
 	s1 = new sets.Set([]);
 	s2 = new sets.Set([]);
 	s3 = new sets.Set([]);
@@ -218,11 +203,21 @@ d3.select("#button").on("click" ,function() {
 	d3.select('#s4').node().value = ""; 
 	d3.select('#s5').node().value = ""; 
 	d3.select('#s6').node().value = ""; 
-	d3.select('#s7').node().value = ""; 
+	d3.select('#s7').node().value = "";
+	d3.select('#s1_title').node().value = "List 1"; 
+	d3.select('#s2_title').node().value = "List 2"; 
+	d3.select('#s3_title').node().value = "List 3"; 
+	d3.select('#s4_title').node().value = "List 4"; 
+	d3.select('#s5_title').node().value = "List 5"; 
+	d3.select('#s6_title').node().value = "List 6"; 
+	d3.select('#s7_title').node().value = "List 7";  
 
 	for (key in json) {
+		counter++;
+		if (counter === 8) {break;};
+		d3.select("#s"+counter+"_title").node().value = key ;
 	    for (subKey in json[key]) {
-	        if(key == 's1'){
+	    /*    if(key == 's1'){
 
 	            d3.select('#s1').node().value += json[key][subKey]; 
 	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
@@ -278,10 +273,306 @@ d3.select("#button").on("click" ,function() {
 	            }   
 	            listvalue = json[key];
 				s7 = new sets.Set(listvalue);
-	        }
+	        }*/
+	    	    d3.select('#s'+counter).node().value += json[key][subKey]; 
+	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
+	            	 d3.select('#s'+counter).node().value += "\n";
+	            	 
+	            }
 	    }
 	}
+		s1 = new sets.Set(d3.select("#s1").node().value.split("\n"));
+		s2 = new sets.Set(d3.select("#s2").node().value.split("\n"));
+		s3 = new sets.Set(d3.select("#s3").node().value.split("\n"));
+		s4 = new sets.Set(d3.select("#s4").node().value.split("\n"));
+		s5 = new sets.Set(d3.select("#s5").node().value.split("\n"));
+		s6 = new sets.Set(d3.select("#s6").node().value.split("\n"));
+		s7 = new sets.Set(d3.select("#s7").node().value.split("\n"));
+		//console.log(s1);
 	listOperation();
+});
+
+d3.select("#DownloadButton").on("click" ,function() {       
+// grab the content of the form field and place it into a variable
+    var textToWrite = "";
+
+    if(d3.select("#circle1").empty() != true && d3.select("#circle2").empty() != true){
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s2_title").node().value + ": " + s1.intersection(s2).array().join("  ") + "\n";
+    }
+    if(d3.select("#circle1").empty() != true && d3.select("#circle3").empty() != true){
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s1.intersection(s3).array().join("  ") + "\n";
+    }
+    if(d3.select("#circle2").empty() != true && d3.select("#circle3").empty() != true){
+    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s2.intersection(s3).array().join("  ") + "\n";
+    }
+    if(d3.select("#circle1").empty() != true && d3.select("#circle2").empty() != true && d3.select("#circle3").empty() != true){
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s1ns2.intersection(s3).array().join("  ") + "\n";
+    }
+    if(d3.select("#e4th1").empty() != true){
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s2_title").node().value + ": " + s1.intersection(s2).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s1.intersection(s3).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1.intersection(s4).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s2.intersection(s3).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s2.intersection(s4).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s3.intersection(s4).array().join("  ") + "\n";
+        textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s1ns2.intersection(s3).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1ns2.intersection(s4).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1ns3.intersection(s4).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s2ns3.intersection(s4).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1ns2ns3.intersection(s4).array().join("  ") + "\n";
+    }
+    if(d3.select("#e5th1").empty() != true){
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s2_title").node().value + ": " + s1.intersection(s2).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s1.intersection(s3).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1.intersection(s4).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1.intersection(s5).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s2.intersection(s3).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s2.intersection(s4).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s2.intersection(s5).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s3.intersection(s4).array().join("  ") + "\n";
+        textToWrite += "Common elements in " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s3.intersection(s5).array().join("  ") + "\n";
+        textToWrite += "Common elements in " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s4.intersection(s5).array().join("  ") + "\n";
+        
+        textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s1ns2.intersection(s3).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1ns2.intersection(s4).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns2.intersection(s5).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1ns3.intersection(s4).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns3.intersection(s5).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns4.intersection(s5).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s2ns3.intersection(s4).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s2ns3.intersection(s5).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s2ns4.intersection(s5).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s3ns4.intersection(s5).array().join("  ") + "\n";
+
+ 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1ns2ns3.intersection(s4).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns2ns3.intersection(s5).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns2ns4.intersection(s5).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns3ns4.intersection(s5).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s2ns3ns4.intersection(s5).array().join("  ") + "\n";
+
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns2ns3ns4.intersection(s5).array().join("  ") + "\n";
+
+    
+    }
+    if(d3.select("#tr1").empty() != true){
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s2_title").node().value + ": " + s1.intersection(s2).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s1.intersection(s3).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1.intersection(s4).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1.intersection(s5).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1.intersection(s6).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s2.intersection(s3).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s2.intersection(s4).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s2.intersection(s5).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2.intersection(s6).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s3.intersection(s4).array().join("  ") + "\n";
+        textToWrite += "Common elements in " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s3.intersection(s5).array().join("  ") + "\n";
+        textToWrite += "Common elements in " + d3.select("#s3_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s3.intersection(s6).array().join("  ") + "\n";
+        textToWrite += "Common elements in " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s4.intersection(s5).array().join("  ") + "\n";
+        textToWrite += "Common elements in " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s4.intersection(s6).array().join("  ") + "\n";
+       	textToWrite += "Common elements in " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s5.intersection(s6).array().join("  ") + "\n";
+       
+        textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s1ns2.intersection(s3).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1ns2.intersection(s4).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns2.intersection(s5).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2.intersection(s6).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1ns3.intersection(s4).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns3.intersection(s5).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns3.intersection(s6).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns4.intersection(s5).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns4.intersection(s6).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns5.intersection(s6).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s2ns3.intersection(s4).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s2ns3.intersection(s5).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns3.intersection(s6).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s2ns4.intersection(s5).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns4.intersection(s6).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns5.intersection(s6).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s3ns4.intersection(s5).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s3ns4.intersection(s6).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s3ns5.intersection(s6).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s4ns5.intersection(s6).array().join("  ") + "\n";
+
+ 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1ns2ns3.intersection(s4).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns2ns3.intersection(s5).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns3.intersection(s6).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns2ns4.intersection(s5).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns4.intersection(s6).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns5.intersection(s6).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns3ns4.intersection(s5).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns3ns4.intersection(s6).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns3ns5.intersection(s6).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns4ns5.intersection(s6).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s2ns3ns4.intersection(s5).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns3ns4.intersection(s6).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns3ns5.intersection(s6).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns4ns5.intersection(s6).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s3ns4ns5.intersection(s6).array().join("  ") + "\n";
+
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns2ns3ns4.intersection(s5).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns3ns4.intersection(s6).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns3ns5.intersection(s6).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns4ns5.intersection(s6).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns3ns4ns5.intersection(s6).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns3ns4ns5.intersection(s6).array().join("  ") + "\n";
+
+		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns3ns4ns5.intersection(s6).array().join("  ") + "\n";
+    
+    }
+    if(d3.select("#e7th1").empty() != true){
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s2_title").node().value + ": " + s1.intersection(s2).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s1.intersection(s3).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1.intersection(s4).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1.intersection(s5).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1.intersection(s6).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1.intersection(s7).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s2.intersection(s3).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s2.intersection(s4).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s2.intersection(s5).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2.intersection(s6).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2.intersection(s7).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s3.intersection(s4).array().join("  ") + "\n";
+        textToWrite += "Common elements in " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s3.intersection(s5).array().join("  ") + "\n";
+        textToWrite += "Common elements in " + d3.select("#s3_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s3.intersection(s6).array().join("  ") + "\n";
+        textToWrite += "Common elements in " + d3.select("#s3_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s3.intersection(s7).array().join("  ") + "\n";
+        textToWrite += "Common elements in " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s4.intersection(s5).array().join("  ") + "\n";
+        textToWrite += "Common elements in " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s4.intersection(s6).array().join("  ") + "\n";
+       	textToWrite += "Common elements in " + d3.select("#s4_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s4.intersection(s7).array().join("  ") + "\n";
+       	textToWrite += "Common elements in " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s5.intersection(s6).array().join("  ") + "\n";
+       	textToWrite += "Common elements in " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s5.intersection(s7).array().join("  ") + "\n";
+       	textToWrite += "Common elements in " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s6.intersection(s7).array().join("  ") + "\n";
+       
+        textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s1ns2.intersection(s3).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1ns2.intersection(s4).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns2.intersection(s5).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2.intersection(s6).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2.intersection(s7).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1ns3.intersection(s4).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns3.intersection(s5).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns3.intersection(s6).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns3.intersection(s7).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns4.intersection(s5).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns4.intersection(s6).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns4.intersection(s7).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns5.intersection(s6).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns5.intersection(s7).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns6.intersection(s7).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s2ns3.intersection(s4).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s2ns3.intersection(s5).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns3.intersection(s6).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns3.intersection(s7).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s2ns4.intersection(s5).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns4.intersection(s6).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns4.intersection(s7).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns5.intersection(s6).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns5.intersection(s7).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns6.intersection(s7).array().join("  ") + "\n";
+ 		textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s3ns4.intersection(s5).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s3ns4.intersection(s6).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s3ns4.intersection(s7).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s3ns5.intersection(s6).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s3ns5.intersection(s7).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s4ns5.intersection(s6).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s4ns5.intersection(s7).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s4_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s4ns6.intersection(s7).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s5ns6.intersection(s7).array().join("  ") + "\n";
+
+ 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1ns2ns3.intersection(s4).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns2ns3.intersection(s5).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns3.intersection(s6).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2ns3.intersection(s7).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns2ns4.intersection(s5).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns4.intersection(s6).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2ns4.intersection(s7).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns5.intersection(s6).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2ns5.intersection(s7).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2ns6.intersection(s7).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns3ns4.intersection(s5).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns3ns4.intersection(s6).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns3ns4.intersection(s7).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns3ns5.intersection(s6).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns3ns5.intersection(s7).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns3ns6.intersection(s7).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns4ns5.intersection(s6).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns4ns5.intersection(s7).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns5ns6.intersection(s7).array().join("  ") + "\n";
+    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s2ns3ns4.intersection(s5).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns3ns4.intersection(s6).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns3ns4.intersection(s7).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns3ns5.intersection(s6).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns3ns5.intersection(s7).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns3ns6.intersection(s7).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns4ns5.intersection(s6).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns4ns5.intersection(s7).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns4ns6.intersection(s7).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s3ns4ns5.intersection(s6).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s3ns4ns5.intersection(s7).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s3ns4ns6.intersection(s7).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s3ns5ns6.intersection(s7).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s4ns5ns6.intersection(s7).array().join("  ") + "\n";
+
+    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns2ns3ns4.intersection(s5).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns3ns4.intersection(s6).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2ns3ns4.intersection(s7).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns3ns5.intersection(s6).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2ns3ns5.intersection(s7).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns4ns5.intersection(s6).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2ns4ns5.intersection(s7).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns3ns4ns5.intersection(s6).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns3ns4ns5.intersection(s7).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns4ns5ns6.intersection(s7).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns3ns4ns5.intersection(s6).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns3ns4ns5.intersection(s7).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns3ns4ns6.intersection(s7).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns3ns5ns6.intersection(s7).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns4ns5ns6.intersection(s7).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s3ns4ns5ns6.intersection(s7).array().join("  ") + "\n";
+
+		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns3ns4ns5.intersection(s6).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2ns3ns4ns5.intersection(s7).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2ns3ns4ns6.intersection(s7).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2ns3ns5ns6.intersection(s7).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2ns4ns5ns6.intersection(s7).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns3ns4ns5ns6.intersection(s7).array().join("  ") + "\n";
+		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns3ns4ns5ns6.intersection(s7).array().join("  ") + "\n";
+    
+
+		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2ns3ns4ns5ns7.intersection(s7).array().join("  ") + "\n";
+    }
+    //  create a new Blob (html5 magic) that conatins the data from your form feild
+    var textFileAsBlob = new Blob([textToWrite], {type:'text/plain'});
+// Specify the name of the file to be saved
+    var fileNameToSaveAs = "Lists Intersections.txt";
+    
+// Optionally allow the user to choose a file name by providing 
+// an imput field in the HTML and using the collected data here
+// var fileNameToSaveAs = txtFileName.text;
+
+// create a link for our script to 'click'
+    var downloadLink = document.createElement("a");
+//  supply the name of the file (from the var above).
+// you could create the name here but using a var
+// allows more flexability later.
+    downloadLink.download = fileNameToSaveAs;
+// provide text for the link. This will be hidden so you
+// can actually use anything you want.
+    downloadLink.innerHTML = "My Hidden Link";
+    
+// allow our code to work in webkit & Gecko based browsers
+// without the need for a if / else block.
+    window.URL = window.URL || window.webkitURL;
+          
+// Create the link Object.
+    downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+// when link is clicked call a function to remove it from
+// the DOM in case user wants to save a second file.
+    //downloadLink.onclick = destroyClickedElement;
+// make sure the link is hidden.
+    downloadLink.style.display = "none";
+// add the link to the DOM
+    document.body.appendChild(downloadLink);
+    
+// click the new link
+    downloadLink.click();
 });
 
 
@@ -358,6 +649,44 @@ function update7 (listvalue){
 	else{s7 = new sets.Set(listvalue);}
 	listOperation();
 }
+/*----------------------------------------------*/
+d3.select("#s1_title").on("change" ,function() { 
+  listOperation();
+}).on("keydown",Key);
+d3.select("#s2_title").on("change" ,function() { 
+  listOperation();
+}).on("keydown",Key);
+d3.select("#s3_title").on("change" ,function() { 
+  listOperation();
+}).on("keydown",Key);
+d3.select("#s4_title").on("change" ,function() { 
+  listOperation();
+}).on("keydown",Key);
+d3.select("#s5_title").on("change" ,function() { 
+  listOperation();
+}).on("keydown",Key);
+d3.select("#s6_title").on("change" ,function() { 
+  listOperation();
+}).on("keydown",Key);
+d3.select("#s7_title").on("change" ,function() { 
+  listOperation();
+}).on("keydown",Key);
+
+function Key() { 	
+	if(d3.event.keyCode === 13){
+		  d3.event.preventDefault();
+		  listOperation();
+	}
+}
+
+/*----------------------------------------------*/
+
+
+function update7 (listvalue){
+	if(listvalue == ""){s7 = new sets.Set([]);}
+	else{s7 = new sets.Set(listvalue);}
+	listOperation();
+}
 
 //define drawing canvas/
 var w = 746,
@@ -373,7 +702,53 @@ var tooltip = d3.select("body").append("div")
     .attr("class", "genvenntooltip");
 
 
+//export svg into image
+function exportImage () {
+
+  //d3.select("a").remove();		
+
+
+  d3.select("#exportImage").on("click", function(){
+  var html = d3.select("svg")
+        .attr("version", 1.1)
+        .attr("xmlns", "http://www.w3.org/2000/svg")
+        .node().parentNode.innerHTML;
+
+  var imgsrc = 'data:image/svg+xml;base64,'+ btoa(html);
+  var img = '<img src="'+imgsrc+'">'; 
+
+
+  var canvas = document.querySelector("canvas"),
+    context = canvas.getContext("2d");
+
+  var image = new Image;
+  image.src = imgsrc;
+  image.onload = function() {
+    context.drawImage(image, 0, 0);
+
+    var canvasdata = canvas.toDataURL("image/png");
+
+    var pngimg = '<img src="'+canvasdata+'">'; 
+
+    var a = document.createElement("a");
+    a.download = "exportedImage.png";
+
+    a.href = canvasdata;
+          document.body.appendChild(a);
+    a.click();
+	//html.exit();
+	 //d3.select("a").remove();		
+
+  };
+
+});
+}
+exportImage();
+
+
+
 function listOperation(){
+
 
 	s1ns2_arr =  s1.intersection(s2).array();
 	s1ns2 = new sets.Set(s1ns2_arr);
@@ -391,6 +766,8 @@ function listOperation(){
 
 	s1ns3_arr =  s1.intersection(s3).array();
 	s1ns3 = new sets.Set(s1ns3_arr);
+
+
 
 	s3ns4_arr =  s3.intersection(s4).array();
 	s3ns4 = new sets.Set(s3ns4_arr);
@@ -415,6 +792,125 @@ function listOperation(){
 	s1ns2ns3ns4ns5ns6ns7_arr = s1ns2ns3ns4ns5ns6.intersection(s7).array();
 	s1ns2ns3ns4ns5ns6ns7 = new sets.Set(s1ns2ns3ns4ns5ns6ns7_arr);
 
+
+	/*--------------------------------------------------------------------------------------*/
+	s1ns4_arr =  s1.intersection(s4).array();
+	s1ns4 = new sets.Set(s1ns4_arr);
+
+	s2ns4_arr =  s2.intersection(s4).array();
+	s2ns4 = new sets.Set(s2ns4_arr);
+
+	s1ns2ns4_arr = s1ns2.intersection(s4).array();
+	s1ns2ns4 = new sets.Set(s1ns2ns4_arr);
+
+	s1ns3ns4_arr = s1ns3.intersection(s4).array();
+	s1ns3ns4 = new sets.Set(s1ns3ns4_arr);
+
+	s1ns5_arr =  s1.intersection(s5).array();
+	s1ns5 = new sets.Set(s1ns5_arr);
+
+	s1ns2ns5_arr = s1ns2.intersection(s5).array();
+	s1ns2ns5 = new sets.Set(s1ns2ns5_arr);
+
+	s1ns4ns5_arr = s1ns4.intersection(s5).array();
+	s1ns4ns5 = new sets.Set(s1ns4ns5_arr);
+
+	s2ns3ns5_arr = s2ns3.intersection(s5).array();
+	s2ns3ns5 = new sets.Set(s2ns3ns5_arr);
+
+	s2ns4ns5_arr = s2ns4.intersection(s5).array();
+	s2ns4ns5 = new sets.Set(s2ns4ns5_arr);
+
+	s3ns4ns5_arr = s3ns4.intersection(s5).array();
+	s3ns4ns5 = new sets.Set(s3ns4ns5_arr);
+
+	s1ns2ns3ns5_arr = s1ns2ns3.intersection(s5).array();
+	s1ns2ns3ns5 = new sets.Set(s1ns2ns3ns5_arr);
+
+	s1ns2ns4ns5_arr = s1ns2ns4.intersection(s5).array();
+	s1ns2ns4ns5 = new sets.Set(s1ns2ns4ns5_arr);
+
+	s1ns3ns4ns5_arr = s1ns3ns4.intersection(s5).array();
+	s1ns3ns4ns5 = new sets.Set(s1ns3ns4ns5_arr);
+
+	s2ns3ns4ns5_arr = s2ns3ns4.intersection(s5).array();
+	s2ns3ns4ns5 = new sets.Set(s2ns3ns4ns5_arr);
+
+	s2ns5_arr =  s2.intersection(s5).array();
+	s2ns5 = new sets.Set(s2ns5_arr);
+
+	s3ns5_arr =  s3.intersection(s5).array();
+	s3ns5 = new sets.Set(s3ns5_arr);
+
+	s1ns3ns5_arr = s1ns3.intersection(s5).array();
+	s1ns3ns5 = new sets.Set(s1ns3ns5_arr);
+
+	s1ns6_arr =  s1.intersection(s6).array();
+	s1ns6 = new sets.Set(s1ns6_arr);
+
+	s2ns6_arr =  s2.intersection(s6).array();
+	s2ns6 = new sets.Set(s2ns6_arr);
+
+	s4ns6_arr =  s4.intersection(s6).array();
+	s4ns6 = new sets.Set(s4ns6_arr);
+
+	s1ns2ns6_arr = s1ns2.intersection(s6).array();
+	s1ns2ns6 = new sets.Set(s1ns2ns6_arr);
+
+	s1ns3ns6_arr = s1ns3.intersection(s6).array();
+	s1ns3ns6 = new sets.Set(s1ns3ns6_arr);
+
+	s1ns5ns6_arr = s1ns5.intersection(s6).array();
+	s1ns5ns6 = new sets.Set(s1ns5ns6_arr);
+
+	s2ns3ns6_arr = s2ns3.intersection(s6).array();
+	s2ns3ns6 = new sets.Set(s2ns3ns6_arr);
+
+	s2ns4ns6_arr = s2ns4.intersection(s6).array();
+	s2ns4ns6 = new sets.Set(s2ns4ns6_arr);
+
+	s3ns4ns6_arr = s3ns4.intersection(s6).array();
+	s3ns4ns6 = new sets.Set(s3ns4ns6_arr);
+
+	s3ns5ns6_arr = s3ns5.intersection(s6).array();
+	s3ns5ns6 = new sets.Set(s3ns5ns6_arr);
+
+	s4ns5ns6_arr = s4ns5.intersection(s6).array();
+	s4ns5ns6 = new sets.Set(s4ns5ns6_arr);
+
+	s1ns4ns5ns6_arr = s1ns4ns5.intersection(s6).array();
+	s1ns4ns5ns6 = new sets.Set(s1ns4ns5ns6_arr);
+
+	s2ns3ns4ns6_arr = s2ns3ns4.intersection(s6).array();
+	s2ns3ns4ns6 = new sets.Set(s2ns3ns4ns6_arr);
+
+	s2ns3ns5ns6_arr = s2ns3ns5.intersection(s6).array();
+	s2ns3ns5ns6 = new sets.Set(s2ns3ns5ns6_arr);
+
+	s2ns4ns5ns6_arr = s2ns4ns5.intersection(s6).array();
+	s2ns4ns5ns6 = new sets.Set(s2ns4ns5ns6_arr);
+
+	s3ns4ns5ns6_arr = s3ns4ns5.intersection(s6).array();
+	s3ns4ns5ns6 = new sets.Set(s3ns4ns5ns6_arr);
+
+	s1ns2ns3ns4ns6_arr = s1ns2ns3ns4.intersection(s6).array();
+	s1ns2ns3ns4ns6 = new sets.Set(s1ns2ns3ns4ns6_arr);
+
+	s1ns2ns3ns5ns6_arr = s1ns2ns3ns5.intersection(s6).array();
+	s1ns2ns3ns5ns6 = new sets.Set(s1ns2ns3ns5ns6_arr);
+
+	s1ns2ns4ns5ns6_arr = s1ns2ns4ns5.intersection(s6).array();
+	s1ns2ns4ns5ns6 = new sets.Set(s1ns2ns4ns5ns6_arr);
+
+	s1ns3ns4ns5ns6_arr = s1ns3ns4ns5.intersection(s6).array();
+	s1ns3ns4ns5ns6 = new sets.Set(s1ns3ns4ns5ns6_arr);
+
+	s2ns3ns4ns5ns6_arr = s2ns3ns4ns5.intersection(s6).array();
+	s2ns3ns4ns5ns6 = new sets.Set(s2ns3ns4ns5ns6_arr);
+
+	s1ns2ns3ns4ns5ns7_arr = s1ns2ns3ns4ns5.intersection(s7).array();
+	s1ns2ns3ns4ns5ns7 = new sets.Set(s1ns2ns3ns4ns5ns7_arr);
+	/*-------------------------------------------------------------------------------------*/
 	/* ------------------------
 		--- Intersection Area -----
 		---------------------------*/
@@ -481,6 +977,8 @@ function listOperation(){
 	var pathDt2nt6 = "M 334.15625,229.4375 231.25,348.3125 213.1875,452.1875 335.59375,391.28125 352.625,328.59375 334.15625,229.4375 z ";
 	var pathDt1nt6 = "M 318.84375 247.09375 L 222.4375 358.46875 L 271.625 439.96875 L 347.21875 348.5 L 365.3125 282.03125 L 318.84375 247.09375 z ";
 	var pathDt1nt2nt3nt4nt5nt6 = "M 314.75,251.8125 250.3125,326.28125 283.375,417.25 295.3125,411.3125 338,359.65625 327.46875,258.78125 314.75,251.8125 z";
+
+
 
 	//drawing logic
 	if (s7.array().length > 0  && s7.array()[0] != ""){
@@ -562,13 +1060,13 @@ function listOperation(){
 		//draw seven elipse
 		//Seven
 		//drawEllipseBase(cX, cY, rX, rY, rotationAng, fillColor, listName, listContent, eID, tID, eRemove, tRemove, listCount, textX, textY)
-		drawEllipseBase(220,288,200, 110, 0, "#00bf00", "List 1: ", s1.array().join("\n"), "e7th1", "e7thTl1", "#e7th1", "#e7thTl1", s1.array().length, 40, 294); //1st Ellipse
-		drawEllipseBase(216,246,200, 110, 51, "#007fff", "List 2: ", s2.array().join("\n"), "e7th2", "e7thTl2", "#e7th2", "#e7thTl2", s2.array().length, 96, 117); //2st Ellipse
-		drawEllipseBase(246,217,200, 110, 102, "#ff3433", "List 3: ", s3.array().join("\n"), "e7th3", "e7thTl3", "#e7th3", "#e7thTl3", s3.array().length, 273, 49); //3st Ellipse
-		drawEllipseBase(289,222,200, 110, 154, "#E6E600", "List 4: ", s4.array().join("\n"), "e7th4", "e7thTl4", "#e7th4", "#e7thTl4", s4.array().length, 434, 152); //4st Ellipse
-		drawEllipseBase(310,258,200, 110, 25, "#FF9900", "List 5: ", s5.array().join("\n"), "e7th5", "e7thTl5", "#e7th5", "#e7thTl5", s5.array().length, 458, 341); //5st Ellipse
-		drawEllipseBase(296,298,200, 110, 77, "#00FFFF", "List 6: ", s6.array().join("\n"), "e7th6", "e7thTl6", "#e7th6", "#e7thTl6", s6.array().length, 330, 472); //6st Ellipse
-		drawEllipseBase(256,311,200, 110, 135, "#ff00ff", "List 7: ", s7.array().join("\n"), "e7th7", "e7thTl7", "#e7th7", "#e7thTl7", s7.array().length, 132, 440); //7th Ellipse
+		drawEllipseBase(220,288,200, 110, 0, "#00bf00", d3.select("#s1_title").node().value , s1.array().join("\n") , "e7th1", "e7thTl1", "#e7th1", "#e7thTl1", s1.array().length, 40, 294, 00, 240); //1st Ellipse
+		drawEllipseBase(216,246,200, 110, 51, "#007fff", d3.select("#s2_title").node().value, s2.array().join("\n"), "e7th2", "e7thTl2", "#e7th2", "#e7thTl2", s2.array().length, 96, 117, 45, 80); //2st Ellipse
+		drawEllipseBase(246,217,200, 110, 102, "#ff3433", d3.select("#s3_title").node().value, s3.array().join("\n"), "e7th3", "e7thTl3", "#e7th3", "#e7thTl3", s3.array().length, 273, 49, 270, 10); //3st Ellipse
+		drawEllipseBase(289,222,200, 110, 154, "#E6E600", d3.select("#s4_title").node().value, s4.array().join("\n"), "e7th4", "e7thTl4", "#e7th4", "#e7thTl4", s4.array().length, 434, 152, 490, 152); //4st Ellipse
+		drawEllipseBase(310,258,200, 110, 25, "#FF9900", d3.select("#s5_title").node().value, s5.array().join("\n"), "e7th5", "e7thTl5", "#e7th5", "#e7thTl5", s5.array().length, 458, 341, 510, 341); //5st Ellipse
+		drawEllipseBase(296,298,200, 110, 77, "#00FFFF", d3.select("#s6_title").node().value, s6.array().join("\n"), "e7th6", "e7thTl6", "#e7th6", "#e7thTl6", s6.array().length, 330, 472, 330, 520); //6st Ellipse
+		drawEllipseBase(256,311,200, 110, 135, "#ff00ff", d3.select("#s7_title").node().value, s7.array().join("\n"), "e7th7", "e7thTl7", "#e7th7", "#e7thTl7", s7.array().length, 132, 440, 60, 470); //7th Ellipse
 		
 		drawSevenSetIntersectionArea();
 
@@ -576,12 +1074,12 @@ function listOperation(){
 		//draw triangle
 
 		//drawTriangle(d, fillColor, textX, textY, listName, listContent, trID, tID, listCount, trRemove, tRemove);
-		drawTriangle("M -69.277 -32.868 L 135.580 121.186 L  70.900 199.427 Z", "#00bf00", 95,115, "List 1: ", s1.array().join("\n"), "tr1", "trx1", s1.array().length, "#tr1", "#trx1"); //1
-		drawTriangle("M  81.988 -44.426 L  38.444 206.222 L 121.044 165.111 Z", "#007fff", 288,88, "List 2: ", s2.array().join("\n"), "tr2", "trx2", s2.array().length, "#tr2", "#trx2"); //2
-		drawTriangle("M 203.271   9.619 L  39.604  82.683 L  84.652 206.669 Z", "#ff3433", 460,145, "List 3: ", s3.array().join("\n"), "tr3", "trx3", s3.array().length, "#tr3", "#trx3"); //3
-		drawTriangle("M 333.561 225.349 L  61.764  76.805 L  38.980 182.461 Z", "#E6E600", 532,430, "List 4: ", s4.array().join("\n"), "tr4", "trx4", s4.array().length, "#tr4", "#trx4"); //4
-		drawTriangle("M 131.886 385.785 L  38.136 111.491 L  94.208  24.690 Z", "#FF9900", 328,548, "List 5: ", s5.array().join("\n"), "tr5", "trx5", s5.array().length, "#tr5", "#trx5"); //5
-		drawTriangle("M -60.184 274.046 L 142.476  39.903 L 103.276 183.962 Z", "#00FFFF", 127,500, "List 6: ", s6.array().join("\n"), "tr6", "trx6", s6.array().length, "#tr6", "#trx6"); //6
+		drawTriangle("M -69.277 -32.868 L 135.580 121.186 L  70.900 199.427 Z", "#00bf00", 95,115, d3.select("#s1_title").node().value, s1.array().join("\n"), "tr1", "trx1", s1.array().length, "#tr1", "#trx1"); //1
+		drawTriangle("M  81.988 -44.426 L  38.444 206.222 L 121.044 165.111 Z", "#007fff", 288,88, d3.select("#s2_title").node().value, s2.array().join("\n"), "tr2", "trx2", s2.array().length, "#tr2", "#trx2"); //2
+		drawTriangle("M 203.271   9.619 L  39.604  82.683 L  84.652 206.669 Z", "#ff3433", 460,145, d3.select("#s3_title").node().value, s3.array().join("\n"), "tr3", "trx3", s3.array().length, "#tr3", "#trx3"); //3
+		drawTriangle("M 333.561 225.349 L  61.764  76.805 L  38.980 182.461 Z", "#E6E600", 532,430, d3.select("#s4_title").node().value, s4.array().join("\n"), "tr4", "trx4", s4.array().length, "#tr4", "#trx4"); //4
+		drawTriangle("M 131.886 385.785 L  38.136 111.491 L  94.208  24.690 Z", "#FF9900", 328,548, d3.select("#s5_title").node().value, s5.array().join("\n"), "tr5", "trx5", s5.array().length, "#tr5", "#trx5"); //5
+		drawTriangle("M -60.184 274.046 L 142.476  39.903 L 103.276 183.962 Z", "#00FFFF", 127,500, d3.select("#s6_title").node().value, s6.array().join("\n"), "tr6", "trx6", s6.array().length, "#tr6", "#trx6"); //6
 
 		drawTriangleIntersectionArea();
 	} else if (s5.array().length > 0  && s5.array()[0] != "") {
@@ -665,11 +1163,11 @@ function listOperation(){
 		//draw area intersect
 		//Five
 		//drawEllipseBase(cX, cY, rX, rY, rotationAng, fillColor, listName, listContent, eID, tID, eRemove, tRemove, listCount, textX, textY)
-		drawEllipseBase(263,213,200, 110, 90, "#00bf00", "List 1: ", s1.array().join("\n"), "e5th1", "e5thTl1", "#e5th1", "#e5thTl1", s1.array().length, 258, 50); //1st Ellipse
-		drawEllipseBase(280,262,200, 110, 162, "#007fff", "List 2: ", s2.array().join("\n"), "e5th2", "e5thTl2", "#e5th2", "#e5thTl2", s2.array().length, 438, 216); //2st Ellipse
-		drawEllipseBase(241,292,200, 110, 54, "#ff3433", "List 3: ", s3.array().join("\n"), "e5th3", "e5thTl3", "#e5th3", "#e5thTl3", s3.array().length, 330, 433); //3st Ellipse
-		drawEllipseBase(199,266,200, 110, 126, "#E6E600", "List 4: ", s4.array().join("\n"), "e5th4", "e5thTl4", "#e5th4", "#e5thTl4", s4.array().length, 93, 409); //4st Ellipse
-		drawEllipseBase(212,216,200, 110, 18, "#FF9900", "List 5: ", s5.array().join("\n"), "e5th5", "e5thTl5", "#e5th5", "#e5thTl5", s5.array().length, 42, 166); //5th Ellipse
+		drawEllipseBase(263,213,200, 110, 90, "#00bf00", d3.select("#s1_title").node().value, s1.array().join("\n"), "e5th1", "e5thTl1", "#e5th1", "#e5thTl1", s1.array().length, 258, 50); //1st Ellipse
+		drawEllipseBase(280,262,200, 110, 162, "#007fff", d3.select("#s2_title").node().value, s2.array().join("\n"), "e5th2", "e5thTl2", "#e5th2", "#e5thTl2", s2.array().length, 438, 216); //2st Ellipse
+		drawEllipseBase(241,292,200, 110, 54, "#ff3433", d3.select("#s3_title").node().value, s3.array().join("\n"), "e5th3", "e5thTl3", "#e5th3", "#e5thTl3", s3.array().length, 330, 433); //3st Ellipse
+		drawEllipseBase(199,266,200, 110, 126, "#E6E600", d3.select("#s4_title").node().value, s4.array().join("\n"), "e5th4", "e5thTl4", "#e5th4", "#e5thTl4", s4.array().length, 93, 409); //4st Ellipse
+		drawEllipseBase(212,216,200, 110, 18, "#FF9900", d3.select("#s5_title").node().value, s5.array().join("\n"), "e5th5", "e5thTl5", "#e5th5", "#e5thTl5", s5.array().length, 42, 166); //5th Ellipse
 		drawFiveSetIntersectionArea();
 	} else if (s4.array().length > 0  && s4.array()[0] != "") {
 		
@@ -766,10 +1264,10 @@ function listOperation(){
 		//draw area intersect
 		//Four 
 		//drawEllipseBase(cX, cY, rX, rY, rotationAng, fillColor, listName, listContent, eID, tID, eRemove, tRemove, listCount, textX, textY)
-		drawEllipseBase(196,246,200, 110, 45, "#00bf00", "List 1: ", s1.array().join("\n"), "e4th1", "e4thTl1", "#e4th1", "#e4thTl1", s1.array().length, 70, 135); //1st Ellipse
-		drawEllipseBase(266,176,200, 110, 45, "#007fff", "List 2: ", s2.array().join("\n"), "e4th2", "e4thTl2", "#e4th2", "#e4thTl2", s2.array().length, 138, 55); //1st Ellipse
-		drawEllipseBase(326,176,200, 110, 135, "#ff3433", "List 3: ", s3.array().join("\n"), "e4th3", "e4thTl3", "#e4th3", "#e4thTl3", s3.array().length, 435, 58); //1st Ellipse
-		drawEllipseBase(396,246,200, 110, 135, "#E6E600", "List 4: ", s4.array().join("\n"), "e4th4", "e4thTl4", "#e4th4", "#e4thTl4", s4.array().length, 508, 135); //1st Ellipse
+		drawEllipseBase(196,246,200, 110, 45, "#00bf00", d3.select("#s1_title").node().value, s1.array().join("\n"), "e4th1", "e4thTl1", "#e4th1", "#e4thTl1", s1.array().length, 70, 135); //1st Ellipse
+		drawEllipseBase(266,176,200, 110, 45, "#007fff", d3.select("#s2_title").node().value, s2.array().join("\n"), "e4th2", "e4thTl2", "#e4th2", "#e4thTl2", s2.array().length, 138, 55); //1st Ellipse
+		drawEllipseBase(326,176,200, 110, 135, "#ff3433", d3.select("#s3_title").node().value, s3.array().join("\n"), "e4th3", "e4thTl3", "#e4th3", "#e4thTl3", s3.array().length, 435, 58); //1st Ellipse
+		drawEllipseBase(396,246,200, 110, 135, "#E6E600", d3.select("#s4_title").node().value, s4.array().join("\n"), "e4th4", "e4thTl4", "#e4th4", "#e4thTl4", s4.array().length, 508, 135); //1st Ellipse
 
 		drawFourSetIntersectionArea();
 
@@ -973,7 +1471,7 @@ function listOperation(){
 							.style("left", (d3.event.pageX - 100) + "px")
 							.style("top", (d3.event.pageY - 100) + "px")
 							.select("#v")
-							.text("List 1: ");
+							.text(d3.select("#s1_title").node().value);
 
 						d3.select("#tooltip")
 							.style("left", (d3.event.pageX - 100) + "px")
@@ -998,7 +1496,7 @@ function listOperation(){
 						.style("top", (d3.event.pageY - 100) + "px")	
 			    	})
 			    	.on("click", function() {
-			    		d3.select("#description").node().value = "Gene list elements in List 1: " + "\n" + s1.array().join("\n");
+			    		d3.select("#description").node().value = "Elements in " + d3.select("#s1_title").node().value + ":" + "\n" + s1.array().join("\n");
 					})
 		    gvennStage.append("text")
 		    		.attr("id", "text1")
@@ -1032,7 +1530,7 @@ function listOperation(){
 							.style("left", (d3.event.pageX - 100) + "px")
 							.style("top", (d3.event.pageY - 100) + "px")
 							.select("#v")
-							.text("List 2: ");
+							.text(d3.select("#s2_title").node().value);
 
 						d3.select("#tooltip")
 							.style("left", (d3.event.pageX + 100) + "px")
@@ -1057,7 +1555,7 @@ function listOperation(){
 						.style("top", (d3.event.pageY - 100) + "px")	
 			    	})
 			    	.on("click", function() {
-			    		d3.select("#description").node().value = "Gene list elements in List 2: " + "\n" + s2.array().join("\n");
+			    		d3.select("#description").node().value = "Elements in " + d3.select("#s2_title").node().value + ":" + "\n" + s2.array().join("\n");
 					})
 			    gvennStage.append("text")
 				        .attr("id", "text2")
@@ -1092,7 +1590,7 @@ function listOperation(){
 							.style("left", (d3.event.pageX - 100) + "px")
 							.style("top", (d3.event.pageY - 100) + "px")
 							.select("#v")
-							.text("List 3: ");
+							.text(d3.select("#s3_title").node().value);
 							
 				d3.select("#tooltip")
 					.style("left", (d3.event.pageX + 100) + "px")
@@ -1118,7 +1616,7 @@ function listOperation(){
 				.style("top", (d3.event.pageY - 100) + "px")	
 	    	})
 	    	.on("click", function() {
-	    		d3.select("#description").node().value = "Gene list elements in List 3: " + "\n" + s3.array().join("\n");
+	    		d3.select("#description").node().value = "Elements in " + d3.select("#s3_title").node().value + ": " + "\n" + s3.array().join("\n");
 			})
 
 	    gvennStage.append("text")
@@ -1154,7 +1652,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L1∩L2: \n" + s1.intersection(s2).array().join("\n"));
+			        tooltip.text("L1 n L2:\n" + s1.intersection(s2).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -1167,7 +1665,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 1 and List 2 : " + "\n" + s1.intersection(s2).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s2_title").node().value + ": " + "\n" + s1.intersection(s2).array().join("\n");
 				})
 
 		  	}
@@ -1195,7 +1693,7 @@ function listOperation(){
 				            .style("fill-opacity", .1)
 				            .style("stroke-opacity", 1);
 				       	tooltip.transition().style("opacity", .9);
-				        tooltip.text("L1∩L3: \n" + s1.intersection(s3).array().join("\n"));
+				        tooltip.text("L1 n L3:\n" + s1.intersection(s3).array().join("\n"));
 				    })
 				    .on("mouseout", function() {
 				        d3.select(this).transition()
@@ -1208,7 +1706,7 @@ function listOperation(){
 				             	.style("top", (d3.event.pageY - 100) + "px");
 				    })
 				    .on("click", function() {
-			    		d3.select("#description").node().value = "Common elements in List 1 and List 3 : " + "\n" + s1.intersection(s3).array().join("\n");
+			    		d3.select("#description").node().value = "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s3_title").node().value + ": \n"  + s1.intersection(s3).array().join("\n");
 					})
 
 			}
@@ -1235,7 +1733,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L2∩L3: \n" + s2.intersection(s3).array().join("\n"));
+			        tooltip.text("L2 n L3:\n" + s2.intersection(s3).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -1248,7 +1746,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 2 and List 3 : " + "\n" + s2.intersection(s3).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s3_title").node().value + ": \n" + s2.intersection(s3).array().join("\n");
 				})
 
 	    }
@@ -1275,7 +1773,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L1∩L2∩L3: \n" + s1ns2.intersection(s3).array().join("\n"));
+			        tooltip.text("L1 ∩ L2 ∩ L3: \n" + s1ns2.intersection(s3).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -1288,16 +1786,18 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 1, List 2 and List 3 : " + "\n" + s1ns2.intersection(s3).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s3_title").node().value + ":\n" + s1ns2.intersection(s3).array().join("\n");
 				})
 
 	    }
 	};
 	
-	function drawEllipseBase(cX, cY, rX, rY, rotationAng, fillColor, listName, listContent, eID, tID, eRemove, tRemove, listCount, textX, textY) {
+	function drawEllipseBase(cX, cY, rX, rY, rotationAng, fillColor, listName, listContent, eID, tID, eRemove, tRemove, listCount, textX, textY, textXl, textYl) {
 
 		d3.select(eRemove).remove();
 		d3.select(tRemove).remove();
+
+		d3.select(listName).remove();
 
 
 		d3.select("#pathDe1ne2").remove();
@@ -1408,7 +1908,7 @@ function listOperation(){
 						.style("top", (d3.event.pageY - 100) + "px")	
 				})
 		    	.on("click", function() {
-			    		d3.select("#description").node().value = "Gene list elements in " + listName + "\n" + listContent;
+			    		d3.select("#description").node().value = "Common list elements in " + listName + "\n" + listContent;
 				})
 				gvennStage.append("text")
 		    		.attr("id", tID)
@@ -1416,6 +1916,13 @@ function listOperation(){
 			        .text(listCount)
 			        .attr("x", textX)
 			        .attr("y", textY)
+			        .attr("fill",  "black")
+			    gvennStage.append("text")
+		    		.attr("id", tID)
+			        .attr("class", "text")
+			        .text(listName)
+			        .attr("x", textXl)
+			        .attr("y", textYl)
 			        .attr("fill",  "black")	
 	
 	};
@@ -1459,7 +1966,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L1∩L2: \n" + s1.intersection(s2).array().join("\n"));
+			        tooltip.text("L1" + " ∩ " + "L2" + ": \n"  + s1.intersection(s2).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -1472,7 +1979,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 1 and List 2 : " + "\n" + s1.intersection(s2).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s2_title").node().value + ": \n"  + s1.intersection(s2).array().join("\n");
 				})
 
 		//L1nL2 intersection area list count text
@@ -1498,7 +2005,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L1∩L3: \n" + s1.intersection(s3).array().join("\n"));
+			        tooltip.text("L1" + " ∩ " + "L3" + ": \n"  + s1.intersection(s3).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -1511,7 +2018,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 1 and List 3 : " + "\n" + s1.intersection(s3).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s1_title").node().value + " and " + d3.select("#s3_title").node().value + ": \n"  + s1.intersection(s3).array().join("\n");
 				})
 		//L1nL3 intersection area list count text
 	    gvennStage.append("text")
@@ -1536,7 +2043,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L1∩L4: \n" + s1.intersection(s4).array().join("\n"));
+			        tooltip.text("L1" + " ∩ " + "L4" + ": \n"  + s1.intersection(s4).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -1549,7 +2056,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 1 and List 4 : " + "\n" + s1.intersection(s4).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s4_title").node().value + ": \n" + s1.intersection(s4).array().join("\n");
 				})
 		//L1nL4 intersection area list count text
 	    gvennStage.append("text")
@@ -1575,7 +2082,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L2∩L3: \n" + s2.intersection(s3).array().join("\n"));
+			        tooltip.text("L2" + " ∩ " + "L3" + ": \n"  + s2.intersection(s3).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -1588,7 +2095,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 2 and List 3 : " + "\n" + s2.intersection(s3).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s3_title").node().value + ": \n"  + "\n" + s2.intersection(s3).array().join("\n");
 				})
 		//L2nL3 intersection area list count text
 	    gvennStage.append("text")
@@ -1613,7 +2120,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L2∩L4: \n" + s2.intersection(s4).array().join("\n"));
+			        tooltip.text("L2" + " ∩ " + "L4" + ": \n"  + s2.intersection(s4).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -1626,7 +2133,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 2 and List 4 : " + "\n" + s2.intersection(s4).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s4_title").node().value + ": \n"  + s2.intersection(s4).array().join("\n");
 				})
 		//L2nL4 intersection area list count text
 	    gvennStage.append("text")
@@ -1652,7 +2159,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L3∩L4: \n" + s3.intersection(s4).array().join("\n"));
+			        tooltip.text("L3" + " ∩ " + "L4" + ": \n"  + s3.intersection(s4).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -1665,7 +2172,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 3 and List 4 : " + "\n" + s3.intersection(s4).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": \n"  + s3.intersection(s4).array().join("\n");
 				})
 		//L3nL4 intersection area list count text
 	    gvennStage.append("text")
@@ -1690,7 +2197,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L1∩L2∩L3: \n" + s1ns2.intersection(s3).array().join("\n"));
+			        tooltip.text("L1 ∩ L2 ∩ L3: \n" + s1ns2.intersection(s3).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -1703,7 +2210,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 1, List 2 and List 3 : " + "\n" + s1ns2.intersection(s3).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s3_title").node().value  + ":\n" + s1ns2.intersection(s3).array().join("\n");
 				})
 		//L1nL2nL3 intersection area list count text
 	    gvennStage.append("text")
@@ -1729,7 +2236,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L1∩L2∩L4: \n" + s1ns2.intersection(s4).array().join("\n"));
+			        tooltip.text("L1 ∩ L2 ∩ L4: \n" + s1ns2.intersection(s4).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -1742,7 +2249,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 1, List 2 and List 4 : " + "\n" + s1ns2.intersection(s4).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s4_title").node().value + ": \n" + s1ns2.intersection(s4).array().join("\n");
 				})
 		//L1nL2nL4 intersection area list count text
 	    gvennStage.append("text")
@@ -1769,7 +2276,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L1∩L3∩L4: \n" + s1ns3.intersection(s4).array().join("\n"));
+			        tooltip.text("L1 n L3 n L4: \n" + s1ns3.intersection(s4).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -1782,7 +2289,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 1, List 3 and List 4 : " + "\n" + s1ns3.intersection(s4).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": \n" + s1ns3.intersection(s4).array().join("\n");
 				})
 		//L1nL3nL4 intersection area list count text
 	    gvennStage.append("text")
@@ -1808,7 +2315,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L2∩L3∩L4: \n" + s2ns3.intersection(s4).array().join("\n"));
+			        tooltip.text("L2 ∩ L3 ∩ L4: \n" + s2ns3.intersection(s4).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -1821,7 +2328,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 2, List 3 and List 4 : " + "\n" + s2ns3.intersection(s4).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": \n" + s2ns3.intersection(s4).array().join("\n");
 				})
 		//L2nL3nL4 intersection area list count text
 	    gvennStage.append("text")
@@ -1847,7 +2354,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L1∩L2∩L3∩L4: \n" + s1ns2ns3.intersection(s4).array().join("\n"));
+			        tooltip.text("L1 ∩ L2 ∩ L3 ∩ L4: \n" + s1ns2ns3.intersection(s4).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -1860,7 +2367,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 1, List 2, List 3 and List 4 : " + "\n" + s1ns2ns3.intersection(s4).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value  + ":\n" + s1ns2ns3.intersection(s4).array().join("\n");
 				})
 		//L1nL2nL3nL4 intersection area list count text
 	    gvennStage.append("text")
@@ -1919,7 +2426,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L1∩L2: \n" + s1.intersection(s2).array().join("\n"));
+			        tooltip.text("L1 n L2" + ": \n"  + s1.intersection(s2).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -1932,7 +2439,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 1 and List 2 : " + "\n" + s1.intersection(s2).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s1_title").node().value + " and " + d3.select("#s2_title").node().value + ": \n"  + s1.intersection(s2).array().join("\n");
 				})
 		//L1nL2 intersection area list count text
 	    gvennStage.append("text")
@@ -1957,7 +2464,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L1∩L2: \n" + s2.intersection(s3).array().join("\n"));
+			        tooltip.text("L2 n L3" + ": \n" + s2.intersection(s3).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -1970,7 +2477,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 1 and List 2 : " + "\n" + s2.intersection(s3).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s2_title").node().value + " and " + d3.select("#s3_title").node().value + ": \n"  + s2.intersection(s3).array().join("\n");
 				})
 		//L2nL3 intersection area list count text
 	    gvennStage.append("text")
@@ -1995,7 +2502,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L3∩L4: \n" + s3.intersection(s4).array().join("\n"));
+			        tooltip.text("L3 n L4" + ": \n"  + s3.intersection(s4).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -2008,7 +2515,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 3 and List 4 : " + "\n" + s3.intersection(s4).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": \n"  + s3.intersection(s4).array().join("\n");
 				})
 		//L3nL4 intersection area list count text
 	    gvennStage.append("text")
@@ -2033,7 +2540,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L1∩L4: \n" + s1.intersection(s4).array().join("\n"));
+			        tooltip.text("L1 n L4" + ": \n" + s1.intersection(s4).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -2046,7 +2553,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 1 and List 4 : " + "\n" + s1.intersection(s4).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s1_title").node().value + " and " + d3.select("#s4_title").node().value + ": \n"  + s1.intersection(s4).array().join("\n");
 				})
 		//L1nL4 intersection area list count text
 	    gvennStage.append("text")
@@ -2071,7 +2578,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L2∩L4: \n" + s2.intersection(s4).array().join("\n"));
+			        tooltip.text("L2 n L4: \n" + s2.intersection(s4).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -2084,7 +2591,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 2 and List 4 : " + "\n" + s2.intersection(s4).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s4_title").node().value + ": \n"  + s2.intersection(s4).array().join("\n");
 				})
 		//L2nL4 intersection area list count text
 	    gvennStage.append("text")
@@ -2109,7 +2616,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L1∩L3: \n" + s1.intersection(s3).array().join("\n"));
+			        tooltip.text("L1 n L3: \n" + s1.intersection(s3).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -2122,7 +2629,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 1 and List 3 : " + "\n" + s1.intersection(s3).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s3_title").node().value + ": \n"  + s1.intersection(s3).array().join("\n");
 				})
 		//L1nL3 intersection area list count text
 	    gvennStage.append("text")
@@ -2148,7 +2655,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L1∩L5: \n" + s1.intersection(s5).array().join("\n"));
+			        tooltip.text("L1 n L5: \n" + s1.intersection(s5).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -2161,7 +2668,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 1 and List 5 : " + "\n" + s1.intersection(s5).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s5_title").node().value + ": \n"  + s1.intersection(s5).array().join("\n");
 				})
 		//L1nL5 intersection area list count text
 	    gvennStage.append("text")
@@ -2186,7 +2693,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L2∩L5: \n" + s2.intersection(s5).array().join("\n"));
+			        tooltip.text("L2 n L5: \n" + s2.intersection(s5).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -2199,7 +2706,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 2 and List 5 : " + "\n" + s2.intersection(s5).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s5_title").node().value + ": \n"  + s2.intersection(s5).array().join("\n");
 				})
 		//L2nL5 intersection area list count text
 	    gvennStage.append("text")
@@ -2224,7 +2731,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L3∩L5: \n" + s3.intersection(s5).array().join("\n"));
+			        tooltip.text("L3 n L5: \n" + s3.intersection(s5).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -2237,7 +2744,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 3 and List 5 : " + "\n" + s3.intersection(s5).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": \n"  + s3.intersection(s5).array().join("\n");
 				})
 		//L3nL5 intersection area list count text
 	    gvennStage.append("text")
@@ -2262,7 +2769,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L4∩L5: \n" + s4.intersection(s5).array().join("\n"));
+			        tooltip.text("L4 n L5: \n" + s4.intersection(s5).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -2275,7 +2782,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 4 and List 5 : " + "\n" + s4.intersection(s5).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": \n"  + s4.intersection(s5).array().join("\n");
 				})
 		//L4nL5 intersection area list count text
 	    gvennStage.append("text")
@@ -2300,7 +2807,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L1∩L2∩L5: \n" + s1ns2.intersection(s5).array().join("\n"));
+			        tooltip.text("L1 ∩ L2 ∩ L5: \n" + s1ns2.intersection(s5).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -2313,7 +2820,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 1, List 2 and List 5 : " + "\n" + s1ns2.intersection(s5).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s5_title").node().value + ": \n" + s1ns2.intersection(s5).array().join("\n");
 				})
 
 		//L1nL3nL5 intersection area
@@ -2330,7 +2837,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L1∩L3∩L5: \n" + s1ns3.intersection(s5).array().join("\n"));
+			        tooltip.text("L1 ∩ L3 ∩ L5: \n" + s1ns3.intersection(s5).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -2343,7 +2850,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 1, List 3 and List 5 : " + "\n" + s1ns3.intersection(s5).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": \n" + s1ns3.intersection(s5).array().join("\n");
 				})
 
 		//L2nL3nL5 intersection area
@@ -2360,7 +2867,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L2∩L3∩L5: \n" + s2ns3.intersection(s5).array().join("\n"));
+			        tooltip.text("L2 ∩ L3 ∩ L5: \n" + s2ns3.intersection(s5).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -2373,7 +2880,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 2, List 3 and List 5 : " + "\n" + s2ns3.intersection(s5).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": \n" + s2ns3.intersection(s5).array().join("\n");
 				})
 
 		//L3nL4nL5 intersection area
@@ -2390,7 +2897,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L3∩L4∩L5: \n" + s3ns4.intersection(s5).array().join("\n"));
+			        tooltip.text("L3 ∩ L4 ∩ L5: \n" + s3ns4.intersection(s5).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -2403,7 +2910,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 3, List 4 and List 5 : " + "\n" + s3ns4.intersection(s5).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": \n" + s3ns4.intersection(s5).array().join("\n");
 				})
 		//L1nL2nL3nL5 intersection area
         gvennStage.append("path")
@@ -2419,7 +2926,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L1nL2nL3nL5: \n" + s1ns2ns3.intersection(s5).array().join("\n"));
+			        tooltip.text("L1 n L2 n L3 n L5: \n" + s1ns2ns3.intersection(s5).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -2432,7 +2939,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 1, List 2, List 3 and List 5 : " + "\n" + s1ns2ns3.intersection(s5).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s1_title").node().value + ", " +  d3.select("#s2_title").node().value + ", " +  d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": \n"  + s1ns2ns3.intersection(s5).array().join("\n");
 				})
 
 		//L2nL3nL4nL5 intersection area
@@ -2449,7 +2956,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L2nL3nL4nL5: \n" + s2ns3ns4.intersection(s5).array().join("\n"));
+			        tooltip.text("L2 n L3 n L4 n L5: \n" + s2ns3ns4.intersection(s5).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -2462,7 +2969,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 2, List 3, List 4 and List 5 : " + "\n" + s2ns3ns4.intersection(s5).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in "  +  d3.select("#s2_title").node().value + ", " +  d3.select("#s3_title").node().value + ", " +  d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": \n"  + s2ns3ns4.intersection(s5).array().join("\n");
 				})
 
 		//L1nL2nL3nL4nL5 intersection area
@@ -2479,7 +2986,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L1∩L2∩L3∩L4∩L5: \n" + s1ns2ns3ns4.intersection(s5).array().join("\n"));
+			        tooltip.text("L1 ∩ L2 ∩ L3 ∩ L4 ∩ L5: \n" + s1ns2ns3ns4.intersection(s5).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -2492,7 +2999,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 1, List 2, List 3, List 4 and List 5 : " + "\n" + s1ns2ns3ns4.intersection(s5).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s1_title").node().value + ", " +  d3.select("#s2_title").node().value + ", " +  d3.select("#s3_title").node().value + ", " +  d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": \n"  + s1ns2ns3ns4.intersection(s5).array().join("\n");
 				})
 
 		//L1nL2nL3nL4nL5 intersection area list count text
@@ -2550,7 +3057,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L1∩L2: \n" + s1.intersection(s2).array().join("\n"));
+			        tooltip.text("L1 n L2:\n" + s1.intersection(s2).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -2563,7 +3070,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 1, and List 2 : " + "\n" + s1.intersection(s2).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s1_title").node().value + " and " + d3.select("#s2_title").node().value + ": \n"  + s1.intersection(s2).array().join("\n");
 				})
 		//L1nL2 intersection area list count text
 	    gvennStage.append("text")
@@ -2588,7 +3095,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L2∩L3: \n" + s2.intersection(s3).array().join("\n"));
+			        tooltip.text("L2 n L3:\n" + s2.intersection(s3).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -2601,7 +3108,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 1, and List 2 : " + "\n" + s1.intersection(s2).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s2_title").node().value + " and " + d3.select("#s3_title").node().value + ": \n"  + s1.intersection(s2).array().join("\n");
 				})
 		//L2nL3 intersection area list count text
 	    gvennStage.append("text")
@@ -2626,7 +3133,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L3∩L4: \n" + s3.intersection(s4).array().join("\n"));
+			        tooltip.text("L3 n L4:\n" + s3.intersection(s4).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -2639,7 +3146,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 3, and List 4 : " + "\n" + s3.intersection(s4).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": \n"  + s3.intersection(s4).array().join("\n");
 				})
 		//L3nL4 intersection area list count text
 	    gvennStage.append("text")
@@ -2664,7 +3171,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L4∩L5: \n" + s4.intersection(s5).array().join("\n"));
+			        tooltip.text("L4 n L5:\n" + s4.intersection(s5).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -2677,7 +3184,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 4, and List 5 : " + "\n" + s4.intersection(s5).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": \n" + s4.intersection(s5).array().join("\n");
 				})
 		//L4nL5 intersection area list count text
 	    gvennStage.append("text")
@@ -2702,7 +3209,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L5∩L6: \n" + s5.intersection(s6).array().join("\n"));
+			        tooltip.text("L5 n L6:\n" + s5.intersection(s6).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -2715,7 +3222,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 5, and List 6 : " + "\n" + s5.intersection(s6).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": \n" + s5.intersection(s6).array().join("\n");
 				})
 		//L5nL6 intersection area list count text
 	    gvennStage.append("text")
@@ -2740,7 +3247,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L1∩L7: \n" + s1.intersection(s7).array().join("\n"));
+			        tooltip.text("L1 n L7:\n" + s1.intersection(s7).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -2753,7 +3260,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 1, and List 7 : " + "\n" + s1.intersection(s7).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s1_title").node().value + " and " + d3.select("#s7_title").node().value + ": \n" + s1.intersection(s7).array().join("\n");
 				})
 	    //L1nL7 intersection area list count text
 	    gvennStage.append("text")
@@ -2778,7 +3285,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L2∩L7: \n" + s2.intersection(s7).array().join("\n"));
+			        tooltip.text("L2 n L7:\n" + s2.intersection(s7).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -2791,7 +3298,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 2, and List 7 : " + "\n" + s2.intersection(s7).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s2_title").node().value + " and " + d3.select("#s7_title").node().value + ": \n" + s2.intersection(s7).array().join("\n");
 				})
 
 		//L3nL7 intersection area
@@ -2808,7 +3315,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L3∩L7: \n" + s3.intersection(s7).array().join("\n"));
+			        tooltip.text("L3 n L7:\n" + s3.intersection(s7).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -2821,7 +3328,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 3, and List 7 : " + "\n" + s3.intersection(s7).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s3_title").node().value + " and " + d3.select("#s7_title").node().value + ": \n" + s3.intersection(s7).array().join("\n");
 				})
 
 		//L4nL7 intersection area
@@ -2838,7 +3345,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L4∩L7: \n" + s4.intersection(s7).array().join("\n"));
+			        tooltip.text("L4 ∩ L7: \n" + s4.intersection(s7).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -2851,7 +3358,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 4, and List 7 : " + "\n" + s4.intersection(s7).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s4_title").node().value + " and " + d3.select("#s7_title").node().value + ": \n" + s4.intersection(s7).array().join("\n");
 				})
 
 		//L5nL7 intersection area
@@ -2868,7 +3375,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L5∩L7: \n" + s5.intersection(s7).array().join("\n"));
+			        tooltip.text("L5 n L7:\n" + s5.intersection(s7).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -2881,7 +3388,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 5, and List 7 : " + "\n" + s5.intersection(s7).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": \n" + s5.intersection(s7).array().join("\n");
 				})
 
 		//L6nL7 intersection area
@@ -2898,7 +3405,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L6∩L7: \n" + s6.intersection(s7).array().join("\n"));
+			        tooltip.text("L6 n L7:\n" + s6.intersection(s7).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -2911,7 +3418,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 6 and List 7 : " + "\n" + s6.intersection(s7).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": \n" + s6.intersection(s7).array().join("\n");
 				})
 		//L6nL7 intersection area list count text
 	    gvennStage.append("text")
@@ -2936,7 +3443,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L1∩L2∩L7: \n" + s1ns2.intersection(s7).array().join("\n"));
+			        tooltip.text("L1 ∩ L2 ∩ L7: \n" + s1ns2.intersection(s7).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -2949,7 +3456,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 1, List 2, and List 7 : " + "\n" + s1ns2.intersection(s7).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s7_title").node().value + ": \n" + s1ns2.intersection(s7).array().join("\n");
 				})
 
 		//L1nL3nL7 intersection area
@@ -2966,7 +3473,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L1∩L3∩L7: \n" + s1ns3.intersection(s7).array().join("\n"));
+			        tooltip.text("L1 ∩ L3 ∩ L7: \n" + s1ns3.intersection(s7).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -2979,7 +3486,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 1, List 3, and List 7 : " + "\n" + s1ns3.intersection(s7).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s7_title").node().value + ": \n" + s1ns3.intersection(s7).array().join("\n");
 				})
 
 		//L2nL3nL7 intersection area
@@ -2996,7 +3503,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L2∩L3∩L7: \n" + s2ns3.intersection(s7).array().join("\n"));
+			        tooltip.text("L2 ∩ L3 ∩ L7: \n" + s2ns3.intersection(s7).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -3009,7 +3516,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 2, List 3, and List 7 : " + "\n" + s2ns3.intersection(s7).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s7_title").node().value + ": \n" + s2ns3.intersection(s7).array().join("\n");
 				})
 		
 		//L3nL4nL7 intersection area
@@ -3026,7 +3533,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L3∩L4∩L7: \n" + s3ns4.intersection(s7).array().join("\n"));
+			        tooltip.text("L3 ∩ L4 ∩ L7: \n" + s3ns4.intersection(s7).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -3039,7 +3546,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 3, List 4, and List 7 : " + "\n" + s3ns4.intersection(s7).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s7_title").node().value + ": \n" + s3ns4.intersection(s7).array().join("\n");
 				})
 
 		//L4nL5nL7 intersection area
@@ -3056,7 +3563,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L4∩L5∩L7: \n" + s4ns5.intersection(s7).array().join("\n"));
+			        tooltip.text("L4 ∩ L5 ∩ L7: \n" + s4ns5.intersection(s7).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -3069,7 +3576,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 4, List 5, and List 7 : " + "\n" + s4ns5.intersection(s7).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": \n" + s4ns5.intersection(s7).array().join("\n");
 				})
 
 		//L5nL6nL7 intersection area
@@ -3086,7 +3593,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L5∩L6∩L7: \n" + s5ns6.intersection(s7).array().join("\n"));
+			        tooltip.text("L5 ∩ L6 ∩ L7: \n" + s5ns6.intersection(s7).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -3099,7 +3606,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 5, List 6, and List 7 : " + "\n" + s5ns6.intersection(s7).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": \n" + s5ns6.intersection(s7).array().join("\n");
 				})
 
 		//L1nL2nL3nL4nL5nL6nL7 intersection area
@@ -3116,7 +3623,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L1∩L2∩L3∩L4∩L5∩L6∩L7: \n" + s1ns2ns3ns4ns5ns6.intersection(s7).array().join("\n"));
+			        tooltip.text("L1 ∩ L2 ∩ L3 ∩ L4 ∩ L5 ∩ L6 ∩ L7: \n" + s1ns2ns3ns4ns5ns6.intersection(s7).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -3129,7 +3636,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 1, List 2, List 3, List 4, List 5, List 6 and List 7 : " + "\n" + s1ns2ns3ns4ns5ns6.intersection(s7).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s1_title").node().value + ", " +  d3.select("#s2_title").node().value + ", " +  d3.select("#s3_title").node().value + ", " +  d3.select("#s4_title").node().value + ", " +  d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": \n"  + s1ns2ns3ns4ns5ns6.intersection(s7).array().join("\n");
 				})
 		//L1nL2nL3nL4nL5nL6nL7 intersection area list count text
 	    gvennStage.append("text")
@@ -3373,7 +3880,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L1∩L6: \n" + s1.intersection(s6).array().join("\n"));
+			        tooltip.text("L1 n L6:\n" + s1.intersection(s6).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -3386,7 +3893,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 1 and List 6 : " + "\n" + s1.intersection(s6).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s1_title").node().value + " and " + d3.select("#s6_title").node().value + ": \n" + s1.intersection(s6).array().join("\n");
 				})
 		//L1nL6 intersection area list count text
 	    gvennStage.append("text")
@@ -3412,7 +3919,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L2∩L6: \n" + s2.intersection(s6).array().join("\n"));
+			        tooltip.text("L2 n L6:\n" + s2.intersection(s6).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -3425,9 +3932,9 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 2 and List 6 : " + "\n" + s2.intersection(s6).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s2_title").node().value + " and " + d3.select("#s6_title").node().value + ": \n" + s2.intersection(s6).array().join("\n");
 				})
-		// //L2nL6 intersection area list count text
+		//L2nL6 intersection area list count text
 	    gvennStage.append("text")
 				.attr("id", "tA2")
 		        .attr("class", "text")
@@ -3450,7 +3957,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L3∩L6: \n" + s3.intersection(s6).array().join("\n"));
+			        tooltip.text("L3 n L6:\n" + s3.intersection(s6).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -3463,7 +3970,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 3 and List 6 : " + "\n" + s3.intersection(s6).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s3_title").node().value + " and " + d3.select("#s6_title").node().value + ": \n" + s3.intersection(s6).array().join("\n");
 				})
 		//L3nL6 intersection area list count text
 	    gvennStage.append("text")
@@ -3488,7 +3995,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L4∩L6: \n" + s4.intersection(s6).array().join("\n"));
+			        tooltip.text("L4 n L6:\n" + s4.intersection(s6).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -3501,7 +4008,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 4 and List 6 : " + "\n" + s4.intersection(s6).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": \n" + s4.intersection(s6).array().join("\n");
 				})
 		//L4nL6 intersection area list count text
 	    gvennStage.append("text")
@@ -3526,7 +4033,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L5∩L6: \n" + s5.intersection(s6).array().join("\n"));
+			        tooltip.text("L5 n L6:\n" + s5.intersection(s6).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -3539,7 +4046,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 5 and List 6 : " + "\n" + s5.intersection(s6).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": \n"+ s5.intersection(s6).array().join("\n");
 				})
 		//L5nL6 intersection area list count text
 	    gvennStage.append("text")
@@ -3565,7 +4072,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L1∩L2∩L6: \n" + s1ns2.intersection(s6).array().join("\n"));
+			        tooltip.text("L1 ∩ L2 ∩ L6: \n" + s1ns2.intersection(s6).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -3578,7 +4085,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 1, List 2 and List 6 : " + "\n" + s1ns2.intersection(s6).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s6_title").node().value + ": \n"  + s1ns2.intersection(s6).array().join("\n");
 				})
 
 		//L1nL3nL6 intersection area
@@ -3595,7 +4102,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L1∩L3∩L6: \n" + s1ns3.intersection(s6).array().join("\n"));
+			        tooltip.text("L1 ∩ L3 ∩ L6: \n" + s1ns3.intersection(s6).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -3608,7 +4115,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 1, List 3 and List 6 : " + "\n" + s1ns3.intersection(s6).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s6_title").node().value + ": \n" + s1ns3.intersection(s6).array().join("\n");
 				})
 
 		//L2nL3nL6 intersection area
@@ -3625,7 +4132,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L2∩L3∩L6: \n" + s2ns3.intersection(s6).array().join("\n"));
+			        tooltip.text("L2 ∩ L3 ∩ L6: \n" + s2ns3.intersection(s6).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -3638,7 +4145,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 2, List 3 and List 6 : " + "\n" + s2ns3.intersection(s6).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s6_title").node().value + ": \n" + s2ns3.intersection(s6).array().join("\n");
 				})
 
 		//L3nL4nL6 intersection area
@@ -3655,7 +4162,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L3∩L4∩L6: \n" + s3ns4.intersection(s6).array().join("\n"));
+			        tooltip.text("L3 ∩ L4 ∩ L6: \n" + s3ns4.intersection(s6).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -3668,7 +4175,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 3, List 4 and List 6 : " + "\n" + s3ns4.intersection(s6).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": \n"+ s3ns4.intersection(s6).array().join("\n");
 				})
 
 		//L4nL5nL6 intersection area
@@ -3685,7 +4192,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L4∩L5∩L6: \n" + s4ns5.intersection(s6).array().join("\n"));
+			        tooltip.text("L4 ∩ L5 ∩ L6: \n" + s4ns5.intersection(s6).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -3698,7 +4205,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 4, List 5 and List 6 : " + "\n" + s4ns5.intersection(s6).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": \n" + s4ns5.intersection(s6).array().join("\n");
 				})
 
 
@@ -3716,7 +4223,7 @@ function listOperation(){
 			            .style("fill-opacity", .1)
 			            .style("stroke-opacity", 1);
 			       	tooltip.transition().style("opacity", .9);
-			        tooltip.text("L1∩L2∩L3∩L4∩L5∩L6: \n" + s1ns2ns3ns4ns5.intersection(s6).array().join("\n"));
+			        tooltip.text("L1 ∩ L2 ∩ L3 ∩ L4 ∩ L5 ∩ L6: \n" + s1ns2ns3ns4ns5.intersection(s6).array().join("\n"));
 			    })
 			    .on("mouseout", function() {
 			        d3.select(this).transition()
@@ -3729,7 +4236,7 @@ function listOperation(){
 			             	.style("top", (d3.event.pageY - 100) + "px");
 			    })
 			    .on("click", function() {
-			    	d3.select("#description").node().value = "Common elements in List 1, List 2, List 3, List 4, List 5, and List 6 : " + "\n" + s1ns2ns3ns4ns5.intersection(s6).array().join("\n");
+			    	d3.select("#description").node().value = "Common elements in " +  d3.select("#s1_title").node().value + ", " +  d3.select("#s2_title").node().value + ", " +  d3.select("#s3_title").node().value + ", " +  d3.select("#s4_title").node().value + ", " +  d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": \n"  + s1ns2ns3ns4ns5.intersection(s6).array().join("\n");
 				})
 		//L1nL2nL3nL4nL5nL6 intersection area list count text
 	    gvennStage.append("text")

@@ -27,9 +27,8 @@
         </div>
         <div class="navbar-collapse collapse navbar-right">
           <ul class="nav navbar-nav">
-           
-          	<li><a href="#">about</a></li>
-            <li><a href="#">features</a></li>
+           	<li><a href="#">home</a></li>
+          	<li><a href="about.html">about</a></li>
             <li><a href="#">docs</a></li>
 
           </ul>
@@ -53,67 +52,89 @@
 		 		<div class="hline"></div>
 		 		<div id="container">
 
-		 			<ul class='menu'>
-		 
-					<li>
+						<p>
+					       
 							<input type="checkbox" name="toggle_list_1" id="toggle_list_1">
-						   <label for="toggle_list_1">List 1</label>
+						   <!--<label for="toggle_list_1" id="label1">List 1</label>-->
+						   <label for="toggle_list_1" id="label1"></label>
+
+						   <textarea  id = "s1_title"   style="overflow:hidden" rows="1" placeholder="Please put list name here">List 1</textarea>
+
 					       <textarea  id = "s1" class="form-control status-box List-group-1" rows="5" placeholder="Please put first list here"></textarea>
 					       <button id = "clear1" type="button">Clear</button> 
-					</li>
-				
-					<li>
+					     </p>
+						 <p>
 							<input type="checkbox" name="toggle_list_2" id="toggle_list_2">
-						   <label for="toggle_list_2">List 2</label>
-						   <textarea  id = "s2" class="form-control status-box List-group-2" rows="5" placeholder="Please put first list here"></textarea>
+						   <label for="toggle_list_2"></label>
+						  
+						    <textarea  id = "s2_title"   style="overflow:hidden" rows="1" placeholder="Please put list name here">List 2</textarea>
+						  
+						   <textarea  id = "s2" class="form-control status-box List-group-2" rows="5" placeholder="Please put second list here"></textarea>
 						   <button id = "clear2" type="button">Clear</button>
-					</li>
-					
-					<li>
+						</p>
+						<p>
 							<input type="checkbox" name="toggle_list_3" id="toggle_list_3">
-						    <label for="toggle_list_3">List 3</label>
+						    <label for="toggle_list_3"></label>
+							
+						    <textarea  id = "s3_title"   style="overflow:hidden" rows="1" placeholder="Please put list name here">List 3</textarea>
+
 							<textarea id = "s3" class="form-control List-group-3" rows="5" placeholder="Please put third list here"></textarea>
 							<button id = "clear3" type="button">Clear</button>
-					</li>
-			
-					<li>
+						</p>
+						<p>
 							<input type="checkbox" name="toggle_list_4" id="toggle_list_4">
-						     <label for="toggle_list_4">List 4</label>
+						     <label for="toggle_list_4"></label>
+
+						     <textarea  id = "s4_title"   style="overflow:hidden" rows="1" placeholder="Please put list name here">List 4</textarea>
+
 						    <textarea id = "s4" class="form-control List-group-4" rows="5" placeholder="Please put fourth list here"></textarea>
 						    <button id = "clear4" type="button">Clear</button>
-					</li>
-		
-					<li>
+						</P>
+						<p>
 						    <input type="checkbox" name="toggle_list_5" id="toggle_list_5">
-						    <label for="toggle_list_5">List 5</label>
+						    <label for="toggle_list_5"></label>
+
+						    <textarea  id = "s5_title"  style="overflow:hidden" rows="1" placeholder="Please put list name here">List 5</textarea>
+
 							<textarea id = "s5" class="form-control List-group-5" rows="5" placeholder="Please put fifth list here"></textarea>
 							<button id = "clear5" type="button">Clear</button>
-					</li>
-			
-					<li>
+						</p>
+						<p>
 							<input type="checkbox" name="toggle_list_6" id="toggle_list_6">
-						    <label for="toggle_list_6">List 6</label>
+						    <label for="toggle_list_6"></label>
+
+						    <textarea  id = "s6_title"   style="overflow:hidden" rows="1" placeholder="Please put list name here">List 6</textarea>
+
 							<textarea id = "s6" class="form-control List-group-6" rows="5" placeholder="Please put sixth list here"></textarea>
 							<button id = "clear6" type="button">Clear</button>
-					</li>
-					
-					<li>
+						</p>
+						<p>
 							<input type="checkbox" name="toggle_list_7" id="toggle_list_7">
-						    <label for="toggle_list_7">List 7</label>
+						    <label for="toggle_list_7"></label>
+
+						    <textarea  id = "s7_title"   style="overflow:hidden" rows="1" placeholder="Please put list name here">List 7</textarea>
+
 							<textarea id = "s7" class="form-control List-group-7" rows="5" placeholder="Please put sixth list here"></textarea>
 							<button id = "clear7" type="button">Clear</button>
-					</li>
+						</p>
 
-					</ul>
 
 					<p>
 						<input id="button" type="button"  class="btn btn-primary btn-lg" value="Load Sample"/>
 
 					</p>
 					<p>
-						<label class="custom-upload"><input type="file" id="files" name="file" data-filename-placement="inside" class="upload">Upload File</label>
+						<label class="custom-upload">
+						<input type="file" id="files" name="file" data-filename-placement="inside" class="upload">Upload File</label>
 					</p>
+					<p>
+						<input id="DownloadButton" type="button"  class="custom-upload" value="Export File"/>
 
+					</p>
+					<p>
+						<button id="exportImage" class="custom-upload">Export Image</button>
+
+					</p>
 
 
 					</div>
@@ -126,7 +147,10 @@
 				<div id="first">
 
 				</div>
-					 	<div id ="descriptionarea">
+				<canvas width="746" height="900" style="display:none"></canvas>
+
+
+			<div id ="descriptionarea">
 			<div id = "description_title">Click on a venn diagram figure to display the linked elements: </div>
 			  <div class="description_area">
 				<textarea id = "description" class="form-control status-box genelist" rows="10" readonly></textarea>
