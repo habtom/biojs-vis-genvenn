@@ -13,71 +13,76 @@ require("d3");
 	var s7 = new sets.Set([]);
 //-------
 
-//upload file
-d3.select("#files").on("change" ,function() {
-	var files = this.files;
-	if (!files.length) { return; }
 
-	var file = files[0];
-	var reader = new FileReader();
+function uploadFile () {
+	//upload file
+	d3.select("#files").on("change" ,function() {
+		var files = this.files;
+		if (!files.length) { return; }
 
-	reader.onloadend = function(evt) {
-      if (evt.target.readyState == FileReader.DONE) { 
-       // try{	
-	    var listvalue;
-		s1 = new sets.Set([]);
-		s2 = new sets.Set([]);
-		s3 = new sets.Set([]);
-		s4 = new sets.Set([]);
-		s5 = new sets.Set([]);
-		s6 = new sets.Set([]);
-		s7 = new sets.Set([]);
-		d3.select('#s1').node().value = ""; 
-		d3.select('#s2').node().value = ""; 
-		d3.select('#s3').node().value = ""; 
-		d3.select('#s4').node().value = ""; 
-		d3.select('#s5').node().value = ""; 
-		d3.select('#s6').node().value = ""; 
-		d3.select('#s7').node().value = ""; 
-		d3.select('#s1_title').node().value = "List 1"; 
-		d3.select('#s2_title').node().value = "List 2"; 
-		d3.select('#s3_title').node().value = "List 3"; 
-		d3.select('#s4_title').node().value = "List 4"; 
-		d3.select('#s5_title').node().value = "List 5"; 
-		d3.select('#s6_title').node().value = "List 6"; 
-		d3.select('#s7_title').node().value = "List 7"; 
-	    var json = JSON.parse(evt.target.result);
-	    var counter = 0 ;
-      for (key in json) {
-      	counter++;
-      	if(counter === 8){break;}
-	    d3.select("#s"+counter+"_title").node().value = key ;
-	    for (subKey in json[key]) {
-	            d3.select('#s'+counter).node().value += json[key][subKey]; 
-	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
-	            	 d3.select('#s'+counter).node().value += "\n";
-	            }
-	    }
-		
-	}
+		var file = files[0];
+		var reader = new FileReader();
 
-		s1 = new sets.Set(d3.select("#s1").node().value.split("\n"));
-		s2 = new sets.Set(d3.select("#s2").node().value.split("\n"));
-		s3 = new sets.Set(d3.select("#s3").node().value.split("\n"));
-		s4 = new sets.Set(d3.select("#s4").node().value.split("\n"));
-		s5 = new sets.Set(d3.select("#s5").node().value.split("\n"));
-		s6 = new sets.Set(d3.select("#s6").node().value.split("\n"));
-		s7 = new sets.Set(d3.select("#s7").node().value.split("\n"));
-    listOperation();
+		reader.onloadend = function(evt) {
+	      if (evt.target.readyState == FileReader.DONE) { 
+	       // try{	
+		    var listvalue;
+			s1 = new sets.Set([]);
+			s2 = new sets.Set([]);
+			s3 = new sets.Set([]);
+			s4 = new sets.Set([]);
+			s5 = new sets.Set([]);
+			s6 = new sets.Set([]);
+			s7 = new sets.Set([]);
+			d3.select('#s1').node().value = ""; 
+			d3.select('#s2').node().value = ""; 
+			d3.select('#s3').node().value = ""; 
+			d3.select('#s4').node().value = ""; 
+			d3.select('#s5').node().value = ""; 
+			d3.select('#s6').node().value = ""; 
+			d3.select('#s7').node().value = ""; 
+			d3.select('#s1_title').node().value = "List 1"; 
+			d3.select('#s2_title').node().value = "List 2"; 
+			d3.select('#s3_title').node().value = "List 3"; 
+			d3.select('#s4_title').node().value = "List 4"; 
+			d3.select('#s5_title').node().value = "List 5"; 
+			d3.select('#s6_title').node().value = "List 6"; 
+			d3.select('#s7_title').node().value = "List 7"; 
+		    var json = JSON.parse(evt.target.result);
+		    var counter = 0 ;
+	      for (key in json) {
+	      	counter++;
+	      	if(counter === 8){break;}
+		    d3.select("#s"+counter+"_title").node().value = key ;
+		    for (subKey in json[key]) {
+		            d3.select('#s'+counter).node().value += json[key][subKey]; 
+		            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
+		            	 d3.select('#s'+counter).node().value += "\n";
+		            }
+		    }
+			
+		}
 
-      }
-    };
+			s1 = new sets.Set(d3.select("#s1").node().value.split("\n"));
+			s2 = new sets.Set(d3.select("#s2").node().value.split("\n"));
+			s3 = new sets.Set(d3.select("#s3").node().value.split("\n"));
+			s4 = new sets.Set(d3.select("#s4").node().value.split("\n"));
+			s5 = new sets.Set(d3.select("#s5").node().value.split("\n"));
+			s6 = new sets.Set(d3.select("#s6").node().value.split("\n"));
+			s7 = new sets.Set(d3.select("#s7").node().value.split("\n"));
+	    listOperation();
 
-    var blob = file.slice( 0, file.size);
-    reader.readAsBinaryString(blob);
-    d3.select('#files').node().value="";
+	      }
+	    };
+
+	    var blob = file.slice( 0, file.size);
+	    reader.readAsBinaryString(blob);
+	    d3.select('#files').node().value="";
 
 });
+}
+uploadFile ();
+
 
 
 //load sample json file
@@ -169,7 +174,8 @@ d3.select("#files").on("change" ,function() {
 		listOperation();
 });
 
-d3.select("#DownloadButton").on("click" ,function() {       
+function exportFile () {
+	d3.select("#DownloadButton").on("click" ,function() {       
 	// grab the content of the form field and place it into a variable
 	    var textToWrite = "";
 
@@ -450,7 +456,12 @@ d3.select("#DownloadButton").on("click" ,function() {
 	    
 	// click the new link
 	    downloadLink.click();
-});
+	});
+}
+exportFile ();
+
+
+
 
 
 //take user input from textarea
