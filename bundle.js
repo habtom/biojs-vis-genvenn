@@ -1,16 +1,17 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 require("d3");
 
-var sets = require('simplesets');
+//--- simple sets
+	var sets = require('simplesets');
 
-var s1 = new sets.Set([]);
-var s2 = new sets.Set([]);
-var s3 = new sets.Set([]);
-var s4 = new sets.Set([]);
-var s5 = new sets.Set([]);
-var s6 = new sets.Set([]);
-var s7 = new sets.Set([]);
-
+	var s1 = new sets.Set([]);
+	var s2 = new sets.Set([]);
+	var s3 = new sets.Set([]);
+	var s4 = new sets.Set([]);
+	var s5 = new sets.Set([]);
+	var s6 = new sets.Set([]);
+	var s7 = new sets.Set([]);
+//-------
 
 //upload file
 d3.select("#files").on("change" ,function() {
@@ -57,76 +58,7 @@ d3.select("#files").on("change" ,function() {
 	            	 d3.select('#s'+counter).node().value += "\n";
 	            }
 	    }
-				//console.log(s1);
-	    /*for (subKey in json[key]) {
-	        if(key == 's1'){
-
-	            d3.select('#s1').node().value += json[key][subKey]; 
-	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
-	            	 d3.select('#s1').node().value += "\n";
-					 //document.getElementById('label1').innerHTML = "hgjhgjg";
-	            	 
-	            }
-	            d3.select("#s1_title").node().value = key ;
-	            listvalue = json[key];
-				s1 = new sets.Set(listvalue);
-	        }
-	        if(key == 's2'){
-	            d3.select('#s2').node().value += json[key][subKey]; 
-	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
-	            	d3.select('#s2').node().value += "\n";
-	            } 
-	            d3.select("#s2_title").node().value = key ;
-	            listvalue = json[key];
-				s2 = new sets.Set(listvalue);  
-	        }
-	        if(key == 's3'){
-	            d3.select('#s3').node().value += json[key][subKey]; 
-	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
-	            	d3.select('#s3').node().value += "\n";
-	            }
-	            d3.select("#s3_title").node().value = key ;
-	            
-	            listvalue = json[key];
-				s3 = new sets.Set(listvalue);
-	        }
-	        if(key == 's4'){
-	            d3.select('#s4').node().value += json[key][subKey]; 
-	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
-	            	d3.select('#s4').node().value += "\n";
-	            }   
-	            	d3.select("#s4_title").node().value = key ;
-	            listvalue = json[key];
-				s4 = new sets.Set(listvalue);
-	        }
-	        if(key == 's5'){
-	            d3.select('#s5').node().value += json[key][subKey]; 
-	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
-	            	d3.select('#s5').node().value += "\n";
-	            }   
-	            	d3.select("#s5_title").node().value = key ;
-	            listvalue = json[key];
-				s5 = new sets.Set(listvalue);
-	        }
-	        if(key == 's6'){
-	            d3.select('#s6').node().value += json[key][subKey]; 
-	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
-	            	d3.select('#s6').node().value += "\n";
-	            }   
-	            	d3.select("#s6_title").node().value = key ;
-	            listvalue = json[key];
-				s6 = new sets.Set(listvalue);
-	        }
-	        if(key == 's7'){
-	            d3.select('#s7').node().value += json[key][subKey]; 
-	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
-	            	d3.select('#s7').node().value += "\n";
-	            }   
-	            	d3.select("#s7_title").node().value = key ;
-	            listvalue = json[key];
-				s7 = new sets.Set(listvalue);
-	        }
-	    }*/
+		
 	}
 
 		s1 = new sets.Set(d3.select("#s1").node().value.split("\n"));
@@ -149,554 +81,496 @@ d3.select("#files").on("change" ,function() {
 
 
 //load sample json file
-d3.select("#clear1").on("click" ,function(){
-	d3.select("#s1").node().value = "";
-	s1 = new sets.Set([]);
-	listOperation();
-});
-d3.select("#clear2").on("click" ,function(){
-	d3.select("#s2").node().value = "";
-	s2 = new sets.Set([]);
-	listOperation();
-});
-d3.select("#clear3").on("click" ,function(){
-	d3.select("#s3").node().value = "";
-	s3 = new sets.Set([]);
-	listOperation();
-});
-d3.select("#clear4").on("click" ,function(){
-	d3.select("#s4").node().value = "";
-	s4 = new sets.Set([]);
-	listOperation();
-});
-d3.select("#clear5").on("click" ,function(){
-	d3.select("#s5").node().value = "";
-	s5 = new sets.Set([]);
-	listOperation();
-});
-d3.select("#clear6").on("click" ,function(){
-	d3.select("#s6").node().value = "";
-	s6 = new sets.Set([]);
-	listOperation();
-});
-d3.select("#clear7").on("click" ,function(){
-	d3.select("#s7").node().value = "";
-	s7 = new sets.Set([]);
-	listOperation();
-});
-d3.select("#button").on("click" ,function() { 
+	d3.select("#clear1").on("click" ,function(){
+		d3.select("#s1").node().value = "";
+		s1 = new sets.Set([]);
+		listOperation();
+	});
+	d3.select("#clear2").on("click" ,function(){
+		d3.select("#s2").node().value = "";
+		s2 = new sets.Set([]);
+		listOperation();
+	});
+	d3.select("#clear3").on("click" ,function(){
+		d3.select("#s3").node().value = "";
+		s3 = new sets.Set([]);
+		listOperation();
+	});
+	d3.select("#clear4").on("click" ,function(){
+		d3.select("#s4").node().value = "";
+		s4 = new sets.Set([]);
+		listOperation();
+	});
+	d3.select("#clear5").on("click" ,function(){
+		d3.select("#s5").node().value = "";
+		s5 = new sets.Set([]);
+		listOperation();
+	});
+	d3.select("#clear6").on("click" ,function(){
+		d3.select("#s6").node().value = "";
+		s6 = new sets.Set([]);
+		listOperation();
+	});
+	d3.select("#clear7").on("click" ,function(){
+		d3.select("#s7").node().value = "";
+		s7 = new sets.Set([]);
+		listOperation();
+	});
+	d3.select("#button").on("click" ,function() { 
 
-	var json = require('./sample.json');
-	//var json = require(path);
-	//console.log(json);
-	var listvalue;
-	var counter = 0;
-	s1 = new sets.Set([]);
-	s2 = new sets.Set([]);
-	s3 = new sets.Set([]);
-	s4 = new sets.Set([]);
-	s5 = new sets.Set([]);
-	s6 = new sets.Set([]);
-	s7 = new sets.Set([]);
-	d3.select('#s1').node().value = ""; 
-	d3.select('#s2').node().value = ""; 
-	d3.select('#s3').node().value = ""; 
-	d3.select('#s4').node().value = ""; 
-	d3.select('#s5').node().value = ""; 
-	d3.select('#s6').node().value = ""; 
-	d3.select('#s7').node().value = "";
-	d3.select('#s1_title').node().value = "List 1"; 
-	d3.select('#s2_title').node().value = "List 2"; 
-	d3.select('#s3_title').node().value = "List 3"; 
-	d3.select('#s4_title').node().value = "List 4"; 
-	d3.select('#s5_title').node().value = "List 5"; 
-	d3.select('#s6_title').node().value = "List 6"; 
-	d3.select('#s7_title').node().value = "List 7";  
+		var json = require('./sample.json');
+		//var json = require(path);
+		//console.log(json);
+		var listvalue;
+		var counter = 0;
+		s1 = new sets.Set([]);
+		s2 = new sets.Set([]);
+		s3 = new sets.Set([]);
+		s4 = new sets.Set([]);
+		s5 = new sets.Set([]);
+		s6 = new sets.Set([]);
+		s7 = new sets.Set([]);
+		d3.select('#s1').node().value = ""; 
+		d3.select('#s2').node().value = ""; 
+		d3.select('#s3').node().value = ""; 
+		d3.select('#s4').node().value = ""; 
+		d3.select('#s5').node().value = ""; 
+		d3.select('#s6').node().value = ""; 
+		d3.select('#s7').node().value = "";
+		d3.select('#s1_title').node().value = "List 1"; 
+		d3.select('#s2_title').node().value = "List 2"; 
+		d3.select('#s3_title').node().value = "List 3"; 
+		d3.select('#s4_title').node().value = "List 4"; 
+		d3.select('#s5_title').node().value = "List 5"; 
+		d3.select('#s6_title').node().value = "List 6"; 
+		d3.select('#s7_title').node().value = "List 7";  
 
-	for (key in json) {
-		counter++;
-		if (counter === 8) {break;};
-		d3.select("#s"+counter+"_title").node().value = key ;
-	    for (subKey in json[key]) {
-	    /*    if(key == 's1'){
-
-	            d3.select('#s1').node().value += json[key][subKey]; 
-	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
-	            	 d3.select('#s1').node().value += "\n";
-	            }
-	            listvalue = json[key];
-				s1 = new sets.Set(listvalue);
-	        }
-	        if(key == 's2'){
-	            d3.select('#s2').node().value += json[key][subKey]; 
-	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
-	            	d3.select('#s2').node().value += "\n";
-	            } 
-	            listvalue = json[key];
-				s2 = new sets.Set(listvalue);  
-	        }
-	        if(key == 's3'){
-	            d3.select('#s3').node().value += json[key][subKey]; 
-	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
-	            	d3.select('#s3').node().value += "\n";
-	            }
-	            listvalue = json[key];
-				s3 = new sets.Set(listvalue);
-	        }
-	        if(key == 's4'){
-	            d3.select('#s4').node().value += json[key][subKey]; 
-	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
-	            	d3.select('#s4').node().value += "\n";
-	            }   
-	            listvalue = json[key];
-				s4 = new sets.Set(listvalue);
-	        }
-	        if(key == 's5'){
-	            d3.select('#s5').node().value += json[key][subKey]; 
-	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
-	            	d3.select('#s5').node().value += "\n";
-	            }   
-	            listvalue = json[key];
-				s5 = new sets.Set(listvalue);
-	        }
-	        if(key == 's6'){
-	            d3.select('#s6').node().value += json[key][subKey]; 
-	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
-	            	d3.select('#s6').node().value += "\n";
-	            }   
-	            listvalue = json[key];
-				s6 = new sets.Set(listvalue);
-	        }
-	        if(key == 's7'){
-	            d3.select('#s7').node().value += json[key][subKey]; 
-	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
-	            	d3.select('#s7').node().value += "\n";
-	            }   
-	            listvalue = json[key];
-				s7 = new sets.Set(listvalue);
-	        }*/
-	    	    d3.select('#s'+counter).node().value += json[key][subKey]; 
-	            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
-	            	 d3.select('#s'+counter).node().value += "\n";
-	            	 
-	            }
-	    }
-	}
-		s1 = new sets.Set(d3.select("#s1").node().value.split("\n"));
-		s2 = new sets.Set(d3.select("#s2").node().value.split("\n"));
-		s3 = new sets.Set(d3.select("#s3").node().value.split("\n"));
-		s4 = new sets.Set(d3.select("#s4").node().value.split("\n"));
-		s5 = new sets.Set(d3.select("#s5").node().value.split("\n"));
-		s6 = new sets.Set(d3.select("#s6").node().value.split("\n"));
-		s7 = new sets.Set(d3.select("#s7").node().value.split("\n"));
-		//console.log(s1);
-	listOperation();
+		for (key in json) {
+			counter++;
+			if (counter === 8) {break;};
+			d3.select("#s"+counter+"_title").node().value = key ;
+		    for (subKey in json[key]) {
+		    
+		    	    d3.select('#s'+counter).node().value += json[key][subKey]; 
+		            if(subKey != Object.keys(json[key]).sort().reverse()[0]){
+		            	 d3.select('#s'+counter).node().value += "\n";
+		            	 
+		            }
+		    }
+		}
+			s1 = new sets.Set(d3.select("#s1").node().value.split("\n"));
+			s2 = new sets.Set(d3.select("#s2").node().value.split("\n"));
+			s3 = new sets.Set(d3.select("#s3").node().value.split("\n"));
+			s4 = new sets.Set(d3.select("#s4").node().value.split("\n"));
+			s5 = new sets.Set(d3.select("#s5").node().value.split("\n"));
+			s6 = new sets.Set(d3.select("#s6").node().value.split("\n"));
+			s7 = new sets.Set(d3.select("#s7").node().value.split("\n"));
+			//console.log(s1);
+		listOperation();
 });
 
 d3.select("#DownloadButton").on("click" ,function() {       
-// grab the content of the form field and place it into a variable
-    var textToWrite = "";
+	// grab the content of the form field and place it into a variable
+	    var textToWrite = "";
 
-    if(d3.select("#circle1").empty() != true && d3.select("#circle2").empty() != true){
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s2_title").node().value + ": " + s1.intersection(s2).array().join("  ") + "\n";
-    }
-    if(d3.select("#circle1").empty() != true && d3.select("#circle3").empty() != true){
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s1.intersection(s3).array().join("  ") + "\n";
-    }
-    if(d3.select("#circle2").empty() != true && d3.select("#circle3").empty() != true){
-    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s2.intersection(s3).array().join("  ") + "\n";
-    }
-    if(d3.select("#circle1").empty() != true && d3.select("#circle2").empty() != true && d3.select("#circle3").empty() != true){
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s1ns2.intersection(s3).array().join("  ") + "\n";
-    }
-    if(d3.select("#e4th1").empty() != true){
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s2_title").node().value + ": " + s1.intersection(s2).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s1.intersection(s3).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1.intersection(s4).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s2.intersection(s3).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s2.intersection(s4).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s3.intersection(s4).array().join("  ") + "\n";
-        textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s1ns2.intersection(s3).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1ns2.intersection(s4).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1ns3.intersection(s4).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s2ns3.intersection(s4).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1ns2ns3.intersection(s4).array().join("  ") + "\n";
-    }
-    if(d3.select("#e5th1").empty() != true){
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s2_title").node().value + ": " + s1.intersection(s2).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s1.intersection(s3).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1.intersection(s4).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1.intersection(s5).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s2.intersection(s3).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s2.intersection(s4).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s2.intersection(s5).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s3.intersection(s4).array().join("  ") + "\n";
-        textToWrite += "Common elements in " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s3.intersection(s5).array().join("  ") + "\n";
-        textToWrite += "Common elements in " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s4.intersection(s5).array().join("  ") + "\n";
-        
-        textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s1ns2.intersection(s3).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1ns2.intersection(s4).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns2.intersection(s5).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1ns3.intersection(s4).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns3.intersection(s5).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns4.intersection(s5).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s2ns3.intersection(s4).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s2ns3.intersection(s5).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s2ns4.intersection(s5).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s3ns4.intersection(s5).array().join("  ") + "\n";
+	    if(d3.select("#circle1").empty() != true && d3.select("#circle2").empty() != true){
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s2_title").node().value + ": " + s1.intersection(s2).array().join("  ") + "\n";
+	    }
+	    if(d3.select("#circle1").empty() != true && d3.select("#circle3").empty() != true){
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s1.intersection(s3).array().join("  ") + "\n";
+	    }
+	    if(d3.select("#circle2").empty() != true && d3.select("#circle3").empty() != true){
+	    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s2.intersection(s3).array().join("  ") + "\n";
+	    }
+	    if(d3.select("#circle1").empty() != true && d3.select("#circle2").empty() != true && d3.select("#circle3").empty() != true){
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s1ns2.intersection(s3).array().join("  ") + "\n";
+	    }
+	    if(d3.select("#e4th1").empty() != true){
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s2_title").node().value + ": " + s1.intersection(s2).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s1.intersection(s3).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1.intersection(s4).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s2.intersection(s3).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s2.intersection(s4).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s3.intersection(s4).array().join("  ") + "\n";
+	        textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s1ns2.intersection(s3).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1ns2.intersection(s4).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1ns3.intersection(s4).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s2ns3.intersection(s4).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1ns2ns3.intersection(s4).array().join("  ") + "\n";
+	    }
+	    if(d3.select("#e5th1").empty() != true){
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s2_title").node().value + ": " + s1.intersection(s2).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s1.intersection(s3).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1.intersection(s4).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1.intersection(s5).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s2.intersection(s3).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s2.intersection(s4).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s2.intersection(s5).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s3.intersection(s4).array().join("  ") + "\n";
+	        textToWrite += "Common elements in " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s3.intersection(s5).array().join("  ") + "\n";
+	        textToWrite += "Common elements in " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s4.intersection(s5).array().join("  ") + "\n";
+	        
+	        textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s1ns2.intersection(s3).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1ns2.intersection(s4).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns2.intersection(s5).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1ns3.intersection(s4).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns3.intersection(s5).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns4.intersection(s5).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s2ns3.intersection(s4).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s2ns3.intersection(s5).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s2ns4.intersection(s5).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s3ns4.intersection(s5).array().join("  ") + "\n";
 
- 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1ns2ns3.intersection(s4).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns2ns3.intersection(s5).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns2ns4.intersection(s5).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns3ns4.intersection(s5).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s2ns3ns4.intersection(s5).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1ns2ns3.intersection(s4).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns2ns3.intersection(s5).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns2ns4.intersection(s5).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns3ns4.intersection(s5).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s2ns3ns4.intersection(s5).array().join("  ") + "\n";
 
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns2ns3ns4.intersection(s5).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns2ns3ns4.intersection(s5).array().join("  ") + "\n";
 
-    
-    }
-    if(d3.select("#tr1").empty() != true){
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s2_title").node().value + ": " + s1.intersection(s2).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s1.intersection(s3).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1.intersection(s4).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1.intersection(s5).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1.intersection(s6).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s2.intersection(s3).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s2.intersection(s4).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s2.intersection(s5).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2.intersection(s6).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s3.intersection(s4).array().join("  ") + "\n";
-        textToWrite += "Common elements in " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s3.intersection(s5).array().join("  ") + "\n";
-        textToWrite += "Common elements in " + d3.select("#s3_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s3.intersection(s6).array().join("  ") + "\n";
-        textToWrite += "Common elements in " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s4.intersection(s5).array().join("  ") + "\n";
-        textToWrite += "Common elements in " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s4.intersection(s6).array().join("  ") + "\n";
-       	textToWrite += "Common elements in " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s5.intersection(s6).array().join("  ") + "\n";
-       
-        textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s1ns2.intersection(s3).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1ns2.intersection(s4).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns2.intersection(s5).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2.intersection(s6).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1ns3.intersection(s4).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns3.intersection(s5).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns3.intersection(s6).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns4.intersection(s5).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns4.intersection(s6).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns5.intersection(s6).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s2ns3.intersection(s4).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s2ns3.intersection(s5).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns3.intersection(s6).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s2ns4.intersection(s5).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns4.intersection(s6).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns5.intersection(s6).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s3ns4.intersection(s5).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s3ns4.intersection(s6).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s3ns5.intersection(s6).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s4ns5.intersection(s6).array().join("  ") + "\n";
+	    
+	    }
+	    if(d3.select("#tr1").empty() != true){
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s2_title").node().value + ": " + s1.intersection(s2).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s1.intersection(s3).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1.intersection(s4).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1.intersection(s5).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1.intersection(s6).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s2.intersection(s3).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s2.intersection(s4).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s2.intersection(s5).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2.intersection(s6).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s3.intersection(s4).array().join("  ") + "\n";
+	        textToWrite += "Common elements in " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s3.intersection(s5).array().join("  ") + "\n";
+	        textToWrite += "Common elements in " + d3.select("#s3_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s3.intersection(s6).array().join("  ") + "\n";
+	        textToWrite += "Common elements in " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s4.intersection(s5).array().join("  ") + "\n";
+	        textToWrite += "Common elements in " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s4.intersection(s6).array().join("  ") + "\n";
+	       	textToWrite += "Common elements in " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s5.intersection(s6).array().join("  ") + "\n";
+	       
+	        textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s1ns2.intersection(s3).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1ns2.intersection(s4).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns2.intersection(s5).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2.intersection(s6).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1ns3.intersection(s4).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns3.intersection(s5).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns3.intersection(s6).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns4.intersection(s5).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns4.intersection(s6).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns5.intersection(s6).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s2ns3.intersection(s4).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s2ns3.intersection(s5).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns3.intersection(s6).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s2ns4.intersection(s5).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns4.intersection(s6).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns5.intersection(s6).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s3ns4.intersection(s5).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s3ns4.intersection(s6).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s3ns5.intersection(s6).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s4ns5.intersection(s6).array().join("  ") + "\n";
 
- 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1ns2ns3.intersection(s4).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns2ns3.intersection(s5).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns3.intersection(s6).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns2ns4.intersection(s5).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns4.intersection(s6).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns5.intersection(s6).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns3ns4.intersection(s5).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns3ns4.intersection(s6).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns3ns5.intersection(s6).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns4ns5.intersection(s6).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s2ns3ns4.intersection(s5).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns3ns4.intersection(s6).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns3ns5.intersection(s6).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns4ns5.intersection(s6).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s3ns4ns5.intersection(s6).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1ns2ns3.intersection(s4).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns2ns3.intersection(s5).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns3.intersection(s6).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns2ns4.intersection(s5).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns4.intersection(s6).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns5.intersection(s6).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns3ns4.intersection(s5).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns3ns4.intersection(s6).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns3ns5.intersection(s6).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns4ns5.intersection(s6).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s2ns3ns4.intersection(s5).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns3ns4.intersection(s6).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns3ns5.intersection(s6).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns4ns5.intersection(s6).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s3ns4ns5.intersection(s6).array().join("  ") + "\n";
 
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns2ns3ns4.intersection(s5).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns3ns4.intersection(s6).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns3ns5.intersection(s6).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns4ns5.intersection(s6).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns3ns4ns5.intersection(s6).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns3ns4ns5.intersection(s6).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns2ns3ns4.intersection(s5).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns3ns4.intersection(s6).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns3ns5.intersection(s6).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns4ns5.intersection(s6).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns3ns4ns5.intersection(s6).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns3ns4ns5.intersection(s6).array().join("  ") + "\n";
 
-		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns3ns4ns5.intersection(s6).array().join("  ") + "\n";
-    
-    }
-    if(d3.select("#e7th1").empty() != true){
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s2_title").node().value + ": " + s1.intersection(s2).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s1.intersection(s3).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1.intersection(s4).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1.intersection(s5).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1.intersection(s6).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1.intersection(s7).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s2.intersection(s3).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s2.intersection(s4).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s2.intersection(s5).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2.intersection(s6).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2.intersection(s7).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s3.intersection(s4).array().join("  ") + "\n";
-        textToWrite += "Common elements in " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s3.intersection(s5).array().join("  ") + "\n";
-        textToWrite += "Common elements in " + d3.select("#s3_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s3.intersection(s6).array().join("  ") + "\n";
-        textToWrite += "Common elements in " + d3.select("#s3_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s3.intersection(s7).array().join("  ") + "\n";
-        textToWrite += "Common elements in " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s4.intersection(s5).array().join("  ") + "\n";
-        textToWrite += "Common elements in " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s4.intersection(s6).array().join("  ") + "\n";
-       	textToWrite += "Common elements in " + d3.select("#s4_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s4.intersection(s7).array().join("  ") + "\n";
-       	textToWrite += "Common elements in " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s5.intersection(s6).array().join("  ") + "\n";
-       	textToWrite += "Common elements in " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s5.intersection(s7).array().join("  ") + "\n";
-       	textToWrite += "Common elements in " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s6.intersection(s7).array().join("  ") + "\n";
-       
-        textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s1ns2.intersection(s3).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1ns2.intersection(s4).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns2.intersection(s5).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2.intersection(s6).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2.intersection(s7).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1ns3.intersection(s4).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns3.intersection(s5).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns3.intersection(s6).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns3.intersection(s7).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns4.intersection(s5).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns4.intersection(s6).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns4.intersection(s7).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns5.intersection(s6).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns5.intersection(s7).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns6.intersection(s7).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s2ns3.intersection(s4).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s2ns3.intersection(s5).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns3.intersection(s6).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns3.intersection(s7).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s2ns4.intersection(s5).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns4.intersection(s6).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns4.intersection(s7).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns5.intersection(s6).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns5.intersection(s7).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns6.intersection(s7).array().join("  ") + "\n";
- 		textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s3ns4.intersection(s5).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s3ns4.intersection(s6).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s3ns4.intersection(s7).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s3ns5.intersection(s6).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s3ns5.intersection(s7).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s4ns5.intersection(s6).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s4ns5.intersection(s7).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s4_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s4ns6.intersection(s7).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s5ns6.intersection(s7).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns3ns4ns5.intersection(s6).array().join("  ") + "\n";
+	    
+	    }
+	    if(d3.select("#e7th1").empty() != true){
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s2_title").node().value + ": " + s1.intersection(s2).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s1.intersection(s3).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1.intersection(s4).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1.intersection(s5).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1.intersection(s6).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1.intersection(s7).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s2.intersection(s3).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s2.intersection(s4).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s2.intersection(s5).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2.intersection(s6).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2.intersection(s7).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s3.intersection(s4).array().join("  ") + "\n";
+	        textToWrite += "Common elements in " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s3.intersection(s5).array().join("  ") + "\n";
+	        textToWrite += "Common elements in " + d3.select("#s3_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s3.intersection(s6).array().join("  ") + "\n";
+	        textToWrite += "Common elements in " + d3.select("#s3_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s3.intersection(s7).array().join("  ") + "\n";
+	        textToWrite += "Common elements in " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s4.intersection(s5).array().join("  ") + "\n";
+	        textToWrite += "Common elements in " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s4.intersection(s6).array().join("  ") + "\n";
+	       	textToWrite += "Common elements in " + d3.select("#s4_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s4.intersection(s7).array().join("  ") + "\n";
+	       	textToWrite += "Common elements in " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s5.intersection(s6).array().join("  ") + "\n";
+	       	textToWrite += "Common elements in " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s5.intersection(s7).array().join("  ") + "\n";
+	       	textToWrite += "Common elements in " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s6.intersection(s7).array().join("  ") + "\n";
+	       
+	        textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s3_title").node().value + ": " + s1ns2.intersection(s3).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1ns2.intersection(s4).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns2.intersection(s5).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2.intersection(s6).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2.intersection(s7).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1ns3.intersection(s4).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns3.intersection(s5).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns3.intersection(s6).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns3.intersection(s7).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns4.intersection(s5).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns4.intersection(s6).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns4.intersection(s7).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns5.intersection(s6).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns5.intersection(s7).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns6.intersection(s7).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s2ns3.intersection(s4).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s2ns3.intersection(s5).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns3.intersection(s6).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns3.intersection(s7).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s2ns4.intersection(s5).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns4.intersection(s6).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns4.intersection(s7).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns5.intersection(s6).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns5.intersection(s7).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns6.intersection(s7).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s3ns4.intersection(s5).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s3ns4.intersection(s6).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s3ns4.intersection(s7).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s3ns5.intersection(s6).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s3ns5.intersection(s7).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s4ns5.intersection(s6).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s4ns5.intersection(s7).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s4_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s4ns6.intersection(s7).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s5ns6.intersection(s7).array().join("  ") + "\n";
 
- 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1ns2ns3.intersection(s4).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns2ns3.intersection(s5).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns3.intersection(s6).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2ns3.intersection(s7).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns2ns4.intersection(s5).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns4.intersection(s6).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2ns4.intersection(s7).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns5.intersection(s6).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2ns5.intersection(s7).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2ns6.intersection(s7).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns3ns4.intersection(s5).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns3ns4.intersection(s6).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns3ns4.intersection(s7).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns3ns5.intersection(s6).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns3ns5.intersection(s7).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns3ns6.intersection(s7).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns4ns5.intersection(s6).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns4ns5.intersection(s7).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns5ns6.intersection(s7).array().join("  ") + "\n";
-    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s2ns3ns4.intersection(s5).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns3ns4.intersection(s6).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns3ns4.intersection(s7).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns3ns5.intersection(s6).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns3ns5.intersection(s7).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns3ns6.intersection(s7).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns4ns5.intersection(s6).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns4ns5.intersection(s7).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns4ns6.intersection(s7).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s3ns4ns5.intersection(s6).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s3ns4ns5.intersection(s7).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s3ns4ns6.intersection(s7).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s3ns5ns6.intersection(s7).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s4ns5ns6.intersection(s7).array().join("  ") + "\n";
+	 		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s4_title").node().value + ": " + s1ns2ns3.intersection(s4).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns2ns3.intersection(s5).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns3.intersection(s6).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2ns3.intersection(s7).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns2ns4.intersection(s5).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns4.intersection(s6).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2ns4.intersection(s7).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns5.intersection(s6).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2ns5.intersection(s7).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2ns6.intersection(s7).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns3ns4.intersection(s5).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns3ns4.intersection(s6).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns3ns4.intersection(s7).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns3ns5.intersection(s6).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns3ns5.intersection(s7).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns3ns6.intersection(s7).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns4ns5.intersection(s6).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns4ns5.intersection(s7).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns5ns6.intersection(s7).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s2ns3ns4.intersection(s5).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns3ns4.intersection(s6).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns3ns4.intersection(s7).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns3ns5.intersection(s6).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns3ns5.intersection(s7).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns3ns6.intersection(s7).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns4ns5.intersection(s6).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns4ns5.intersection(s7).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns4ns6.intersection(s7).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s3ns4ns5.intersection(s6).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s3ns4ns5.intersection(s7).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s3ns4ns6.intersection(s7).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s3ns5ns6.intersection(s7).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s4ns5ns6.intersection(s7).array().join("  ") + "\n";
 
-    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns2ns3ns4.intersection(s5).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns3ns4.intersection(s6).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2ns3ns4.intersection(s7).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns3ns5.intersection(s6).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2ns3ns5.intersection(s7).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns4ns5.intersection(s6).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2ns4ns5.intersection(s7).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns3ns4ns5.intersection(s6).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns3ns4ns5.intersection(s7).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns4ns5ns6.intersection(s7).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns3ns4ns5.intersection(s6).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns3ns4ns5.intersection(s7).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns3ns4ns6.intersection(s7).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns3ns5ns6.intersection(s7).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns4ns5ns6.intersection(s7).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s3ns4ns5ns6.intersection(s7).array().join("  ") + "\n";
+	    	textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s5_title").node().value + ": " + s1ns2ns3ns4.intersection(s5).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns3ns4.intersection(s6).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2ns3ns4.intersection(s7).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns3ns5.intersection(s6).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2ns3ns5.intersection(s7).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns4ns5.intersection(s6).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2ns4ns5.intersection(s7).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns3ns4ns5.intersection(s6).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns3ns4ns5.intersection(s7).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns4ns5ns6.intersection(s7).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s2ns3ns4ns5.intersection(s6).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns3ns4ns5.intersection(s7).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns3ns4ns6.intersection(s7).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns3ns5ns6.intersection(s7).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns4ns5ns6.intersection(s7).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s3ns4ns5ns6.intersection(s7).array().join("  ") + "\n";
 
-		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns3ns4ns5.intersection(s6).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2ns3ns4ns5.intersection(s7).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2ns3ns4ns6.intersection(s7).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2ns3ns5ns6.intersection(s7).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2ns4ns5ns6.intersection(s7).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns3ns4ns5ns6.intersection(s7).array().join("  ") + "\n";
-		textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns3ns4ns5ns6.intersection(s7).array().join("  ") + "\n";
-    
+			textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s6_title").node().value + ": " + s1ns2ns3ns4ns5.intersection(s6).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2ns3ns4ns5.intersection(s7).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2ns3ns4ns6.intersection(s7).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2ns3ns5ns6.intersection(s7).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2ns4ns5ns6.intersection(s7).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns3ns4ns5ns6.intersection(s7).array().join("  ") + "\n";
+			textToWrite += "Common elements in " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s2ns3ns4ns5ns6.intersection(s7).array().join("  ") + "\n";
+	    
 
-		textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2ns3ns4ns5ns7.intersection(s7).array().join("  ") + "\n";
-    }
-    //  create a new Blob (html5 magic) that conatins the data from your form feild
-    var textFileAsBlob = new Blob([textToWrite], {type:'text/plain'});
-// Specify the name of the file to be saved
-    var fileNameToSaveAs = "Lists Intersections.txt";
-    
-// Optionally allow the user to choose a file name by providing 
-// an imput field in the HTML and using the collected data here
-// var fileNameToSaveAs = txtFileName.text;
+			textToWrite += "Common elements in " + d3.select("#s1_title").node().value + ", " + d3.select("#s2_title").node().value + ", " + d3.select("#s3_title").node().value + ", " + d3.select("#s4_title").node().value + ", " + d3.select("#s5_title").node().value + ", " + d3.select("#s6_title").node().value + " and " + d3.select("#s7_title").node().value + ": " + s1ns2ns3ns4ns5ns7.intersection(s7).array().join("  ") + "\n";
+	    }
+	    //  create a new Blob (html5 magic) that conatins the data from your form feild
+	    var textFileAsBlob = new Blob([textToWrite], {type:'text/plain'});
+	// Specify the name of the file to be saved
+	    var fileNameToSaveAs = "Lists Intersections.txt";
+	    
+	// Optionally allow the user to choose a file name by providing 
+	// an imput field in the HTML and using the collected data here
+	// var fileNameToSaveAs = txtFileName.text;
 
-// create a link for our script to 'click'
-    var downloadLink = document.createElement("a");
-//  supply the name of the file (from the var above).
-// you could create the name here but using a var
-// allows more flexability later.
-    downloadLink.download = fileNameToSaveAs;
-// provide text for the link. This will be hidden so you
-// can actually use anything you want.
-    downloadLink.innerHTML = "My Hidden Link";
-    
-// allow our code to work in webkit & Gecko based browsers
-// without the need for a if / else block.
-    window.URL = window.URL || window.webkitURL;
-          
-// Create the link Object.
-    downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
-// when link is clicked call a function to remove it from
-// the DOM in case user wants to save a second file.
-    //downloadLink.onclick = destroyClickedElement;
-// make sure the link is hidden.
-    downloadLink.style.display = "none";
-// add the link to the DOM
-    document.body.appendChild(downloadLink);
-    
-// click the new link
-    downloadLink.click();
+	// create a link for our script to 'click'
+	    var downloadLink = document.createElement("a");
+	//  supply the name of the file (from the var above).
+	// you could create the name here but using a var
+	// allows more flexability later.
+	    downloadLink.download = fileNameToSaveAs;
+	// provide text for the link. This will be hidden so you
+	// can actually use anything you want.
+	    downloadLink.innerHTML = "My Hidden Link";
+	    
+	// allow our code to work in webkit & Gecko based browsers
+	// without the need for a if / else block.
+	    window.URL = window.URL || window.webkitURL;
+	          
+	// Create the link Object.
+	    downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+	// when link is clicked call a function to remove it from
+	// the DOM in case user wants to save a second file.
+	    //downloadLink.onclick = destroyClickedElement;
+	// make sure the link is hidden.
+	    downloadLink.style.display = "none";
+	// add the link to the DOM
+	    document.body.appendChild(downloadLink);
+	    
+	// click the new link
+	    downloadLink.click();
 });
 
 
 //take user input from textarea
-//once the value changed it calls fucntion update to update the list
-//---
-d3.select("#s1").on("change" ,function() { 
-  update(this.value.split("\n"));
-});
+	//once the value changed it calls fucntion update to update the list
+	d3.select("#s1").on("change" ,function() { 
+	  update(this.value.split("\n"));
+	});
 
-function update (listvalue){
-	if(listvalue == ""){s1 = new sets.Set([]);}
-	else{s1 = new sets.Set(listvalue);}
-	
-	listOperation();
-}
-//---
-d3.select("#s2").on("change" ,function() { 
-  update2(this.value.split("\n"));
-});
-
-function update2 (listvalue){
-	if(listvalue == ""){s2 = new sets.Set([]);}
-	else{s2 = new sets.Set(listvalue);}
-	listOperation();
-}
-//---
-d3.select("#s3").on("change" ,function() { 
-  update3(this.value.split("\n"));
-});
-
-function update3 (listvalue){
-	if(listvalue == ""){s3 = new sets.Set([]);}
-	else{s3 = new sets.Set(listvalue);}
-	listOperation();
-}
-// 
-d3.select("#s4").on("change" ,function() { 
-  update4(this.value.split("\n"));
-});
-
-function update4 (listvalue){
-	if(listvalue == ""){s4 = new sets.Set([]);}
-	else{s4 = new sets.Set(listvalue);}
-	listOperation();
-}
-//---
-d3.select("#s5").on("change" ,function() { 
-  update5(this.value.split("\n"));
-});
-
-function update5 (listvalue){
-	if(listvalue == ""){s5 = new sets.Set([]);}
-	else{s5 = new sets.Set(listvalue);}
-	listOperation();
-}
-//---
-d3.select("#s6").on("change" ,function() { 
-  update6(this.value.split("\n"));
-});
-
-function update6 (listvalue){
-	if(listvalue == ""){s6 = new sets.Set([]);}
-	else{s6 = new sets.Set(listvalue);}
-	listOperation();
-}
-//---
-d3.select("#s7").on("change" ,function() { 
-  update7(this.value.split("\n"));
-});
-
-function update7 (listvalue){
-	if(listvalue == ""){s7 = new sets.Set([]);}
-	else{s7 = new sets.Set(listvalue);}
-	listOperation();
-}
-/*----------------------------------------------*/
-d3.select("#s1_title").on("change" ,function() { 
-  listOperation();
-}).on("keydown",Key);
-d3.select("#s2_title").on("change" ,function() { 
-  listOperation();
-}).on("keydown",Key);
-d3.select("#s3_title").on("change" ,function() { 
-  listOperation();
-}).on("keydown",Key);
-d3.select("#s4_title").on("change" ,function() { 
-  listOperation();
-}).on("keydown",Key);
-d3.select("#s5_title").on("change" ,function() { 
-  listOperation();
-}).on("keydown",Key);
-d3.select("#s6_title").on("change" ,function() { 
-  listOperation();
-}).on("keydown",Key);
-d3.select("#s7_title").on("change" ,function() { 
-  listOperation();
-}).on("keydown",Key);
-
-function Key() { 	
-	if(d3.event.keyCode === 13){
-		  d3.event.preventDefault();
-		  listOperation();
+	function update (listvalue){
+		if(listvalue == ""){s1 = new sets.Set([]);}
+		else{s1 = new sets.Set(listvalue);}
+		
+		listOperation();
 	}
-}
+	//---
+	d3.select("#s2").on("change" ,function() { 
+	  update2(this.value.split("\n"));
+	});
+
+	function update2 (listvalue){
+		if(listvalue == ""){s2 = new sets.Set([]);}
+		else{s2 = new sets.Set(listvalue);}
+		listOperation();
+	}
+	//---
+	d3.select("#s3").on("change" ,function() { 
+	  update3(this.value.split("\n"));
+	});
+
+	function update3 (listvalue){
+		if(listvalue == ""){s3 = new sets.Set([]);}
+		else{s3 = new sets.Set(listvalue);}
+		listOperation();
+	}
+	// 
+	d3.select("#s4").on("change" ,function() { 
+	  update4(this.value.split("\n"));
+	});
+
+	function update4 (listvalue){
+		if(listvalue == ""){s4 = new sets.Set([]);}
+		else{s4 = new sets.Set(listvalue);}
+		listOperation();
+	}
+	//---
+	d3.select("#s5").on("change" ,function() { 
+	  update5(this.value.split("\n"));
+	});
+
+	function update5 (listvalue){
+		if(listvalue == ""){s5 = new sets.Set([]);}
+		else{s5 = new sets.Set(listvalue);}
+		listOperation();
+	}
+	//---
+	d3.select("#s6").on("change" ,function() { 
+	  update6(this.value.split("\n"));
+	});
+
+	function update6 (listvalue){
+		if(listvalue == ""){s6 = new sets.Set([]);}
+		else{s6 = new sets.Set(listvalue);}
+		listOperation();
+	}
+	//---
+	d3.select("#s7").on("change" ,function() { 
+	  update7(this.value.split("\n"));
+	});
+
+	function update7 (listvalue){
+		if(listvalue == ""){s7 = new sets.Set([]);}
+		else{s7 = new sets.Set(listvalue);}
+		listOperation();
+	}
+
+
+/*----------------------------------------------*/
+	d3.select("#s1_title").on("change" ,function() { 
+	  listOperation();
+	}).on("keydown",Key);
+	d3.select("#s2_title").on("change" ,function() { 
+	  listOperation();
+	}).on("keydown",Key);
+	d3.select("#s3_title").on("change" ,function() { 
+	  listOperation();
+	}).on("keydown",Key);
+	d3.select("#s4_title").on("change" ,function() { 
+	  listOperation();
+	}).on("keydown",Key);
+	d3.select("#s5_title").on("change" ,function() { 
+	  listOperation();
+	}).on("keydown",Key);
+	d3.select("#s6_title").on("change" ,function() { 
+	  listOperation();
+	}).on("keydown",Key);
+	d3.select("#s7_title").on("change" ,function() { 
+	  listOperation();
+	}).on("keydown",Key);
+
+	function Key() { 	
+		if(d3.event.keyCode === 13){
+			  d3.event.preventDefault();
+			  listOperation();
+		}
+	}
 
 /*----------------------------------------------*/
 
 
-function update7 (listvalue){
-	if(listvalue == ""){s7 = new sets.Set([]);}
-	else{s7 = new sets.Set(listvalue);}
-	listOperation();
-}
 
-//define drawing canvas/
-var w = 746,
-	h = 900;
 
-var gvennStage = d3.select("#first")
-		.append("svg")
-		.attr("width", w)
-		.attr("height", h)
+//define drawing canvas
+	var w = 746,
+		h = 900;
+
+	var gvennStage = d3.select("#first")
+			.append("svg")
+			.attr("width", w)
+			.attr("height", h)
+//-----
 
 //add tooltip for showing list values
 var tooltip = d3.select("body").append("div")
@@ -706,7 +580,7 @@ var tooltip = d3.select("body").append("div")
 //export svg into image
 function exportImage () {
 
-  //d3.select("a").remove();		
+  d3.select("img").remove();
 
 
   d3.select("#exportImage").on("click", function(){
@@ -737,12 +611,11 @@ function exportImage () {
     a.href = canvasdata;
           document.body.appendChild(a);
     a.click();
-	//html.exit();
-	 //d3.select("a").remove();		
+    context.clearRect ( 0 , 0 , canvas.width, canvas.height );
 
   };
 
-});
+ });
 }
 exportImage();
 
@@ -1797,8 +1670,8 @@ function listOperation(){
 
 		d3.select(eRemove).remove();
 		d3.select(tRemove).remove();
+		d3.select(tRemove).remove();
 
-		d3.select(listName).remove();
 
 
 		d3.select("#pathDe1ne2").remove();
@@ -1827,6 +1700,13 @@ function listOperation(){
 		d3.select("#text5").remove();	
 		d3.select("#text6").remove();	
 		d3.select("#text7").remove();
+		d3.select("#text1").remove();	
+		d3.select("#text2").remove();	
+		d3.select("#text3").remove();	
+		d3.select("#text4").remove();	
+		d3.select("#text5").remove();	
+		d3.select("#text6").remove();	
+		d3.select("#text7").remove();
 		d3.select("#paths1ns2").remove();	
 		d3.select("#paths1ns3").remove();	
 		d3.select("#paths1ns2ns3").remove();
@@ -1843,6 +1723,7 @@ function listOperation(){
     	d3.select("#trx4").remove();
     	d3.select("#trx5").remove();
     	d3.select("#trx6").remove();
+
     	d3.select("#pathDt1nt6").remove();
 		d3.select("#pathDt2nt6").remove();
 		d3.select("#pathDt3nt6").remove();

@@ -1207,6 +1207,8 @@ a:focus {
   border: solid #1f628d 0px;
   text-decoration: none;
   cursor: pointer;
+  outline: none;
+
 }
 .custom-upload:hover {
   background: #3cb0fd;
