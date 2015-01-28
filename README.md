@@ -12,3 +12,10 @@ genvenn is developed based an impression of a previous project jvenn which is pl
 * data can be provided as a user input, uploaded file or just loaded from a sample file for demonstration.
 * genevenn is able to export all list intersection information to a file 
 * it also enables exports of visual snapshots of the venn diagrams to image file.
+
+Documentation
+-------------
+
+http://habtom.github.io/genven/docs.html
+
+
