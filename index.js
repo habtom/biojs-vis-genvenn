@@ -3793,7 +3793,7 @@ function listOperation(){
 		        .attr("class", "text")
 		        //.attr("transform", "translate(140,160)")// update later
 		        .text(s1.intersection(s6).array().length)
-		        .attr("x", 215)
+		        .attr("x", 227)
 		        .attr("y", 365)
 		        .attr("fill",  "black")
 		
