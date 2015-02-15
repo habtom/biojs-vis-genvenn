@@ -16,6 +16,5 @@ genvenn is developed based an impression of a previous project jvenn which is pl
 Documentation
 -------------
 
-http://habtom.github.io/biojs-vis-genven/examples/docs.html
-
+http://habtom.github.io/biojs-vis-genven/examples/
 
