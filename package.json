@@ -1,11 +1,89 @@
 {
-  "name": "gvenn",
-  "version": "0.0.0",
-  "description": "npm package for gvenn",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "name": "biojs-vis-genven",
+  "description": "Venn diagram list comparisons",
+  "version": "1.1.1",
+  "homepage": "https://github.com/habtom/biojs-vis-genven",
+  "contributors": [
+    {
+      "name": "Habtom Kahsay Gidey",
+      "email": "habtomk@gmail.com",
+      "url": "https://github.com/habtom"
+    },
+
+    {
+      "name": "Mohamed Ahmed",
+      "email": "ms.yazeed@gmail.com",
+      "url": ""
+    },
+    {
+      "name": "Tatyana Goldberg",
+      "url": "https://rostlab.org/~goldberg/"
+    },
+    {
+      "name": "Juan Miguel Cejuela",
+      "url": "https://www.tagtog.net/"
+    },
+    {
+      "name": "Sebastian Wilzbach",
+      "url": "http://seb.wilzba.ch"
+    },
+    {
+      "name": "David Dao",
+      "url": "http://daviddao.de"
+    },
+    {
+      "name": "Manuel Corpas",
+      "url": "http://manuelcorpas.com"
+    },
+    {
+      "name": "Prof. Burkhard Rost",
+      "url": "https://en.wikipedia.org/wiki/Burkhard_Rost"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/habtom/biojs-vis-genven.git"
   },
-  "author": "",
-  "license": "BSD-2-Clause"
+  "bugs": {
+    "url": "https://github.com//habtom/biojs-vis-genven/issues"
+  },
+  "licenses": [
+    {
+      "type": "Apache 2",
+      "url": "https://github.com/habtom/biojs-vis-genven/LICENSE"
+    }
+  ],
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo 'Error: no test specified' && exit 1",
+    "build": "mkdirp build && browserify -r ./:biojs-vis-genven -o build/genven.js",
+    "build-browser": "npm run build",
+    "prepublish": "npm run build",
+    "watch": "watchify -r ./:biojs-vis-genven -v -o build/genven.js",
+    "sniper": "biojs-sniper ."
+  },
+  "dependencies": {
+    "d3": "^3.5.3"
+  },
+  "devDependencies": {
+    "mkdirp": "^0.5.0",
+    "browserify": "6.x",
+    "biojs-sniper": "0.x",
+    "watchify": "^1.0.6"
+  },
+  "sniper": {
+    "js": [
+      "/build/genven.js"
+    ],
+    "snippets": [
+      "examples"
+    ],
+    "first": "index",
+  "css": [
+   "/css/main.css"
+  ]
+  },
+  "keywords": [
+    "biojs","genven","venn","venn diagram"
+  ]
 }
