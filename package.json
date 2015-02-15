@@ -45,12 +45,12 @@
     "url": "https://github.com/habtom/biojs-vis-genven.git"
   },
   "bugs": {
-    "url": "https://github.com//habtom/biojs-vis-genven/issues"
+    "url": "https://github.com/habtom/biojs-vis-genven/issues"
   },
   "licenses": [
     {
       "type": "Apache 2",
-      "url": "https://github.com/habtom/biojs-vis-genven/LICENSE"
+      "url": "https://github.com/habtom/biojs-vis-genven/blob/master/LICENSE"
     }
   ],
   "main": "lib/index.js",
