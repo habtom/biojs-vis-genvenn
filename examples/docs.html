@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+  <head>
+  	<meta charset="utf-8">
+
+    <title>genvenn</title>
+
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+  </head>
+
+  <body>
+  	<div id="tooltip" class="hidden">
+        <p><strong id="v"></strong></p>
+        <p><span id="value"></span></p>
+	</div>
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">genvenn</a>
+        </div>
+        <div class="navbar-collapse collapse navbar-right">
+          <ul class="nav navbar-nav">
+           	<li><a href="index.html">home</a></li>
+          	<li><a href="about.html">about</a></li>
+            <li><a href="#">docs</a></li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+
+	<div id="blue">
+	    <div class="container">
+			<div class="row">
+				<h3>gene list <sub><i> venn diagram</i></sub> </h3> 
+			</div>
+	    </div> 
+	</div>
+
+
+
+	<div class="container mtb">
+		<div class="row">
+
+		  	<div class="col-lg-4">
+	 			<img class="img-responsive" src="images/circles.png" alt=""></img>
+	 			<p></p>
+	 			<p></p>
+	 			
+	 			<img class="img-responsive" src="images/genvenn.png" alt=""></img>
+
+	 			<p></p>
+	 			<p></p>
+	 			<img class="img-responsive" src="images/file.png" alt=""></img>
+
+	 		</div>
+
+		  	<div class="col-lg-8">
+
+		  		<section id="plugin-insertion">
+					<div class="page-header">
+				    	<h1>genven DevDoc</h1>
+					</div>
+					<p>
+					genvenn generally can be flexibly used as a library in your web visualisations.  It is a D3js project to visualise list/set data comparisons with standard symmetric venn diagrams. The project is aimed at providing an opportunity for biological visualisations. 
+					</p>
+					<p>
+					The main requirements and code functionalities are briefly discussed in this guide further development and customisation. 
+					</p>
+
+					<h3>Requirements and Installation</h3>
+					<p>geneven requires the following npm modules installed:</p>
+
+
+
+					</p>
+				  	<ul>
+				  		<li><a href="https://www.npmjs.com/package/d3">d3.js</a> - A JavaScript visualization library for HTML and SVG.</li>
+				  		<pre class="prettyprint linenums">
+npm install d3
+</pre>
+				  		<li><a href="https://www.npmjs.com/package/simplesets">simplesets</a> - Simple set datatype for JavaScript</li>
+				  						  		<pre class="prettyprint linenums">
+npm install simplesets
+</pre>
+				  	</ul>
+				  	
+				  	
+				</section>
+				<section>
+					<div class="page-header">
+				    	<p>geneven's important functions and their code skeletons are briefly discussed in the following sections:</p>
+					</div>
+					
+				</section>
+				
+		  		<section id="series">
+					<div class="page-header">
+				    	<h1>drawCircles</h1>
+					</div>
+				  	<p>The drawCircles() function draws classic venn diagrams with up to three circles dynamically depending on the value of the the data input made. The function also dynamically interpolates the intersections and labels with each of the three circles. </p>
+				  	<p>The function also handles every user interaction events with the visualized diagrams.</p>
+				  	<pre class="prettyprint linenums">
+function drawCircles () {
+		// body...
+}
+</pre>
+			
+				</section>
+				
+				<section id="drawEllipseBase">
+					<div class="page-header">
+				    	<h1>drawEllipseBase</h1>
+					</div>
+					<p>
+					The drawEllipseBase() function draws classic symmetric Venn's four-set, five-set and seven-set Venn diagram using ellipses with mathematically adjusted angles of static ellipse diagrams depending on the value of the the data input made. 	
+					</p>
+					<p>
+					The function also handles every user interaction events with the visualized venn diagrams.
+
+					</p>
+				  	<pre class="prettyprint linenums">
+function drawEllipseBase(cX, cY, rX, rY, rotationAng, fillColor, listName, listContent, eID, tID, eRemove, tRemove, listCount, textX, textY) {
+
+		
+	
+}</pre>
+				</section>
+
+				<section id="drawIntersectionArea">
+					<div class="page-header">
+				    	<h1>Draw Ellipse Intersection Areas</h1>
+					</div>
+				  	<p>
+				  	The drawFourSetIntersectionArea(), drawFiveSetIntersectionArea (),  and  drawSevenSetIntersectionArea functions interpolates intersection paths  for the symmetric Venn's four-set, five-set and seven-set Venn diagram using calculated intersection areas with static path diagrams depending on the number of intersecting ellipses in stage from the data input made. 
+				  	</p>
+				  	<p>
+				  	The function also handles every user interaction events with the visualized venn diagrams.
+				  	</p>
+				  	<pre class="prettyprint linenums">
+function drawFourSetIntersectionArea () {
+		// body...
+	
+}
+
+function drawFiveSetIntersectionArea () {
+		// body...
+	
+}
+
+function drawSevenSetIntersectionArea () {
+		// body...
+	
+}
+</pre>
+				</section>
+				
+
+				
+				<section id="drawTriangle">
+					<div class="page-header">
+				    	<h1>drawTriangle</h1>
+					</div>
+					<p>
+					The drawTriangle() function draws classic Six-set Venn diagram made of only triangles. This drawing represents Venn's six-set Venn diagram using triangles with mathematically adjusted angles of static ellipse diagrams depending on the value of the the data input made. 
+					</p>
+
+					<p>
+					The function also handles every user interaction events with the visualized venn diagrams.
+					</p>
+
+				  	<pre class="prettyprint linenums">
+function drawTriangle (d, fillcolor, textX, textY, listName, listContent, trID, tID, listCount, trRemove, tRemove) {
+		// body...
+}</pre>
+				</section>
+				
+				<section id="drawTriangleIntersectionArea">
+					<div class="page-header">
+				    	<h1>drawTriangleIntersectionArea</h1>
+					</div>
+				  	<p>
+				  	The drawTriangleIntersectionArea() function interpolates intersection paths  for  classic Six-set Venn diagram made of  triangles using calculated intersection areas with static path diagrams for the six intersecting triangles in stage from the data input made. 
+				  	</p>
+				  	<p>
+				  	The function also handles every user interaction events with the visualized venn diagrams.
+				  	</p>
+				  	<pre class="prettyprint linenums">
+function drawTriangleIntersectionArea () {
+		// body...
+}</pre>
+				</section>
+
+				<section id="exportFile">
+					<div class="page-header">
+				    	<h1>exportFile</h1>
+					</div>
+				  	<p>The exportFile() function exports all possible sets from user provided/uploaded data with up to seven set possibilities into a file.</p>
+				  	<pre class="prettyprint linenums">
+function exportFile () {
+		// body...
+}</pre>
+				</section>
+				
+				<section id="exportImage">
+					<div class="page-header">
+				    	<h1>exportImage</h1>
+					</div>
+				  	<p>The exportImage() function exports all possible sets visualizations in stage in to a .png image downloaded in user default download environment.</p>
+				  	<pre class="prettyprint linenums">
+function exportImage () {
+		// body...
+}</pre>
+				</section>
+
+				<section id="uploadFile">
+					<div class="page-header">
+				    	<h1>uploadFile</h1>
+					</div>
+				  	<p>The uploadFile() function uploads sample data provided by attaching data file with JSON data standard.</p>
+				  	<pre class="prettyprint linenums">
+function uploadFile () {
+		// body...
+}
+</pre>
+				<p>
+					The JSON data standard must be provided as any JSON file (like sample.json), and it should have a structure as follows, document names/list names here sampled as "DESeq", “edgeR”, … can be changed to any user list set requirements:
+				</p>
+
+					<pre class="prettyprint linenums">
+//genelist.json
+{
+    "DESeq": ["G000001", "G000002", "G000003", "G000004", "G000005"],
+    "FQ": ["G000001", "G000002", "G000003", "G000007", "G000008"],
+    "RPKM": ["G000001", "G000002", "G000003", "G000004", "G000012"],
+    "TC": ["G000001", "G000002", "G000003", "G000006", "G000004"],
+    "TMM": ["G000001", "G000002", "G000003", "G000007", "G000008"],
+    "UQ": ["G000001", "G000002", "G000003", "G000005", "G000004"],
+    "edgeR": ["G000001", "G000002", "G000003", "G000006", "G000008"]
+}
+</pre>
+				</section>
+
+				
+				
+		  	</div>
+		</div>
+		
+		<hr>
+		<footer style="text-align: center;">
+			<p>Creative Commons &copy; 2015
+			</p>
+	    </footer>
+	</div>
+
+</body>
+</html>
