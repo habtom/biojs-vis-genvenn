@@ -1,0 +1,10 @@
+<meta charset="utf-8">
+<script src="build/biojsvisgenvenn.js"></script>
+
+<div id=yourDiv></div>
+<script>
+var yourDiv = document.getElementById("yourDiv");
+var biojsvisgenvenn = require('biojs-vis-genvenn');
+var result = biojsvisgenvenn.hello('biojs');
+yourDiv.textContent = result;
+</script>

@@ -1,91 +1,63 @@
 {
-  "name": "biojs-vis-genven",
-  "description": "Venn diagram list comparisons",
-  "version": "1.1.1",
-  "homepage": "https://github.com/habtom/biojs-vis-genven",
-  "contributors": [
-    {
-      "name": "Habtom Kahsay Gidey",
-      "email": "habtomk@gmail.com",
-      "url": "https://github.com/habtom"
-    },
-
-    {
-      "name": "Mohamed Ahmed",
-      "email": "ms.yazeed@yahoo.com",
-      "url": "https://github.com/MSYazeed"
-    },
-    {
-      "name": "Tatyana Goldberg",
-      "url": "https://rostlab.org/~goldberg/"
-    },
-    {
-      "name": "Juan Miguel Cejuela",
-      "url": "https://www.tagtog.net/"
-    },
-    {
-      "name": "Sebastian Wilzbach",
-      "url": "http://seb.wilzba.ch"
-    },
-    {
-      "name": "David Dao",
-      "url": "http://daviddao.de"
-    },
-    {
-      "name": "Manuel Corpas",
-      "url": "http://manuelcorpas.com"
-    },
-    {
-      "name": "Prof. Burkhard Rost",
-      "url": "https://en.wikipedia.org/wiki/Burkhard_Rost"
-    }
-  ],
+  "name": "biojs-vis-genvenn",
+  "description": "",
+  "version": "0.1.0",
+  "homepage": "https://github.com/habtom/biojs-vis-genvenn",
+  "author": {
+    "name": "Habtom",
+    "email": ""
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/habtom/biojs-vis-genven.git"
+    "url": "git://github.com/habtom/biojs-vis-genvenn.git"
   },
   "bugs": {
-    "url": "https://github.com/habtom/biojs-vis-genven/issues"
+    "url": "https://github.com/habtom/biojs-vis-genvenn/issues"
   },
   "licenses": [
     {
       "type": "Apache 2",
-      "url": "https://github.com/habtom/biojs-vis-genven/blob/master/LICENSE"
+      "url": "https://github.com/habtom/biojs-vis-genvenn/blob/master/LICENSE"
     }
   ],
   "main": "lib/index.js",
+  "style": "css/*.css",
   "scripts": {
     "test": "echo 'Error: no test specified' && exit 1",
-    "build": "mkdir build && browserify -r ./:biojs-vis-genven -o build/genven.js",
+    "build": "mkdirp build && browserify -r ./:biojs-vis-genvenn -o build/genvenn.js",
     "build-browser": "npm run build",
-    "prepublish": "npm run build",
-    "watch": "watchify -r ./:biojs-vis-genven -v -o build/genven.js",
-    "sniper": "biojs-sniper ."
+    "prepublish": "npm run build && npm run css",
+    "watch": "watchify -r ./:biojs-vis-genvenn -v -o build/genvenn.js",
+    "w": "prunner \"npm run sniper\" \"npm run watch\" \"npm run watch-css\"",
+    "sniper": "biojs-sniper .",
+    "css": "parcelify ./ -c build/bundle.css",
+    "watch-css": "parcelify -w ./ -c build/bundle.css --loglevel verbose"
   },
   "dependencies": {
-    "d3": "^3.5.3",
-    "simplsets": "^1.2.0"
+    "d3": "^3.5.5",
+    "simplesets": "^1.2.0"
   },
   "devDependencies": {
-    "mkdir": "^0.5.0",
+    "mkdirp": "^0.5.0",
     "browserify": "6.x",
     "biojs-sniper": "0.x",
-    "watchify": "^1.0.6"
+    "watchify": "^1.0.6",
+    "prunner": "1.x",
+    "parcelify": "0.x"
   },
   "sniper": {
     "js": [
-      "/build/genven.js"
+      "/build/genvenn.js"
+    ],
+    "css": [
+      "/build/bundle.css"
     ],
     "snippets": [
       "examples"
     ],
-    "first": "index",
-  "css": [
-   "/examples/css/main.css",
-   "/examples/css/bootstrap.css"
-  ]
+    "first": "index"
   },
   "keywords": [
-    "biojs","genvenn","venn","venn diagram"
+    "biojs","venn diagramm","genes"
   ]
 }

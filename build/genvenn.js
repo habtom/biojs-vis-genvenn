@@ -10453,7 +10453,7 @@ exports.StringSet = function(items) {
 };
 
 exports.StringSet.prototype = StringSetPrototype;
-},{}],"biojs-vis-genven":[function(require,module,exports){
+},{}],"biojs-vis-genvenn":[function(require,module,exports){
 
 require("d3");
 //--- include simple sets
