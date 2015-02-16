@@ -13,8 +13,14 @@ genvenn is developed based an impression of a previous project jvenn which is pl
 * genevenn is able to export all list intersection information to a file 
 * it also enables exports of visual snapshots of the venn diagrams to image file.
 
+
 Documentation
 -------------
 
-http://habtom.github.io/biojs-vis-genven/examples/
+http://habtom.github.io/biojs-vis-genvenn/examples/
+
+Developed for Biojs by:
+----------------------
+
+* Mohamed Ahmed (ms.yazeed@yahoo.com) , Habtom Kahsay Gidey(habtomk@gmail.com)
 
