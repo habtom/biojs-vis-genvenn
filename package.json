@@ -1,12 +1,45 @@
 {
   "name": "biojs-vis-genvenn",
-  "description": "",
-  "version": "0.1.0",
+  "description": "Venn diagram list comparisons",
+  "version": "1.1.3",
   "homepage": "https://github.com/habtom/biojs-vis-genvenn",
-  "author": {
-    "name": "Habtom",
-    "email": ""
-  },
+  "contributors": [
+    {
+      "name": "Habtom Kahsay Gidey",
+      "email": "habtomk@gmail.com",
+      "url": "https://github.com/habtom"
+    },
+
+    {
+      "name": "Mohamed Ahmed",
+      "email": "ms.yazeed@yahoo.com",
+      "url": "https://github.com/MSYazeed"
+    },
+    {
+      "name": "Tatyana Goldberg",
+      "url": "https://rostlab.org/~goldberg/"
+    },
+    {
+      "name": "Juan Miguel Cejuela",
+      "url": "https://www.tagtog.net/"
+    },
+    {
+      "name": "Sebastian Wilzbach",
+      "url": "http://seb.wilzba.ch"
+    },
+    {
+      "name": "David Dao",
+      "url": "http://daviddao.de"
+    },
+    {
+      "name": "Manuel Corpas",
+      "url": "http://manuelcorpas.com"
+    },
+    {
+      "name": "Prof. Burkhard Rost",
+      "url": "https://en.wikipedia.org/wiki/Burkhard_Rost"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/habtom/biojs-vis-genvenn.git"
