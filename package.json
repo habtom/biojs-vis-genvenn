@@ -56,17 +56,18 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "echo 'Error: no test specified' && exit 1",
-    "build": "mkdirp build && browserify -r ./:biojs-vis-genven -o build/genven.js",
+    "build": "mkdir build && browserify -r ./:biojs-vis-genven -o build/genven.js",
     "build-browser": "npm run build",
     "prepublish": "npm run build",
     "watch": "watchify -r ./:biojs-vis-genven -v -o build/genven.js",
     "sniper": "biojs-sniper ."
   },
   "dependencies": {
-    "d3": "^3.5.3"
+    "d3": "^3.5.3",
+    "simplsets": "^1.2.0"
   },
   "devDependencies": {
-    "mkdirp": "^0.5.0",
+    "mkdir": "^0.5.0",
     "browserify": "6.x",
     "biojs-sniper": "0.x",
     "watchify": "^1.0.6"
@@ -80,10 +81,11 @@
     ],
     "first": "index",
   "css": [
-   "/css/main.css"
+   "/examples/css/main.css",
+   "/examples/css/bootstrap.css"
   ]
   },
   "keywords": [
-    "biojs","genven","venn","venn diagram"
+    "biojs","genvenn","venn","venn diagram"
   ]
 }
