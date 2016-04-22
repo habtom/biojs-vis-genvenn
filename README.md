@@ -19,8 +19,10 @@ Documentation
 
 http://habtom.github.io/biojs-vis-genvenn/examples/
 
-Developed for Biojs by:
-----------------------
+Contributors:
+-------------
 
-* Mohamed Ahmed (ms.yazeed@yahoo.com) , Habtom Kahsay Gidey(habtomk@gmail.com)
+* Habtom Kahsay Gidey(habtomk@gmail.com)
+* Mohamed Ahmed (ms.yazeed@yahoo.com)
+* David Dao
 
