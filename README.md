@@ -22,7 +22,7 @@ http://habtom.github.io/biojs-vis-genvenn/examples/
 Contributors:
 -------------
 
-* Habtom Kahsay Gidey(habtomk@gmail.com)
+* Habtom Kahsay Gidey (habtomk@gmail.com)
 * Mohamed Ahmed (ms.yazeed@yahoo.com)
 * David Dao
 
